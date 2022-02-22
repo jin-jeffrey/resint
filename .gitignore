@@ -2,6 +2,7 @@
 *.log
 logs
 **/*.backup.*
-**/*.back.*
+**/*.back.
+resint-backend\src.env*
 
 node_modules
