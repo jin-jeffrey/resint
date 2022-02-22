@@ -6,3 +6,6 @@ logs
 resint-backend\src.env*
 
 node_modules
+
+# secrets
+client/src/firebaseConfig.js
