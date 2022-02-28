@@ -45,7 +45,7 @@ app.get('/getApps',
     } catch (e) {
         res.status(400).send("Failed to retrieve application data");
     }
-})
+});
 
 // add new app
 app.post('/addApp', 
