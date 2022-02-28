@@ -75,6 +75,37 @@ app.post('/addApp',
     }      
 });
 
+// delete app
+app.post('/deleteApp',
+    body('document_id').not().isEmpty(),
+    body('user_id').not().isEmpty(),
+    async (req, res) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).json({
+                    success: false,
+                    errors: errors.array()
+                })
+            }
+            // check if document id matches user id
+            const docRef = await db.collection('apps').doc(req.body.document_id).get();
+            const docData = await docRef.data();
+            if (docData.user_id == req.body.user_id) {
+                // delete
+                await db.collection('apps').doc(req.body.document_id).delete();
+                return res.status(200).json({
+                    success: true
+                })
+            }
+            console.log(docRef.data());
+        } catch (e) {
+            console.log(e);
+        }
+    }
+)
+
+
 app.listen(process.env.PORT, () =>
     console.log(`Resint backend listening on ${process.env.PORT}`),
 );
