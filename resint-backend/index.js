@@ -20,14 +20,18 @@ const db = getFirestore(firebaseApp);
 
 // get apps by user
 app.get('/apps', jsonParser, async (req,res) => {
-    const appsCollection = collection(db, 'apps');
-    const appsSnapshot = await getDocs(appsCollection);
-    const appsList = appsSnapshot.docs.map((doc) => {
-        if (doc.data().user_id == req.body.user_id) {
-            return doc.data();
-        }
-    });
-    res.send(appsList);
+    try {
+        const appsCollection = collection(db, 'apps');
+        const appsSnapshot = await getDocs(appsCollection);
+        const appsList = appsSnapshot.docs.map((doc) => {
+            if (doc.data().user_id == req.body.user_id) {
+                return doc.data();
+            }
+        });
+        res.status(200).send(appsList);
+    } catch (e) {
+        res.status(400).send("Error getting data, try again later");
+    }
 })
 
 // add new app
