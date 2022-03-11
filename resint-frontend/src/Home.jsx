@@ -1,18 +1,18 @@
-import React from 'react';
-import {
-    firebase
-} from './firebase/firebase';
+import React from "react";
+import { authentication } from './firebase';
+import { useParams } from "react-router-dom";
+
 const Home = () => {
+    let { username } = useParams();
     const signOut = () => {
-        firebase.auth().signOut();
+        authentication.signOut();
     }
     return (
-        <>
-            <h1>Home</h1>
-            <p>Click the button below to signout</p>
+        <div>
+            This is the home page for {username}!
             <button onclick={signOut}>Sign Out</button>
-        </>
-    )
-}
+        </div>
+    );
+};
 
-export default Home
+export default Home;

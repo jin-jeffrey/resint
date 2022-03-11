@@ -1,23 +1,25 @@
-// import React from 'react';
-// import firebase from 'firebase/compat/app';
-// import 'firebase/compat/auth';
+import React from "react";
+import { authentication } from './firebase';
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
+const SignInWithGoogle = () => {
+    let navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(authentication, provider)
+        .then((re) => {
+            console.log(re);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    return (
+        <div>
+            <button onClick={() => { navigate("/home"); }}>
+                Sign in with google
+            </button>
+        </div>
+    );
+};
 
-// const SignIn = () => {
-//     //signin function that is called when the log in with google button is clicked
-//     const SignInWithFirebase = () => {
-//         var google_provider = new firebase.auth.GoogleAuthProvider();
-//         firebase.auth().signInWithPopup(google_provider)
-//             .then((re) => {
-//                 console.log(re);
-//             })
-//             .catch((err) => {
-//                 console.log(err);
-//             })
-//     }
-//     return (
-//         <button onClick={SignInWithFirebase}>Sign in with Google</button>
-//     )
-// }
-
-// export default SignIn
+export default SignInWithGoogle;
