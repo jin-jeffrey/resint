@@ -1,25 +1,16 @@
 import React from "react";
-import { authentication } from './firebase';
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+// import { authentication } from './firebase';
+// import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+// import { useNavigate, Navigate, useLocation } from "react-router-dom";
 
-const SignInWithGoogle = () => {
-    let navigate = useNavigate();
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(authentication, provider)
-        .then((re) => {
-            console.log(re);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+import { signInWithGoogle } from "./firebase";
+const SignIn = () => {
     return (
-        <div>
-            <button onClick={() => { navigate("/home"); }}>
-                Sign in with google
-            </button>
-        </div>
+        <>
+            <h1>Sign In below!</h1>
+            <button onClick={signInWithGoogle}> Sign In with Google </button>
+        </>
     );
 };
 
-export default SignInWithGoogle;
+export default SignIn;

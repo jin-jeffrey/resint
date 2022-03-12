@@ -1,15 +1,11 @@
 import React from "react";
-import { authentication } from './firebase';
-import { useParams } from "react-router-dom";
-
+// import { auth } from './firebase';
+// import { useParams } from "react-router-dom";
+import { signOut } from "firebase/auth";
 const Home = () => {
-    let { username } = useParams();
-    const signOut = () => {
-        authentication.signOut();
-    }
     return (
         <div>
-            This is the home page for {username}!
+            <h1>  This is the home page for {localStorage.getItem("name")}</h1>
             <button onclick={signOut}>Sign Out</button>
         </div>
     );

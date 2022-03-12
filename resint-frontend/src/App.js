@@ -1,30 +1,42 @@
-import './App.css';
-import React, { useState } from "react";
-import Home from './Home';
-import ErrorPage from './Error';
-import SignInWithGoogle from './signIn';
-
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Redirect,
 } from "react-router-dom";
+import './App.css';
+import React, { useState } from "react";
+import { signInWithGoogle } from "./firebase";
+import Home from './Home';
+import ErrorPage from './Error';
+import SignIn from './signIn';
+import SignOut from "./signOut";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Router>
         <Routes>
-          <Route path="/" element={<SignInWithGoogle />} />
-          <Route path="/home/:username" element={<Home />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="/signin" caseSensitive={false} element={<SignIn />}></Route>
+          <Route path="/signout" caseSensitive={false} element={<SignOut />}></Route>
+          <Route path="/" caseSensitive={false} element={<Home />}></Route>
+          <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </Router>
-
-    </div>
+    </>
   );
 
 }
 
 export default App;
+
+
+
+{/* <Router>
+        <Routes>
+          <Route path="/signin" caseSensitive={false} element={<SignIn />}></Route>
+          <Route path="/signout" caseSensitive={false} element={<SignOut />}></Route>
+          <Route index element={<Home />} />
+          <Route path="/*" element={<ErrorPage />} />
+        </Routes>
+      </Router> */}
