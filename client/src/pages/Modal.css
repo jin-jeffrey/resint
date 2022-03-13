@@ -1,0 +1,15 @@
+.xBtn {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: rgba(210, 3, 3, 0.784);
+  cursor: pointer;
+}
+
+.status {
+  word-wrap: normal;
+  width: 150px;
+}
