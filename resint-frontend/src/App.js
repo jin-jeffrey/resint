@@ -1,33 +1,21 @@
-import './App.css';
-import { useState, useEffect } from 'react';
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-import Login from './components/Login';
-import Home from './components/Home';
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import Applications from "./components/Applications";
+import history from './history';
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
-    })
-  }, [])
-
-  console.log(user);
-
   return (
     <div className="app">
-      {user ? <Home user={user} />: <Login/>}
+      <Router history={history}>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/applications" element={<Applications />} />
+        </Routes>
+      </Router>
     </div>
-  //   <Router>
-  //   <Routes>
-  //     <Route exact path="/" element={<Login />} />
-  //     <Route exact path="/home" element={<Home />} />
-  //   </Routes>
-  // </Router>
   );
 }
 
