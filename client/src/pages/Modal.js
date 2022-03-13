@@ -31,19 +31,27 @@ export default function Modal({ open, children, onClose }) {
       <div style={MODAL_STYLES}>
         <button onClick={onClose} className="xBtn">X</button>
         <br/><br/>
+
+        <h1>New Application Form</h1><br/>
         <form>
-            <input placeholder="Company Name"/><br/><br/>
-            <input placeholder="Company Description"/><br/><br/>
-            <input placeholder="Additional Notes"/><br/><br/>
-            <input placeholder="Job Title"/><br/><br/>
-            
-            <input name="inperson" type="checkbox" /> <label for="inperson">In-Person</label>
-            <input name="remote" type="checkbox" /> <label for="remote">Remote</label> <br/>
-            <input name="optional" type="checkbox" /> <label for="optional">Optional</label>
+          <input placeholder="Company Name" style={{width: "100%"}}/><br/><br/>
+          <input placeholder="Company Description" style={{width: "100%", height: "80px"}} /><br/><br/>
+          <input placeholder="Additional Notes" style={{width: "100%", height: "50px"}} /><br/><br/>
+          <input placeholder="Job Title" style={{width: "100%"}}/><br/><br/>
+   
+          <div className="check" > 
+              <input name="inperson" type="checkbox" /> <label for="inperson">In-Person</label> <br/>
+              <input name="remote" type="checkbox" /> <label for="remote">Remote</label> <br/>
+          </div>
+          <div className="check" > 
+            <input name="optional" type="checkbox" /> <label for="optional">Optional</label> <br/>
             <input name="undetermined" type="checkbox" /> <label for="undetermined">Undetermined</label><br/><br/>
-            <input placeholder="On-site"/><br/><br/>
-            <input type="date" /><br/><br/>
-            <label for="status">What is your status?</label> < br/>
+          </div><br/><br/>
+          
+          <label for="date" >When did you apply?</label>
+          <input type="date" style={{width: "100%"}}/><br/><br/>
+
+          <label for="status">What is your status?</label> < br/>
             <select name="status" className="status">
                 <option value="Applied">Applied</option>
                 <option value="Referral">Applied with Referral</option>
@@ -52,10 +60,13 @@ export default function Modal({ open, children, onClose }) {
                 <option value="Offer">Offer/Accepted Offer</option>
                 <option value="NoOffer">No Offer</option>
             </select> <br/><br/>
-            <input name="link" placeholder="Application URL" type="url" /> 
-        </form><br/><br/>
-        <button onClick={onClose} style={{backgroundColor: 'red'}} >Cancel</button>
-        <button style={{backgroundColor: 'green'}} >Submit</button>
+          
+          <input name="link" placeholder="Application URL" type="url" style={{width: "100%"}}/> 
+        </form> <br/><br/>
+
+        <button className="buttonForm" onClick={onClose} style={{backgroundColor: 'red'}} >Cancel</button>
+        <button className="buttonForm" style={{backgroundColor: 'green'}} >Submit</button>
+
       </div>
     </>,
     document.getElementById('portal')
