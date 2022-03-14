@@ -105,6 +105,41 @@ app.post('/deleteApp',
     }
 )
 
+app.get('/updateApp/:appId',
+    async (req, res) => {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).json({
+                    success: false,
+                    errors: errors.array()
+                })
+            }
+            // check if document id matches id passed in as param
+            const docRef = await db.collection('apps').get();
+            const appId = req.params.appId;
+
+            for (let doc of docRef.docs) {
+                if (doc.id === appId) {
+                    console.log(doc.id, appId, doc, 'found it')
+                }
+            }
+
+            // if (docData.user_id == req.body.user_id) {
+            //     // delete
+            //     await db.collection('apps').doc(req.body.document_id).delete();
+            //     return res.status(200).json({
+            //         success: true
+            //     })
+            // }
+            // console.log(docRef, docData, req.params);
+            // console.log(docRef.data());
+        } catch (e) {
+            console.log(e);
+        }
+    }
+)
+
 
 app.listen(process.env.PORT, () =>
     console.log(`Resint backend listening on ${process.env.PORT}`),
