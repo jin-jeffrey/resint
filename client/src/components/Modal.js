@@ -34,11 +34,22 @@ export default function Modal({ open, children, onClose }) {
 
         <h1>New Application Form</h1><br/>
         <form>
-          <input name="CompanyName" placeholder="Company Name" style={{width: "100%"}}/><br/><br/>
-          <input name="CompanyDescription" placeholder="Company Description" style={{width: "100%", height: "80px"}} /><br/><br/>
-          <input name="Notes" placeholder="Additional Notes" style={{width: "100%", height: "50px"}} /><br/><br/>
-          <input name="JobTitle" placeholder="Job Title" style={{width: "100%"}}/><br/><br/>
-   
+          <label for="CompanyName"> Company Name </label>
+          <input name="CompanyName" style={{width: "100%"}}/><br/><br/>
+          
+          <label for="CompanyDescription"> Company Description </label>
+          <input name="CompanyDescription" style={{width: "100%", height: "80px"}} /><br/><br/>
+          
+          <label for="Notes"> Notes </label>
+          <input name="Notes" style={{width: "100%", height: "50px"}} /><br/><br/>
+          
+          <label for="JobTitle"> Job Title </label>
+          <input name="JobTitle" style={{width: "100%"}}/><br/><br/>
+
+          <label for="JobLocation"> Job Location </label>
+          <input name="JobLocation" style={{width: "100%"}}/><br/><br/>
+
+          <label for="Check"> Position Remote/On-Site? </label> <br/>
           <div className="check" > 
               <input name="inperson-check" type="checkbox" /> <label for="inperson">In-Person</label> <br/>
               <input name="remote-check" type="checkbox" /> <label for="remote">Remote</label> <br/>
@@ -61,7 +72,8 @@ export default function Modal({ open, children, onClose }) {
                 <option value="NoOffer">No Offer</option>
             </select> <br/><br/>
           
-          <input name="link" placeholder="Application URL" type="url" style={{width: "100%"}}/> 
+          <label for="link" >Application URL</label>
+          <input name="link" type="url" style={{width: "100%"}}/> 
         </form> <br/><br/>
 
         <button className="buttonForm" onClick={onClose} style={{backgroundColor: 'red'}} >Cancel</button>
