@@ -3,6 +3,6 @@
 logs
 **/*.backup.*
 **/*.back.
-resint-backend\src.env*
-
+client/.env
+server/firebaseConfig.js
 node_modules
