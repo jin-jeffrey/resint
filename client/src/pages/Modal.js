@@ -34,22 +34,22 @@ export default function Modal({ open, children, onClose }) {
 
         <h1>New Application Form</h1><br/>
         <form>
-          <input placeholder="Company Name" style={{width: "100%"}}/><br/><br/>
-          <input placeholder="Company Description" style={{width: "100%", height: "80px"}} /><br/><br/>
-          <input placeholder="Additional Notes" style={{width: "100%", height: "50px"}} /><br/><br/>
-          <input placeholder="Job Title" style={{width: "100%"}}/><br/><br/>
+          <input name="CompanyName" placeholder="Company Name" style={{width: "100%"}}/><br/><br/>
+          <input name="CompanyDescription" placeholder="Company Description" style={{width: "100%", height: "80px"}} /><br/><br/>
+          <input name="Notes" placeholder="Additional Notes" style={{width: "100%", height: "50px"}} /><br/><br/>
+          <input name="JobTitle" placeholder="Job Title" style={{width: "100%"}}/><br/><br/>
    
           <div className="check" > 
-              <input name="inperson" type="checkbox" /> <label for="inperson">In-Person</label> <br/>
-              <input name="remote" type="checkbox" /> <label for="remote">Remote</label> <br/>
+              <input name="inperson-check" type="checkbox" /> <label for="inperson">In-Person</label> <br/>
+              <input name="remote-check" type="checkbox" /> <label for="remote">Remote</label> <br/>
           </div>
           <div className="check" > 
             <input name="optional" type="checkbox" /> <label for="optional">Optional</label> <br/>
             <input name="undetermined" type="checkbox" /> <label for="undetermined">Undetermined</label><br/><br/>
           </div><br/><br/>
-          
+
           <label for="date" >When did you apply?</label>
-          <input type="date" style={{width: "100%"}}/><br/><br/>
+          <input name="date" type="date" style={{width: "100%"}}/><br/><br/>
 
           <label for="status">What is your status?</label> < br/>
             <select name="status" className="status">
