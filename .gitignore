@@ -4,5 +4,6 @@ logs
 **/*.backup.*
 **/*.back.
 client/.env
+client/firebase.js
 server/firebaseConfig.js
 node_modules
