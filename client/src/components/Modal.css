@@ -18,10 +18,8 @@
 .check {
   float: left;
   position: relative;
-  margin-right: 2%;
-  margin-left: 12%;
+  margin: 2% 2% 0% 12%;
 }
-
 
 .buttonForm {
   backface-visibility: hidden;
