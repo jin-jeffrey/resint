@@ -3,27 +3,28 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 function saveApplication() {
-    const url = 'http://localhost:8000/addApps';
-    const options = {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json;charset=UTF-8"
-        },
-        body: JSON.stringify({
-            company: document.getElementById('company'),
-            position: document.getElementById('position'),
-            description: document.getElementById('description'),
-            date: document.getElementById('date'),
-            user_id: 'djsaodoa'
-        })
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      "company": document.getElementById('company').value,
+      "position": document.getElementById('position').value,
+      "description": document.getElementById('description').value,
+      "date_submitted": document.getElementById('date').value,
+      "user_id": "OSjGSxSa"
+    });
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
     };
-    fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log("TEST");
-        console.log(data);
-    })
+    
+    fetch("http://localhost:8000/addApp", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
 }
 
 const form = document.getElementById('add-form');
