@@ -102,7 +102,7 @@ export default function JobApps(props) {
 
             <Card.Footer className="d-flex justify-content-between align-items-center" />
         </Card>
-        <Button onClick={() => submitApplication()}>Submit</Button>
+        <Button onClick={() => submitApplication()}>Submit Applications Example</Button>
         </>
     );
 }
