@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Card, Image, Button, } from 'react-bootstrap';
 import Modal from './Modal'
+import axios from 'axios';
 
 const BUTTON_WRAPPER_STYLES = {
   position: 'relative',
@@ -16,6 +17,33 @@ const OTHER_CONTENT_STYLES = {
 
 export default function JobApps(props) {
     const [isOpen, setIsOpen] = useState(false);
+
+    function submitApplication() {
+        var data = JSON.stringify({
+            "company": "Testing",
+            "position": "test",
+            "description": "cool description",
+            "date_submitted": "2022-10-20",
+            "user_id": "OSjGSxSa"
+        });
+          
+        var config = {
+            method: 'post',
+            url: 'http://localhost:8000/addApp',
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data : data
+        };
+          
+        axios(config)
+        .then(function (response) {
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
 
     return (
         <>
@@ -74,6 +102,7 @@ export default function JobApps(props) {
 
             <Card.Footer className="d-flex justify-content-between align-items-center" />
         </Card>
+        <Button onClick={() => submitApplication()}>Submit</Button>
         </>
     );
 }

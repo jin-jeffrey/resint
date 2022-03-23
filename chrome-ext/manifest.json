@@ -1,0 +1,12 @@
+{
+    "name": "resint",
+    "description": "Track Job Applications",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+    },
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": {
+        "default_popup": "index.html"
+    }
+}
