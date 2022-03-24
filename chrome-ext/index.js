@@ -1,3 +1,13 @@
+const app = firebase.initializeApp(config);
+const auth = app.auth();
+const signInWithPopup = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return auth.signInWithPopup(provider).catch((error) => {
+        console.log(error);
+    })
+};
+
+
 function saveApplication() {
     const url = 'localhost:8000/addApps';
     const options = {
@@ -14,11 +24,13 @@ function saveApplication() {
         })
     };
     fetch(url, options)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+
+        })
 }
+
 
 const form = document.getElementById('add-app-form');
 form.addEventListener('submit', saveApplication);

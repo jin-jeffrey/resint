@@ -6,7 +6,11 @@
     "background": {
         "service_worker": "index.js"
     },
-    "permissions": ["storage", "activeTab", "scripting"],
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
     "action": {
         "default_popup": "index.html"
     }

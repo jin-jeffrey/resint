@@ -6,7 +6,9 @@ import Applications from "./components/Applications";
 import history from './history';
 import JobApps from './components/JobApps'
 
+
 function App() {
+
   return (
     <div className="app">
       <Router history={history}>
@@ -22,3 +24,5 @@ function App() {
 }
 
 export default App;
+
+
