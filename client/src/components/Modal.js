@@ -28,7 +28,7 @@ export default function Modal({ open, children, onClose }) {
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES}>
+      <div style={MODAL_STYLES} className="modal-container">
         <button onClick={onClose} className="xBtn">X</button>
         <br/><br/>
 
@@ -48,7 +48,7 @@ export default function Modal({ open, children, onClose }) {
 
           <label for="JobLocation"> Job Location </label>
           <input name="JobLocation" style={{width: "100%"}}/><br/><br/>
-
+          
           <label for="Check"> Position Remote/On-Site? </label> <br/>
           <div className="check" > 
               <input name="inperson-check" type="checkbox" /> <label for="inperson">In-Person</label> <br/>
