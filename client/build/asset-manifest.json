@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/resint/static/css/main.520d5656.css",
+    "main.js": "/resint/static/js/main.e1a3b25b.js",
+    "index.html": "/resint/index.html",
+    "main.520d5656.css.map": "/resint/static/css/main.520d5656.css.map",
+    "main.e1a3b25b.js.map": "/resint/static/js/main.e1a3b25b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.520d5656.css",
+    "static/js/main.e1a3b25b.js"
+  ]
+}
