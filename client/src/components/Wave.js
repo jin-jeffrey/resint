@@ -5,7 +5,6 @@ import useResponsiveSize from '../hooks/useResponsiveSize';
 import WaveObj from '../utils/wave';
 
 
-
 const Wave = (FC) => {
   const { context } = useCanvasContext();
   const { width } = useResponsiveSize();
