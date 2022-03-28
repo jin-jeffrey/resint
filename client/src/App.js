@@ -13,7 +13,7 @@ function App() {
     <div className="app">
       <Router history={history}>
         <Routes>
-          <Route exact path="/" element={<Login />} />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/resint" element={<JobApps />} />
           <Route exact path="/applications" element={<Applications />} />

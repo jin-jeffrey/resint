@@ -23,8 +23,8 @@ function Dashboard() {
         {/* <div>{user?.email}</div> */}
         <h2>Hello, {user?.displayName}</h2>
         <form>
-        <button className="dashboard__btn" id="button1" onClick={() => history.push('/applications')}>Job Applications</button>
-        <button className="dashboard__btn" id="button2" onClick={logout}> Logout </button>
+          <button className="dashboard__btn" id="button1" onClick={() => history.push('/resint')}>Job Applications</button>
+          <button className="dashboard__btn" id="button2" onClick={logout}> Logout </button>
         </form>
       </div>
     </div>
