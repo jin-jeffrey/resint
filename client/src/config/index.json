@@ -1,0 +1,141 @@
+{
+  "company": {
+    "name": "Resint",
+    "logo": "/assets/images/icons8-tree-64.png"
+  },
+  "navigation": [
+    {
+      "name": "About us",
+      "href": "product"
+    },
+    {
+      "name": "Features",
+      "href": "features"
+    }
+  ],
+  "callToAction": {
+    "text": "Get started",
+    "href": "login"
+  },
+  "mainHero": {
+    "title": "Resint!",
+    "subtitle": "Your guide to landing your dream internship.",
+    "description": "Getting ready for the internship/job search process as a college student can be very tedious and time consuming, Resint is here to make that process as easy as possible with efficient and user-friendly tracking and organization.",
+    "img": "/assets/images/guy_coding.jpeg",
+    "primaryAction": {
+      "text": "Join us",
+      "href": "login"
+    },
+    "secondaryAction": {
+      "text": "Email us",
+      "href": "mailto:koladea@bu.edu?subject=I really love resint!"
+    }
+  },
+  "product": {
+    "title": "What we do",
+    "items": [
+      {
+        "title": "Track your internships!",
+        "description": "Resint makes tracking easy with the sihmple click of a button. Download and add the resint chrome extension to your internet browser and start tracking! With one click, resint will automatically track your internship and add it to your dashboard, saving your time and effort.",
+        "img": "/assets/images/product1_coding.jpeg"
+      },
+      {
+        "title": "Save all your Internship resources!",
+        "description": "Resint allows you to easily keep all your resources in the same place! If you're feeling anxious for the internship process, Resint will make it as easy as possible to land your dream internship!",
+        "img": "/assets/images/savetime2.jpeg"
+      }
+    ]
+  },
+  "features": {
+    "title": "Latest & greatest features",
+    "subtitle": "All that resint has to offer!",
+    "description": "Resint has been long in the making, as our team realized that many students have a difficult time applying for internships, we have come up with a solution to solve these issues.",
+    "items": [
+      {
+        "name": "Build your resume",
+        "description": "Resint has a resume template feature that allows our users to downlaod and make it your own.",
+        "icon": "/assets/images/react.png"
+      },
+      {
+        "name": "Track your internships",
+        "description": "Resint allows you to track your internship applications and also monitor the status of your applications. As well as make the overall process of applying for an internship as easy as possible.",
+        "icon": "/assets/images/tailwindcss.svg"
+      },
+      {
+        "name": "Save all your Internship resources",
+        "description": "There are tons of resources out there and it can be difficult to keep track. Resint allows you to save and organize these resources wether it be articles, websites, books and more",
+        "icon": "/assets/images/nextjs.svg"
+      },
+      {
+        "name": "Your own personal internship guide",
+        "description": "Resint offers a step by step guide to make overcoming the internship struggle as easy as possible.",
+        "icon": "/assets/images/ts.png"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "items": [
+      {
+        "name": "Free",
+        "price": "$0",
+        "priceDetails": "for one user",
+        "features": [
+          "1 user",
+          "Basic Support",
+          "1 GB of storage",
+          "Email support"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "$15",
+        "priceDetails": "per user",
+        "features": [
+          "5 users",
+          "Priority Support",
+          "10 GB of storage",
+          "Phone and Email support"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": "$29",
+        "priceDetails": "per user",
+        "features": [
+          "50 users",
+          "24/7 Support",
+          "100 GB of storage",
+          "Phone and Email support"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "sections": [
+      {
+        "name": "Resint",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "name": "About Us",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "name": "Our Team",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "name": "What we do",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      }
+    ],
+    "socialMedia": {
+      "github": "https://github.com/jin-jeffrey/resint"
+    }
+  }
+}
