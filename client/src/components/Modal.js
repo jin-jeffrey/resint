@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import ReactDom from 'react-dom'
 import './Modal.css'
@@ -28,8 +29,32 @@ export default function Modal({ open, children, onClose }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(data, event)
-  }
+    console.log(data)
+  //   var data = JSON.stringify({
+  //     "company": "Testing",
+  //     "position": "test",
+  //     "description": "cool description",
+  //     "date_submitted": "2022-10-20",
+  //     "user_id": "OSjGSxSa"
+  // });
+    
+  var config = {
+      method: 'post',
+      url: 'http://localhost:8000/addApp',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : JSON.stringify(data)
+  };
+    
+  axios(config)
+  .then(function (response) {
+      console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+      console.log(error);
+  });
+}
 
   const handleChange = (event) => {
     let newData = {}
@@ -52,7 +77,7 @@ export default function Modal({ open, children, onClose }) {
         <h1>New Application Form</h1><br/>
         <form>
           <label htmlFor="CompanyName"> Company Name </label>
-          <input name="CompanyName" onChange={handleChange} onChange={handleChange} style={{width: "100%"}}/><br/><br/>
+          <input name="CompanyName" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
           
           <label htmlFor="CompanyDescription"> Company Description </label>
           <input name="CompanyDescription" onChange={handleChange} style={{width: "100%", height: "80px"}} /><br/><br/>
