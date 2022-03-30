@@ -1,38 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Lato:wght@100&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Lato;
+}
+
 .login {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), 
+  url(https://i.pinimg.com/originals/81/d3/6f/81d36fb05994148a3e3305d6331892a8.jpg);  
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  padding-left: 2cm;
+  padding-right: 1cm;
+}
+
+.logo {
+  width: 100px;
+  cursor: pointer;
+}
+
+.navbar {
+  width: 85%;
+  height: 15%;
+  margin: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.login__container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: #dcdcdc;
-  padding: 30px;
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 35px;
+  position: relative;
+}
+.navbar ul li a{
+  text-decoration: none;
+  color: #fbfcfd;
+  text-transform: uppercase;
 }
 
-.login__textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
+.navbar ul li::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: lavender;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+/* 
+.login__google {
+  background-color: #4285f4;
+} */
+
+/* 
+.login div {
+  margin-top: 7px;
+} */
+
+.content {
+  color: #fbfcfd;
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 
 .login__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
+  padding: 15px 0;
+  width: 20%;
+  font-size: 35px;
+  font-weight: bold;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  color: #fbfcfd;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+span {
+  background: plum;
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: 0.5s;
+}
+
+button:hover span {
+  width: 100%;
+}
+
+button:hover {
   border: none;
-  color: white;
-  background-color: black;
 }
 
-.login__google {
-  background-color: #4285f4;
-}
 
-.login div {
-  margin-top: 7px;
+.content h1 {
+  font-size: 100px;
+  margin: 10px 0 30px;
+  line-height: 80px;
 }
+/* 
+.content small {
+  font-size: 30px;
+  margin: 20px auto;
+  line-height: 25px;
+} */

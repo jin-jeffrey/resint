@@ -20,10 +20,18 @@ function Login() {
 
   return (
     <div className="login">
-      <div className="login__container">
-        <button className="login__btn login__google" onClick={signInWithGoogle}>
-          Login with Google
-        </button>
+      <div className="navbar">
+        <img src="https://i.pinimg.com/1200x/e4/8f/14/e48f14e8010a1e668f741678f8c524c1.jpg" className="logo"></img>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Meet the team</a></li>
+        </ul>
+      </div>
+      <div className="content">
+        <h1>RESINT!</h1> <h1>Your guide to landing your dream career.</h1>
+        <div>
+        <button className="login__btn" onClick={signInWithGoogle}><span></span> Login </button>
+        </div>
       </div>
     </div>
   );

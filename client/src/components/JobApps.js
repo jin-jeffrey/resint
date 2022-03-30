@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Card, Image, Button, } from 'react-bootstrap';
+import history from '../history';
 import Modal from './Modal'
 import axios from 'axios';
 
@@ -102,7 +103,9 @@ export default function JobApps(props) {
 
             <Card.Footer className="d-flex justify-content-between align-items-center" />
         </Card>
-        <Button onClick={() => submitApplication()}>Submit Applications Example</Button>
+        <form> 
+        <button onClick={() => history.push('/dashboard')}>Dashboard</button>        
+        </form>
         </>
     );
 }

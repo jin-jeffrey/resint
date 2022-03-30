@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import ReactDom from 'react-dom'
 import './Modal.css'
 
@@ -23,46 +24,87 @@ const OVERLAY_STYLES = {
 }
 
 export default function Modal({ open, children, onClose }) {
+  const [data, setData] = useState()
   if (!open) return null
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(data)
+  //   var data = JSON.stringify({
+  //     "company": "Testing",
+  //     "position": "test",
+  //     "description": "cool description",
+  //     "date_submitted": "2022-10-20",
+  //     "user_id": "OSjGSxSa"
+  // });
+    
+  var config = {
+      method: 'post',
+      url: 'http://localhost:8000/addApp',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : JSON.stringify(data)
+  };
+    
+  axios(config)
+  .then(function (response) {
+      console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+      console.log(error);
+  });
+}
+
+  const handleChange = (event) => {
+    let newData = {}
+    const name = event.target.name;
+    const value = event.target.value;
+    newData[name] = value
+    setData(data => ({
+      ...data,
+      ...newData
+    }))
+  }
 
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES}>
+      <div style={MODAL_STYLES} className="modal-container">
         <button onClick={onClose} className="xBtn">X</button>
         <br/><br/>
 
         <h1>New Application Form</h1><br/>
         <form>
-          <label for="CompanyName"> Company Name </label>
-          <input name="CompanyName" style={{width: "100%"}}/><br/><br/>
+          <label htmlFor="CompanyName"> Company Name </label>
+          <input name="CompanyName" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
           
-          <label for="CompanyDescription"> Company Description </label>
-          <input name="CompanyDescription" style={{width: "100%", height: "80px"}} /><br/><br/>
+          <label htmlFor="CompanyDescription"> Company Description </label>
+          <input name="CompanyDescription" onChange={handleChange} style={{width: "100%", height: "80px"}} /><br/><br/>
           
-          <label for="Notes"> Notes </label>
-          <input name="Notes" style={{width: "100%", height: "50px"}} /><br/><br/>
+          <label htmlFor="Notes"> Notes </label>
+          <input name="Notes" onChange={handleChange} style={{width: "100%", height: "50px"}} /><br/><br/>
           
-          <label for="JobTitle"> Job Title </label>
-          <input name="JobTitle" style={{width: "100%"}}/><br/><br/>
+          <label htmlFor="JobTitle"> Job Title </label>
+          <input name="JobTitle" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
 
-          <label for="JobLocation"> Job Location </label>
-          <input name="JobLocation" style={{width: "100%"}}/><br/><br/>
-
-          <label for="Check"> Position Remote/On-Site? </label> <br/>
+          <label htmlFor="JobLocation"> Job Location </label>
+          <input name="JobLocation" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
+          
+          <label htmlFor="Check"> Position Remote/On-Site? </label> <br/>
           <div className="check" > 
-              <input name="inperson-check" type="checkbox" /> <label for="inperson">In-Person</label> <br/>
-              <input name="remote-check" type="checkbox" /> <label for="remote">Remote</label> <br/>
+              <input name="inperson-check" type="checkbox" /> <label htmlFor="inperson">In-Person</label> <br/>
+              <input name="remote-check" type="checkbox" /> <label htmlFor="remote">Remote</label> <br/>
           </div>
           <div className="check" > 
-            <input name="optional" type="checkbox" /> <label for="optional">Optional</label> <br/>
-            <input name="undetermined" type="checkbox" /> <label for="undetermined">Undetermined</label><br/><br/>
+            <input name="optional" type="checkbox" /> <label htmlFor="optional">Optional</label> <br/>
+            <input name="undetermined" type="checkbox" /> <label htmlFor="undetermined">Undetermined</label><br/><br/>
           </div><br/><br/>
 
-          <label for="date" >When did you apply?</label>
-          <input name="date" type="date" style={{width: "100%"}}/><br/><br/>
+          <label htmlFor="date" >When did you apply?</label>
+          <input name="date" type="date" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
 
-          <label for="status">What is your status?</label> < br/>
+          <label htmlFor="status">What is your status?</label> < br/>
             <select name="status" className="status">
                 <option value="Applied">Applied</option>
                 <option value="Referral">Applied with Referral</option>
@@ -72,14 +114,14 @@ export default function Modal({ open, children, onClose }) {
                 <option value="NoOffer">No Offer</option>
             </select> <br/><br/>
           
-          <label for="link" >Application URL</label>
-          <input name="link" type="url" style={{width: "100%"}}/> 
-        </form> <br/><br/>
+          <label htmlFor="Link" >Application URL</label>
+          <input name="Link" type="url" onChange={handleChange} style={{width: "100%"}}/> 
+        </form> 
+        <br/><br/>
 
         <button className="buttonForm" onClick={onClose} style={{backgroundColor: 'red'}} >Cancel</button>
-        <button className="buttonForm" style={{backgroundColor: 'green'}} >Submit</button>
-
-      </div>
+        <button className="buttonForm" onClick={handleSubmit} style={{backgroundColor: 'green'}}>Submit</button>
+        </div>
     </>,
     document.getElementById('portal')
   )
