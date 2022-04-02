@@ -10,14 +10,14 @@
 .login {
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), 
-  url(https://i.pinimg.com/originals/81/d3/6f/81d36fb05994148a3e3305d6331892a8.jpg);  
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4));  
   background-size: cover;
   background-position: center;
   position: relative;
   overflow: hidden;
   padding-left: 2cm;
   padding-right: 1cm;
+  background-color: lavender;
 }
 
 .logo {
@@ -73,7 +73,7 @@
 } */
 
 .content {
-  color: #fbfcfd;
+  color: white;
   position: absolute;
   width: 50%;
   top: 50%;
@@ -97,7 +97,7 @@
 }
 
 span {
-  background: plum;
+  background: lightgray;
   height: 100%;
   width: 0;
   border-radius: 25px;

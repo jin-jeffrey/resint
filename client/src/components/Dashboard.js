@@ -5,7 +5,7 @@ import { auth, logout } from "../firebase";
 import history from '../history';
 import "./Dashboard.css";
 const status_img = "https://st.hzcdn.com/simgs/871106f40f9b11c7_4-8510/home-design.jpg";
-const logo = "https://ichef.bbci.co.uk/news/976/cpsprodpb/169DC/production/_99863629_sticker.jpg";
+const logo = "";
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);

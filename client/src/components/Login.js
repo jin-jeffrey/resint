@@ -15,13 +15,13 @@ function Login() {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/resint");
+    if (user) navigate("/dashboard");
   }, [user, loading]);
 
   return (
     <div className="login">
       <div className="navbar">
-        <img src="https://i.pinimg.com/1200x/e4/8f/14/e48f14e8010a1e668f741678f8c524c1.jpg" className="logo"></img>
+        <img src="" className="logo"></img>
         <ul>
           <li><a href="#">About us</a></li>
           <li><a href="#">Meet the team</a></li>

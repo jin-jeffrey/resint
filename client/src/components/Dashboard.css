@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
     font-family: Poppy;
-    color: #cc6805;
 }
 
 .dashboard {
@@ -27,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #cc6805;
 }
 
 .logo {
@@ -44,8 +44,6 @@
   font-size: 18px;
   margin-top: 10px;
   border: none;
-  color: white;
-  background-color: black;
 }
 
 #button1 , #button2 {
@@ -106,6 +104,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-45%, -140%);
+  color: #cc6805;
+
 }
 
 .center-text h2 {
