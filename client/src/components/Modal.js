@@ -30,30 +30,24 @@ export default function Modal({ open, userid, onClose }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(data)
-  //   var data = JSON.stringify({
-  //     "company": "Testing",
-  //     "position": "test",
-  //     "description": "cool description",
-  //     "date_submitted": "2022-10-20",
-  //     "user_id": "OSjGSxSa"
-  // });
     
-  var config = {
-      method: 'post',
-      url: 'http://localhost:8000/addApp',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data : JSON.stringify(data)
-  };
-    
-  axios(config)
-  .then(function (response) {
-      console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-      console.log(error);
-  });
+    var config = {
+        method: 'post',
+        url: 'https://resint.herokuapp.com/addApp',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        data : JSON.stringify(data)
+    };
+
+    axios(config)
+    .then(function (response) {
+        console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+    onClose();
 }
 
   const handleChange = (event) => {
@@ -62,7 +56,7 @@ export default function Modal({ open, userid, onClose }) {
     const value = event.target.value;
     newData[name] = value
     setData(data => ({
-      userid: userid,
+      Uid: userid,
       ...data,
       ...newData
     }))
@@ -102,11 +96,11 @@ export default function Modal({ open, userid, onClose }) {
             <input name="undetermined" type="checkbox" /> <label htmlFor="undetermined">Undetermined</label><br/><br/>
           </div><br/><br/>
 
-          <label htmlFor="date" >When did you apply?</label>
-          <input name="date" type="date" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
+          <label htmlFor="Date" >When did you apply?</label>
+          <input name="Date" type="date" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
 
-          <label htmlFor="status">What is your status?</label> < br/>
-            <select name="status" className="status">
+          <label htmlFor="Status">What is your status?</label> < br/>
+            <select name="Status" className="status" onChange={handleChange} value={data?.Status}>
                 <option value="Applied">Applied</option>
                 <option value="Referral">Applied with Referral</option>
                 <option value="OA">OA/First Round</option>

@@ -22,33 +22,6 @@ export default function JobApps(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
 
-    function submitApplication() {
-        var data = JSON.stringify({
-            "company": "Testing",
-            "position": "test",
-            "description": "cool description",
-            "date_submitted": "2022-10-20",
-            "user_id": "OSjGSxSa"
-        });
-          
-        var config = {
-            method: 'post',
-            url: 'http://localhost:8000/addApp',
-            headers: { 
-              'Content-Type': 'application/json'
-            },
-            data : data
-        };
-          
-        axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    }
-
     return (
         <>
         <Card style={{ margin: 24 }}>
@@ -58,7 +31,7 @@ export default function JobApps(props) {
                 </div>
                 <Button onClick={() => setIsOpen(true)} style={{ backgroundColor: '#b2a4d4', borderWidth: 0, }}>Add Job</Button>
             </Card.Header>
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user.uid} />
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} />
             <Card.Body>
                 <Table responsive>
                     <thead>
