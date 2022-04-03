@@ -7,8 +7,8 @@ function saveApplication(e) {
 	var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/json");
 
-	chrome.storage.sync.get(['uid'], function(result) {
-		const uid = result.uid;
+	chrome.storage.sync.get(['uid'], function(data) {
+		const uid = data.uid;
 		var raw = JSON.stringify({
 			"company": document.getElementById('company').value,
 			"position": document.getElementById('position').value,
@@ -31,31 +31,20 @@ function saveApplication(e) {
 	});
 }
 
-function storeUID(e) {
-	e.preventDefault();
-	var myHeaders = new Headers();
-	myHeaders.append("Content-Type", "application/json");
-	
-	var raw = JSON.stringify({
-		"key": document.getElementById('key-phrase').value
-	});
-	
-	var requestOptions = {
-		method: 'POST',
-		headers: myHeaders,
-		body: raw,
-		redirect: 'manual'
-	};
-	
-	fetch("http://localhost:8000/getUID", requestOptions)
-	.then(response => response.json())
-	.then(result => chrome.storage.sync.set({uid: result.uid}, function() {
-		console.log('UID is set to ' + result.uid);
-	}))
-	.catch(error => console.log('error', error));
+function signOut(e) {
+	e.preventDefault()
+	chrome.storage.sync.clear();
+	chrome.action.setPopup({popup: 'login.html'});
 }
 
-const keyform = document.getElementById('key-form');
+
+chrome.storage.sync.get(['uid'], (data) => {
+	if (!data.uid) {
+	  chrome.action.setPopup({popup: 'login.html'});
+	}
+});
+
+const logout = document.getElementById('logout');
+logout.addEventListener("click", signOut);
 const form = document.getElementById('add-form');
 form.addEventListener('submit', saveApplication);
-keyform.addEventListener('submit', storeUID);

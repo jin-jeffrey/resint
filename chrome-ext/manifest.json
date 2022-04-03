@@ -7,6 +7,6 @@
     },
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
-        "default_popup": "index.html"
+        "default_popup": "login.html"
     }
 }
