@@ -25,6 +25,12 @@ function Dashboard() {
         <img src={logo} className="logo"></img>
         <h1>Welcome back, {user?.displayName}!</h1>
         <img src={logo} className="profile"></img>
+        <div className="options">
+          <form>
+            <button className="dashboard__btn" id="button1" onClick={() => history.push('/resint')}>Job Applications</button>
+            <button className="dashboard__btn" id="button2" onClick={logout}> Logout </button>
+          </form>
+        </div>
       </div>
 
       <div class="row">
@@ -83,13 +89,6 @@ function Dashboard() {
             <h2>Rejected</h2>
           </div>
         </div>
-      </div>
-
-      <div className="options">
-        <form>
-        <button className="dashboard__btn" id="button1" onClick={() => history.push('/resint')}>Job Applications</button>
-        <button className="dashboard__btn" id="button2" onClick={logout}> Logout </button>
-        </form>
       </div>
 
     </div>

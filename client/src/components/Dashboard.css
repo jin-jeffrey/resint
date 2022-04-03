@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Lato:wght@100&display=swap');
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Poppy;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppy;
 }
 
 .dashboard {
   height: 100vh;
-  width: 100%; 
+  width: 100%;
   position: relative;
   overflow: hidden;
   padding-left: 1cm;
   padding-right: 1cm;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPjruganwvdyKUhQRXy1i6BKbrPOnPdRsropf0wCqNM1KEsKTh1x10ne6pSOXAj0sERQ0&usqp=CAU);  
+  background: rgb(255, 255, 255);
   background-size: cover;
   background-position: center;
 }
@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #cc6805;
+  color: #000000;
 }
 
 .logo {
@@ -46,9 +46,10 @@
   border: none;
 }
 
-#button1 , #button2 {
-  display:block;
-  }
+#button1,
+#button2 {
+  display: block;
+}
 
 /* .dashboard div {
   margin-top: 7px;
@@ -68,20 +69,21 @@
   position: relative;
 }
 
-.col:hover{
+.col:hover {
   transform: translateY(-10px);
 }
 
 .col img {
-  height: 50%;
+  height: 40%;
   width: 70%;
-  border: 5px solid #5e9999;
+  border-radius: 25px;
+  border: 5px solid #ae00ff;
   cursor: pointer;
 }
 
 .col h1 {
-  font-size: 120px;
-  color: #cc6805;
+  font-size: 60px;
+  color: #d400ff;
 }
 
 .col h2 {
@@ -96,29 +98,30 @@
 }
 
 .tabs {
-  transform: translateX(15%) translateY(10%);
+  transform: translateX(9%) translateY(7%);
 }
 
 .center-text {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-45%, -140%);
-  color: #cc6805;
+  transform: translate(-48%, -140%);
+  color: #dc6bfe;
 
 }
 
 .center-text h2 {
-  font-size: 50px;
+  font-size: 30px;
 }
 
-.apptab:hover{
+.apptab:hover {
   transform: translateY(-10px);
 }
 
 .apptab img {
-  height: 100px;
-  width: 20%;
+  height: 80px;
+  width: 15%;
+  border-radius: 25px;
   border: 5px solid #ae7fCC;
   cursor: pointer;
 }

@@ -4,6 +4,8 @@ import { auth, signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 
+
+
 function Login() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -21,7 +23,7 @@ function Login() {
   return (
     <div className="login">
       <div className="navbar">
-        <img src='../../public/images/icons8-tree-64.png' className="logo"></img>
+        <img src='' className="logo"></img>
         <ul>
           <li><a href="#">About us</a></li>
           <li><a href="#">Meet the team</a></li>
