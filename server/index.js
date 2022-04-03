@@ -142,6 +142,6 @@ app.get('/updateApp/:appId',
 )
 
 
-app.listen(8000, () =>
-    console.log(`Resint backend listening on ${8000}`),
+app.listen(process.env.PORT, () =>
+    console.log(`Resint backend listening on ${process.env.PORT}`),
 );
