@@ -15,15 +15,23 @@ function Login() {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/resint");
+    if (user) navigate("/dashboard");
   }, [user, loading]);
 
   return (
     <div className="login">
-      <div className="login__container">
-        <button className="login__btn login__google" onClick={signInWithGoogle}>
-          Login with Google
-        </button>
+      <div className="navbar">
+        <img src="" className="logo"></img>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Meet the team</a></li>
+        </ul>
+      </div>
+      <div className="content">
+        <h1>RESINT!</h1> <h1>Your guide to landing your dream career.</h1>
+        <div>
+        <button className="login__btn" onClick={signInWithGoogle}><span></span> Login </button>
+        </div>
       </div>
     </div>
   );

@@ -49,3 +49,11 @@
   width: 40%;
   margin-left: 5%;
 }
+
+.modal-container {
+  position:fixed;
+  box-sizing:border-box;
+  width:600px;
+  overflow:auto;
+  max-height:calc(100vh - 125px);
+}

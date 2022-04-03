@@ -54,6 +54,7 @@ app.post('/addApp',
     body('position').not().isEmpty(),
     body('uid').not().isEmpty(),
     async (req, res) => {
+    console.log(req.body)
     try {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -221,6 +222,6 @@ app.post('/getUID',
     }
 });
 
-app.listen(process.env.PORT, () =>
-    console.log(`Resint backend listening on ${process.env.PORT}`),
+app.listen(8000, () =>
+    console.log(`Resint backend listening on ${8000}`),
 );

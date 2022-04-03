@@ -1,17 +1,42 @@
-.dashboard {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Lato:wght@100&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppy;
 }
 
-.dashboard__container {
+.dashboard {
+  height: 100vh;
+  width: 100%; 
+  position: relative;
+  overflow: hidden;
+  padding-left: 1cm;
+  padding-right: 1cm;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPjruganwvdyKUhQRXy1i6BKbrPOnPdRsropf0wCqNM1KEsKTh1x10ne6pSOXAj0sERQ0&usqp=CAU);  
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar {
+  width: 85%;
+  height: 15%;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: #dcdcdc;
-  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+  color: #cc6805;
+}
+
+.logo {
+  width: 100px;
+  cursor: pointer;
+}
+
+.profile {
+  width: 100px;
+  cursor: pointer;
 }
 
 .dashboard__btn {
@@ -19,15 +44,81 @@
   font-size: 18px;
   margin-top: 10px;
   border: none;
-  color: white;
-  background-color: black;
 }
 
 #button1 , #button2 {
   display:block;
-  /* additional code */
   }
 
-.dashboard div {
+/* .dashboard div {
   margin-top: 7px;
+} */
+
+.row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  float: right;
+  width: 92%;
+}
+
+.col {
+  flex: 5%;
+  position: relative;
+}
+
+.col:hover{
+  transform: translateY(-10px);
+}
+
+.col img {
+  height: 50%;
+  width: 70%;
+  border: 5px solid #5e9999;
+  cursor: pointer;
+}
+
+.col h1 {
+  font-size: 120px;
+  color: #cc6805;
+}
+
+.col h2 {
+  font-size: 30px;
+  color: #ae7fCC;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 15px;
+  left: 30px;
+}
+
+.tabs {
+  transform: translateX(15%) translateY(10%);
+}
+
+.center-text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, -140%);
+  color: #cc6805;
+
+}
+
+.center-text h2 {
+  font-size: 50px;
+}
+
+.apptab:hover{
+  transform: translateY(-10px);
+}
+
+.apptab img {
+  height: 100px;
+  width: 20%;
+  border: 5px solid #ae7fCC;
+  cursor: pointer;
 }
