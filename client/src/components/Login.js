@@ -28,9 +28,10 @@ function Login() {
         </ul>
       </div>
       <div className="content">
-        <h1>RESINT!</h1> <h1>Your guide to <span class="text">landing</span> your <span class="text">dream career.</span></h1>
+        <h1>RESINT!</h1> <h1>Your guide to <span class="text">landing</span> your <span class="text">dream internship.</span></h1>
+        <br></br>
         <div>
-          <button className="login__btn" onClick={signInWithGoogle}><span class="login_btn_span"></span> Login </button>
+          <button className="login__btn" onClick={signInWithGoogle}><span class="login_btn_span"></span> Get Started </button>
         </div>
       </div>
     </div>

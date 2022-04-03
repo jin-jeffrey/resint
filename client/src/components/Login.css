@@ -38,7 +38,7 @@
   list-style: none;
   display: inline-block;
   margin: 0 20px;
-  font-size: 30px;
+  font-size: 20px;
   position: relative;
 }
 
@@ -77,18 +77,18 @@
   color: rgb(255, 255, 255);
   position: absolute;
   width: 50%;
-  top: 50%;
+  top: 45%;
   left: 8%;
   transform: translateY(-50%);
   z-index: 2;
 }
 
 .login__btn {
-  padding: 15px 0;
-  width: 20%;
-  font-size: 35px;
+  padding: 6px 0;
+  width: 30%;
+  font-size: 25px;
   font-weight: bold;
-  border: 2px solid rgb(235, 12, 255);
+  border: 2px solid rgb(252, 252, 252);
   border-radius: 25px;
   color: #ffffff;
   background: transparent;
@@ -123,9 +123,9 @@ button:hover {
 
 
 .content h1 {
-  font-size: 80px;
+  font-size: 60px;
   margin: 10px 0 30px;
-  line-height: 80px;
+  line-height: 60px;
 }
 
 /* 
