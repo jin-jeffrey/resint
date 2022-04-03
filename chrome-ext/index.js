@@ -53,7 +53,7 @@ chrome.storage.sync.get(['uid'], (data) => {
 });
 
 
-document.getElementById('date').valueAsDate = new Date();
+document.getElementById('Date').valueAsDate = new Date();
 const logout = document.getElementById('logout');
 logout.addEventListener("click", signOut);
 const form = document.getElementById('add-form');
