@@ -188,7 +188,7 @@ app.get('/getCode',
     }
 });
 
-app.get('/getUID', 
+app.post('/getUID', 
     body('key').isLength({
         min: 1
     }),
@@ -206,8 +206,10 @@ app.get('/getUID',
         const snapshot = await usersRef.where('key', '==', req.body.key).get();
         const user = snapshot.docs[0];
         if (snapshot.empty) {
+            console.log('did not');
             res.status(400).send("Key does not exist");
         } else {
+            console.log('got uid');
             return res.status(200).json({
                 success: true,
                 uid: user.data().uid
