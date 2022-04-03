@@ -50,9 +50,10 @@ app.get('/getApps',
 
 // add new app
 app.post('/addApp', 
-    body('company').not().isEmpty(),
-    body('position').not().isEmpty(),
-    body('uid').not().isEmpty(),
+    body('CompanyName').not().isEmpty(),
+    body('JobTitle').not().isEmpty(),
+    body('Uid').not().isEmpty(),
+    body('Status').not().isEmpty(),
     async (req, res) => {
     console.log(req.body)
     try {
@@ -64,11 +65,15 @@ app.post('/addApp',
             })
         }
         const docRef = await db.collection('apps').add({
-            company: req.body.company,
-            position: req.body.position,
-            description: req.body.description,
-            date_submitted: req.body.date_submitted,
-            uid: req.body.uid
+            CompanyName: req.body.CompanyName,
+            JobTitle: req.body.JobTitle,
+            CompanyDescription: req.body.CompanyDescription,
+            Date: req.body.Date,
+            Uid: req.body.Uid,
+            JobLocation: req.body.JobLocation,
+            Notes: req.body.Notes,
+            Link: req.body.Link,
+            Status: req.body.Status
         });
         res.status(200).send("Document written with ID: " + docRef.id);
     } catch (e) {
