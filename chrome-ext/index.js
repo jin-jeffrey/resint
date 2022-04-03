@@ -6,15 +6,6 @@ function saveApplication(e) {
 	e.preventDefault();
 	var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/json");
-	// CompanyName: req.body.CompanyName,
-	// JobTitle: req.body.JobTitle,
-	// CompanyDescription: req.body.CompanyDescription,
-	// Date: req.body.Date,
-	// Uid: req.body.Uid,
-	// JobLocation: req.body.JobLocation,
-	// Notes: req.body.Notes,
-	// Link: req.body.Link,
-	// Status: req.body.Status
 	chrome.storage.sync.get(['uid'], function(data) {
 		const uid = data.uid;
 		var raw = JSON.stringify({
@@ -23,8 +14,11 @@ function saveApplication(e) {
 			"CompanyDescription": document.getElementById('CompanyDescription').value,
 			"Date": document.getElementById('Date').value,
 			"Uid": uid,
+			"Status": document.getElementById('Status').value,
+			"JobLocation": document.getElementById('JobLocation').value,
+			"Notes": document.getElementById('Notes').value,
+			"Link": document.getElementById('Link').value
 		});
-	
 		var requestOptions = {
 			method: 'POST',
 			headers: myHeaders,
