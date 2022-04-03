@@ -18,10 +18,10 @@ function saveApplication(e) {
 	chrome.storage.sync.get(['uid'], function(data) {
 		const uid = data.uid;
 		var raw = JSON.stringify({
-			"CompanyName": document.getElementById('company').value,
-			"JobTitle": document.getElementById('position').value,
-			"CompanyDescription": document.getElementById('description').value,
-			"Date": document.getElementById('date').value,
+			"CompanyName": document.getElementById('CompanyName').value,
+			"JobTitle": document.getElementById('JobTitle').value,
+			"CompanyDescription": document.getElementById('CompanyDescription').value,
+			"Date": document.getElementById('Date').value,
 			"Uid": uid,
 		});
 	
@@ -32,7 +32,7 @@ function saveApplication(e) {
 			redirect: 'manual'
 		};
 	
-		fetch("http://localhost:8000/addApp", requestOptions)
+		fetch("https://resint.herokuapp.com/addApp", requestOptions)
 		.then(response => response.text())
 		.then(result => console.log(result))
 		.catch(error => console.log('error', error));

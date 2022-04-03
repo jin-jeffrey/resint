@@ -14,7 +14,7 @@ function storeUID(e) {
 		redirect: 'manual'
 	};
 	
-	fetch("http://localhost:8000/getUID", requestOptions)
+	fetch("https://resint.herokuapp.com/getUID", requestOptions)
 	.then(response => response.json())
 	.then(result => chrome.storage.sync.set({uid: result.uid}, function() {
 		console.log('UID is set to ' + result.uid);
