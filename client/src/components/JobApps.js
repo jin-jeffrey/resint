@@ -3,6 +3,8 @@ import { Table, Card, Image, Button, } from 'react-bootstrap';
 import history from '../history';
 import Modal from './Modal'
 import axios from 'axios';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
 
 const BUTTON_WRAPPER_STYLES = {
   position: 'relative',
@@ -18,6 +20,7 @@ const OTHER_CONTENT_STYLES = {
 
 export default function JobApps(props) {
     const [isOpen, setIsOpen] = useState(false);
+    const [user, loading, error] = useAuthState(auth);
 
     function submitApplication() {
         var data = JSON.stringify({
@@ -55,7 +58,7 @@ export default function JobApps(props) {
                 </div>
                 <Button onClick={() => setIsOpen(true)} style={{ backgroundColor: '#b2a4d4', borderWidth: 0, }}>Add Job</Button>
             </Card.Header>
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}/>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user.uid} />
             <Card.Body>
                 <Table responsive>
                     <thead>

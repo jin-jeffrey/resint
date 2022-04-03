@@ -23,7 +23,7 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-export default function Modal({ open, children, onClose }) {
+export default function Modal({ open, userid, onClose }) {
   const [data, setData] = useState()
   if (!open) return null
 
@@ -62,6 +62,7 @@ export default function Modal({ open, children, onClose }) {
     const value = event.target.value;
     newData[name] = value
     setData(data => ({
+      userid: userid,
       ...data,
       ...newData
     }))
