@@ -6,6 +6,7 @@ import { initializeApp, cert }  from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import dotenv from "dotenv";
 import { body, validationResult} from 'express-validator';
+import commonWords from './words.js';
 
 // initialize app with express, cors, and env variables
 const app = express();
@@ -23,7 +24,7 @@ const db = getFirestore();
 // ROUTES
 // get apps by user
 app.get('/getApps', 
-    body('user_id').isLength({
+    body('uid').isLength({
         min: 1
     }),
     async (req, res) => {
@@ -36,7 +37,7 @@ app.get('/getApps',
             })
         }
         const appsRef = db.collection('apps');
-        const queryRef = await appsRef.where('user_id', '==', req.body.user_id).get();
+        const queryRef = await appsRef.where('uid', '==', req.body.uid).get();
         const appsList = [];
         queryRef.forEach(doc => {
             appsList.push(doc.data());
@@ -51,7 +52,7 @@ app.get('/getApps',
 app.post('/addApp', 
     body('company').not().isEmpty(),
     body('position').not().isEmpty(),
-    body('user_id').not().isEmpty(),
+    body('uid').not().isEmpty(),
     async (req, res) => {
     console.log(req.body)
     try {
@@ -67,7 +68,7 @@ app.post('/addApp',
             position: req.body.position,
             description: req.body.description,
             date_submitted: req.body.date_submitted,
-            user_id: req.body.user_id
+            uid: req.body.uid
         });
         res.status(200).send("Document written with ID: " + docRef.id);
     } catch (e) {
@@ -79,7 +80,7 @@ app.post('/addApp',
 // delete app
 app.post('/deleteApp',
     body('document_id').not().isEmpty(),
-    body('user_id').not().isEmpty(),
+    body('uid').not().isEmpty(),
     async (req, res) => {
         try {
             const errors = validationResult(req);
@@ -91,8 +92,8 @@ app.post('/deleteApp',
             }
             // check if document id matches user id
             const docRef = await db.collection('apps').doc(req.body.document_id).get();
-            const docData = await docRef.data();
-            if (docData.user_id == req.body.user_id) {
+            const docData = docRef.data();
+            if (docData.uid == req.body.uid) {
                 // delete
                 await db.collection('apps').doc(req.body.document_id).delete();
                 return res.status(200).json({
@@ -126,7 +127,7 @@ app.get('/updateApp/:appId',
                 }
             }
 
-            // if (docData.user_id == req.body.user_id) {
+            // if (docData.uid == req.body.uid) {
             //     // delete
             //     await db.collection('apps').doc(req.body.document_id).delete();
             //     return res.status(200).json({
@@ -141,6 +142,85 @@ app.get('/updateApp/:appId',
     }
 )
 
+app.get('/getCode', 
+    body('uid').isLength({
+        min: 1
+    }),
+    async (req, res) => {
+    try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                success: false,
+                errors: errors.array()
+            })
+        }
+        // check if user has a 16 word string, if not then create it
+        const usersRef = db.collection('users');
+        const snapshot = await usersRef.where('uid', '==', req.body.uid).get();
+        const user = snapshot.docs[0];
+        if (snapshot.empty) {
+            res.status(400).send("UID does not exist");
+        } else {
+            var key = user.data().key;
+            if (key == null) {
+                var securityCode = commonWords['words'][Math.floor(Math.random()*100)];
+                for (let i = 0; i<15; i++) {
+                    securityCode += " " + commonWords['words'][Math.floor(Math.random()*100)];
+                }
+                var data = user.data();
+                data["key"] = securityCode;
+                const userRef = usersRef.doc(user.id);
+                const result = await userRef.set(data);
+                return res.status(200).json({
+                    success: true,
+                    key: securityCode
+                })
+            } else {
+                return res.status(200).json({
+                    success: true,
+                    key: key
+                })
+            }
+        }
+    } catch (e) {
+        console.log(e);
+        res.status(400).send("Failed to retrieve application data");
+    }
+});
+
+app.post('/getUID', 
+    body('key').isLength({
+        min: 1
+    }),
+    async (req, res) => {
+    try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                success: false,
+                errors: errors.array()
+            })
+        }
+        // check if user has a 16 word string, if not then create it
+        const usersRef = db.collection('users');
+        const snapshot = await usersRef.where('key', '==', req.body.key).get();
+        const user = snapshot.docs[0];
+        if (snapshot.empty) {
+            console.log('did not');
+            res.status(400).send("Key does not exist");
+        } else {
+            console.log('got uid');
+            return res.status(200).json({
+                success: true,
+                uid: user.data().uid
+            })
+        }
+    } catch (e) {
+        console.log(e);
+        res.status(400).send("Failed to retrieve application data");
+    }
+});
 
 app.listen(8000, () =>
     console.log(`Resint backend listening on ${8000}`),
