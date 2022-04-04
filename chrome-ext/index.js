@@ -6,15 +6,23 @@ function saveApplication(e) {
 	e.preventDefault();
 	var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/json");
-
+	// CompanyName: req.body.CompanyName,
+	// JobTitle: req.body.JobTitle,
+	// CompanyDescription: req.body.CompanyDescription,
+	// Date: req.body.Date,
+	// Uid: req.body.Uid,
+	// JobLocation: req.body.JobLocation,
+	// Notes: req.body.Notes,
+	// Link: req.body.Link,
+	// Status: req.body.Status
 	chrome.storage.sync.get(['uid'], function(data) {
 		const uid = data.uid;
 		var raw = JSON.stringify({
-			"company": document.getElementById('company').value,
-			"position": document.getElementById('position').value,
-			"description": document.getElementById('description').value,
-			"date_submitted": document.getElementById('date').value,
-			"uid": uid
+			"CompanyName": document.getElementById('company').value,
+			"JobTitle": document.getElementById('position').value,
+			"CompanyDescription": document.getElementById('description').value,
+			"Date": document.getElementById('date').value,
+			"Uid": uid,
 		});
 	
 		var requestOptions = {
@@ -44,6 +52,8 @@ chrome.storage.sync.get(['uid'], (data) => {
 	}
 });
 
+
+document.getElementById('date').valueAsDate = new Date();
 const logout = document.getElementById('logout');
 logout.addEventListener("click", signOut);
 const form = document.getElementById('add-form');
