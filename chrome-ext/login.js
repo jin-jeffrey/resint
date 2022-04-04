@@ -16,8 +16,8 @@ function storeUID(e) {
 	
 	fetch("https://resint.herokuapp.com/getUID", requestOptions)
 	.then(response => response.json())
-	.then(result => chrome.storage.sync.set({uid: result.uid}, function() {
-		console.log('UID is set to ' + result.uid);
+	.then(result => chrome.storage.sync.set({uid: result.Uid}, function() {
+		console.log('UID is set to ' + result.Uid);
         chrome.action.setPopup({popup: 'index.html'});
 	}))
 	.catch(error => console.log('error', error));
