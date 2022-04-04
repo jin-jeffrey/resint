@@ -7,15 +7,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 
 const BUTTON_WRAPPER_STYLES = {
-  position: 'relative',
-  zIndex: 1
+    position: 'relative',
+    zIndex: 1
 }
 
 const OTHER_CONTENT_STYLES = {
-  position: 'relative',
-  zIndex: 2,
-  backgroundColor: 'red',
-  padding: '10px'
+    position: 'relative',
+    zIndex: 2,
+    backgroundColor: 'red',
+    padding: '10px'
 }
 
 export default function JobApps(props) {
@@ -76,12 +76,9 @@ export default function JobApps(props) {
                     </tbody>
                 </Table>
             </Card.Body>
+        <Card.Footer className="d-flex justify-content-between align-items-center" />
+    </Card>
 
-            <Card.Footer className="d-flex justify-content-between align-items-center" />
-        </Card>
-        <form> 
-        <button onClick={() => history.push('/dashboard')}>Dashboard</button>        
-        </form>
         </>
     );
 }
