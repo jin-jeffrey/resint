@@ -76,9 +76,8 @@ export default function JobApps(props) {
                     </tbody>
                 </Table>
             </Card.Body>
-            <Card.Footer className="d-flex justify-content-between align-items-center" />
-        </Card>
-
+        <Card.Footer className="d-flex justify-content-between align-items-center" />
+    </Card>
         </>
     )
 }
