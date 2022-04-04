@@ -23,14 +23,14 @@ function Login() {
   return (
     <div className="login">
       <div className="navbar">
-        <img src='' className="logo"></img>
+        <p className="logo"></p>
         <ul>
           <li><a href="#">About us</a></li>
           <li><a href="#">Meet the team</a></li>
         </ul>
       </div>
       <div className="content">
-        <h1>RESINT!</h1> <h1>Your guide to <span className="text">landing</span> your <span className="text">dream internship.</span></h1>
+        <h1>RESINT! <br></br>Your guide to <span className="text">landing</span> your <span className="text">dream internship.</span></h1>
         <br></br>
         <div>
           <button className="login__btn" onClick={signInWithGoogle}><span className="login_btn_span"></span> Get Started </button>

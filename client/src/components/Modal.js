@@ -40,7 +40,7 @@ export default function Modal({ open, children, onClose }) {
     
   var config = {
       method: 'post',
-      url: 'http://localhost:8000/addApp',
+      url: 'https://resint.herokuapp.com/addApp',
       headers: { 
         'Content-Type': 'application/json'
       },

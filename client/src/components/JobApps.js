@@ -30,7 +30,7 @@ export default function JobApps(props) {
 
         var config = {
             method: 'post',
-            url: 'http://localhost:8000/addApp',
+            url: 'https://resint.herokuapp.com/addApp',
             headers: {
                 'Content-Type': 'application/json'
             },
