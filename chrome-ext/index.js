@@ -6,25 +6,19 @@ function saveApplication(e) {
 	e.preventDefault();
 	var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/json");
-	// CompanyName: req.body.CompanyName,
-	// JobTitle: req.body.JobTitle,
-	// CompanyDescription: req.body.CompanyDescription,
-	// Date: req.body.Date,
-	// Uid: req.body.Uid,
-	// JobLocation: req.body.JobLocation,
-	// Notes: req.body.Notes,
-	// Link: req.body.Link,
-	// Status: req.body.Status
 	chrome.storage.sync.get(['uid'], function(data) {
 		const uid = data.uid;
 		var raw = JSON.stringify({
-			"CompanyName": document.getElementById('company').value,
-			"JobTitle": document.getElementById('position').value,
-			"CompanyDescription": document.getElementById('description').value,
-			"Date": document.getElementById('date').value,
+			"CompanyName": document.getElementById('CompanyName').value,
+			"JobTitle": document.getElementById('JobTitle').value,
+			"CompanyDescription": document.getElementById('CompanyDescription').value,
+			"Date": document.getElementById('Date').value,
 			"Uid": uid,
+			"Status": document.getElementById('Status').value,
+			"JobLocation": document.getElementById('JobLocation').value,
+			"Notes": document.getElementById('Notes').value,
+			"Link": document.getElementById('Link').value
 		});
-	
 		var requestOptions = {
 			method: 'POST',
 			headers: myHeaders,
@@ -32,7 +26,7 @@ function saveApplication(e) {
 			redirect: 'manual'
 		};
 	
-		fetch("http://localhost:8000/addApp", requestOptions)
+		fetch("https://resint.herokuapp.com/addApp", requestOptions)
 		.then(response => response.text())
 		.then(result => console.log(result))
 		.catch(error => console.log('error', error));
@@ -53,7 +47,7 @@ chrome.storage.sync.get(['uid'], (data) => {
 });
 
 
-document.getElementById('date').valueAsDate = new Date();
+document.getElementById('Date').valueAsDate = new Date();
 const logout = document.getElementById('logout');
 logout.addEventListener("click", signOut);
 const form = document.getElementById('add-form');

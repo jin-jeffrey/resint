@@ -147,7 +147,7 @@ app.get('/updateApp/:appId',
     }
 )
 
-app.get('/getCode', 
+app.post('/getCode', 
     body('uid').isLength({
         min: 1
     }),
