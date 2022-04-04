@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Card, Image, Button, } from 'react-bootstrap';
 import history from '../history';
 import Modal from './Modal'
 import axios from 'axios';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import UserApplications from './UserApplications';
 
 const BUTTON_WRAPPER_STYLES = {
     position: 'relative',
@@ -21,13 +22,68 @@ const OTHER_CONTENT_STYLES = {
 export default function JobApps(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
+    const [applications, setApplications] = useState([])
+
+    function getCurrentDate(separator=' '){
+        const months = ["January", "February", "March",
+                        "April", "May", "June", "July",
+                        "August", "September", "October",
+                        "November", "December"]
+
+        let newDate = new Date()
+        let date = newDate.getDate();
+        let month = months[newDate.getMonth()];
+        let year = newDate.getFullYear();
+        return `${separator}${month<10?`0${month}`:`${month}`}${separator}${date}, ${year}`
+    }
+
+    const getApplications = () => {
+        {applications.map(( listValue, index ) => {
+            return (
+                <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{listValue.CompanyName}</td>
+                <td>{listValue.CompanyDescription}</td>
+                <td>{listValue.Notes}</td>
+                <td>{listValue.JobTitle}</td>
+                <td>{listValue.JobLocation}</td>
+                <td>{listValue.Date}</td>
+                <td>{listValue.Status}</td>
+                <td>{listValue.Link}</td>
+                </tr>
+            );
+            })}
+    }
+
+    useEffect(() => {
+        if(user){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({
+                "uid": user?.uid
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("https://resint.herokuapp.com/getApps", requestOptions)
+                .then(response => response.json())
+                .then(result => setApplications(result) )
+                .catch(error => console.log('error', error));
+        }
+        console.log('update')
+    }, [user, isOpen])
 
     return (
         <>
         <Card style={{ margin: 24 }}>
             <Card.Header className="d-flex justify-content-between align-items-center">
                 <div className="align-items-center" style={{ marginRight: 8 }}>
-                    <p style={{ marginTop: 8, fontSize: 40, color: '#b2a4d4' }}>Today is February 27, 2022</p>
+                    <p style={{ marginTop: 8, fontSize: 40, color: '#b2a4d4' }}>Today is {getCurrentDate()}</p>
                 </div>
                 <Button onClick={() => setIsOpen(true)} style={{ backgroundColor: '#b2a4d4', borderWidth: 0, }}>Add Job</Button>
             </Card.Header>
@@ -42,37 +98,13 @@ export default function JobApps(props) {
                             <th>Additional Notes</th>
                             <th>Job Title</th>
                             <th>Location</th>
-                            <th>On-site/Remote</th>
                             <th>Date Applied</th>
                             <th>Status</th>
                             <th>Link</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Goldman Sachs</td>
-                            <td>Investment Banking Company</td>
-                            <td>N/A</td>
-                            <td>Software Engineer</td>
-                            <td>Shanghai, China</td>
-                            <td>On-site</td>
-                            <td>02/26/22</td>
-                            <td>Applied</td>
-                            <td><a href="https://www.goldmansachs.com/"><span>https://www.goldmansachs.com/</span></a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Google</td>
-                            <td>FAANG</td>
-                            <td>N/A</td>
-                            <td>Data Scientist</td>
-                            <td>Mountain View, CA</td>
-                            <td>On-site</td>
-                            <td>02/27/22</td>
-                            <td>Applied</td>
-                            <td><a href="https://careers.google.com/"><span>https://careers.google.com/</span></a></td>
-                        </tr>
+                    {applications.length>0 ? <UserApplications apps={applications} />: null}
                     </tbody>
                 </Table>
             </Card.Body>

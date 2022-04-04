@@ -23,7 +23,7 @@ const db = getFirestore();
 
 // ROUTES
 // get apps by user
-app.get('/getApps', 
+app.post('/getApps', 
     body('uid').isLength({
         min: 1
     }),
@@ -37,7 +37,7 @@ app.get('/getApps',
             })
         }
         const appsRef = db.collection('apps');
-        const queryRef = await appsRef.where('uid', '==', req.body.uid).get();
+        const queryRef = await appsRef.where('Uid', '==', req.body.uid).get();
         const appsList = [];
         queryRef.forEach(doc => {
             appsList.push(doc.data());
@@ -227,6 +227,6 @@ app.post('/getUID',
     }
 });
 
-app.listen(process.env.PORT, () =>
-    console.log(`Resint backend listening on ${process.env.PORT}`),
+app.listen(3001, () =>
+    console.log(`Resint backend listening on ${3001}`),
 );
