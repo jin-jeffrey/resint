@@ -3,6 +3,8 @@ import { Table, Card, Image, Button, } from 'react-bootstrap';
 import history from '../history';
 import Modal from './Modal'
 import axios from 'axios';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
 
 const BUTTON_WRAPPER_STYLES = {
     position: 'relative',
@@ -18,47 +20,18 @@ const OTHER_CONTENT_STYLES = {
 
 export default function JobApps(props) {
     const [isOpen, setIsOpen] = useState(false);
-
-    function submitApplication() {
-        var data = JSON.stringify({
-            "company": "Testing",
-            "position": "test",
-            "description": "cool description",
-            "date_submitted": "2022-10-20",
-            "user_id": "OSjGSxSa"
-        });
-
-        var config = {
-            method: 'post',
-            url: 'https://resint.herokuapp.com/addApp',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: data
-        };
-
-        axios(config)
-            .then(function (response) {
-                console.log(JSON.stringify(response.data));
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+    const [user, loading, error] = useAuthState(auth);
 
     return (
-        <>
+        <div>
             <Card style={{ margin: 24 }}>
                 <Card.Header className="d-flex justify-content-between align-items-center">
                     <div className="align-items-center" style={{ marginRight: 8 }}>
                         <p style={{ marginTop: 8, fontSize: 40, color: '#b2a4d4' }}>Today is February 27, 2022</p>
                     </div>
-                    <form>
-                        <button onClick={() => history.push('/dashboard')} style={{ backgroundColor: '#b2a4d4', color: 'white', borderWidth: 0, }}>Dashboard</button>
-                    </form>
                     <Button onClick={() => setIsOpen(true)} style={{ backgroundColor: '#b2a4d4', borderWidth: 0, }}>Add Job</Button>
                 </Card.Header>
-                <Modal open={isOpen} onClose={() => setIsOpen(false)} />
+                <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} />
                 <Card.Body>
                     <Table responsive>
                         <thead>
@@ -103,10 +76,7 @@ export default function JobApps(props) {
                         </tbody>
                     </Table>
                 </Card.Body>
-
-                <Card.Footer className="d-flex justify-content-between align-items-center" />
             </Card>
-
-        </>
+        </div>
     );
 }

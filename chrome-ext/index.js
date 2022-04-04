@@ -6,17 +6,19 @@ function saveApplication(e) {
 	e.preventDefault();
 	var myHeaders = new Headers();
 	myHeaders.append("Content-Type", "application/json");
-
 	chrome.storage.sync.get(['uid'], function(data) {
 		const uid = data.uid;
 		var raw = JSON.stringify({
-			"company": document.getElementById('company').value,
-			"position": document.getElementById('position').value,
-			"description": document.getElementById('description').value,
-			"date_submitted": document.getElementById('date').value,
-			"uid": uid
+			"CompanyName": document.getElementById('CompanyName').value,
+			"JobTitle": document.getElementById('JobTitle').value,
+			"CompanyDescription": document.getElementById('CompanyDescription').value,
+			"Date": document.getElementById('Date').value,
+			"Uid": uid,
+			"Status": document.getElementById('Status').value,
+			"JobLocation": document.getElementById('JobLocation').value,
+			"Notes": document.getElementById('Notes').value,
+			"Link": document.getElementById('Link').value
 		});
-	
 		var requestOptions = {
 			method: 'POST',
 			headers: myHeaders,
@@ -24,7 +26,7 @@ function saveApplication(e) {
 			redirect: 'manual'
 		};
 	
-		fetch("http://localhost:8000/addApp", requestOptions)
+		fetch("https://resint.herokuapp.com/addApp", requestOptions)
 		.then(response => response.text())
 		.then(result => console.log(result))
 		.catch(error => console.log('error', error));
@@ -44,6 +46,8 @@ chrome.storage.sync.get(['uid'], (data) => {
 	}
 });
 
+
+document.getElementById('Date').valueAsDate = new Date();
 const logout = document.getElementById('logout');
 logout.addEventListener("click", signOut);
 const form = document.getElementById('add-form');

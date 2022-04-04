@@ -7,6 +7,18 @@
     },
     "permissions": ["storage", "activeTab", "scripting"],
     "action": {
-        "default_popup": "login.html"
+        "default_popup": "login.html",
+        "default_icon": {
+            "16": "/images/leaf_16.png",
+            "32": "/images/leaf_32.png",
+            "48": "/images/leaf_48.png",
+            "128": "/images/leaf_128.png"
+          }
+    },
+    "icons": {
+      "16": "/images/leaf_16.png",
+      "32": "/images/leaf_32.png",
+      "48": "/images/leaf_48.png",
+      "128": "/images/leaf_128.png"
     }
 }

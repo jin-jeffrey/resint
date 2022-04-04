@@ -25,9 +25,13 @@ function Dashboard() {
   return (
     <div className="dashboard">
       < SideNavBar />
-      <div className="navbar">
-        <img src={logo} className="logo"></img>
+      <div>
+        <br></br>
+        <br></br>
       </div>
+      {/* <div className="navbar">
+        <img src={logo} className="logo"></img>
+      </div> */}
 
       <div className="row">
         <div className="col">
