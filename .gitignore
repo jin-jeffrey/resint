@@ -7,4 +7,5 @@ client/.env
 client/src/firebase.js
 server/firebaseConfig.js
 server/.env
+server/scrape/serviceAccountKey.json
 node_modules
