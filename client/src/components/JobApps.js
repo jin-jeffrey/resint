@@ -83,7 +83,6 @@ export default function JobApps(props) {
                             <th>Location</th>
                             <th>Date Applied</th>
                             <th>Status</th>
-                            <th>Link</th>
                         </tr>
                     </thead>
                     <tbody>

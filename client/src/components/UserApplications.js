@@ -4,14 +4,13 @@ function UserApplications({apps}) {
         return (
             <tr key={index}>
             <td>{index + 1}</td>
-            <td>{listValue.CompanyName}</td>
-            <td>{listValue.CompanyDescription}</td>
-            <td>{listValue.Notes}</td>
+            <td><a href={listValue.Link} target="_blank">{listValue.CompanyName}</a></td>
             <td>{listValue.JobTitle}</td>
             <td>{listValue.JobLocation}</td>
+            <td>{listValue.CompanyDescription}</td>
+            <td>{listValue.Notes}</td>
             <td>{listValue.Date}</td>
             <td>{listValue.Status}</td>
-            <td><a href={listValue.Link}>Link</a></td>
             </tr>
         );
         })

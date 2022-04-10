@@ -98,7 +98,7 @@ app.post('/deleteApp',
             // check if document id matches user id
             const docRef = await db.collection('apps').doc(req.body.document_id).get();
             const docData = docRef.data();
-            if (docData.uid == req.body.uid) {
+            if (docData.Uid == req.body.uid) {
                 // delete
                 await db.collection('apps').doc(req.body.document_id).delete();
                 return res.status(200).json({
@@ -162,7 +162,7 @@ app.get('/getCode',
         }
         // check if user has a 16 word string, if not then create it
         const usersRef = db.collection('users');
-        const snapshot = await usersRef.where('uid', '==', req.body.uid).get();
+        const snapshot = await usersRef.where('Uid', '==', req.body.uid).get();
         const user = snapshot.docs[0];
         if (snapshot.empty) {
             res.status(400).send("UID does not exist");
@@ -227,6 +227,6 @@ app.post('/getUID',
     }
 });
 
-app.listen(3001, () =>
-    console.log(`Resint backend listening on ${3001}`),
+app.listen(process.env.PORT || 3001, () =>
+    console.log(`Resint backend listening on ${process.env.PORT} or 3001`),
 );
