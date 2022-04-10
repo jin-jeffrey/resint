@@ -31,14 +31,14 @@ function Dashboard() {
 
       <div className="row">
         <div className="col">
-          <img src={status_img} onClick="myAudioFunction('music/Spirited-Away-(JKuch-Edit).mp3');"></img>
+          <img src={status_img} />
           <div className="bottom-left">
             <h1>15</h1>
             <h2>Applied</h2>
           </div>
         </div>
         <div className="col">
-          <img src={status_img} onClick="myAudioFunction('music/Spirited-Away-(JKuch-Edit).mp3');"></img>
+          <img src={status_img} />
           <div className="bottom-left">
             <h1>15</h1>
             <h2>Interviewed</h2>

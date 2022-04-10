@@ -49,7 +49,7 @@ function SideNavBar() {
 
     return (
 
-        <body>
+        <>
             <div className="sidenavbar">
                 <div className="wrapper">
                     <div className="sidebar">
@@ -60,13 +60,13 @@ function SideNavBar() {
                         <br></br>
                         <ul>
                             <li>
-                                <a href="#" className="active">
+                                <a href="/dashboard" className="active">
                                     <span className="icon"><i className="fas fa-desktop"></i></span>
                                     <span onClick={isCurrentPath('/dashboard')} className="item">Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/resint">
                                     <span className="icon"><i className="fas fa-user-friends"></i></span>
                                     <span onClick={() => history.push('/resint')} className="item">Applications</span>
                                 </a>
@@ -92,7 +92,7 @@ function SideNavBar() {
 
             </div >
 
-        </body>
+        </>
 
 
     );

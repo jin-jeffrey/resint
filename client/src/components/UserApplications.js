@@ -1,5 +1,5 @@
 function UserApplications({apps}) {
-    
+    apps.sort((a, b) => (a.CompanyName > b.CompanyName) ? 1 : -1)
     const userApps = apps.map(( listValue, index ) => {
         return (
             <tr key={index}>
@@ -11,7 +11,7 @@ function UserApplications({apps}) {
             <td>{listValue.JobLocation}</td>
             <td>{listValue.Date}</td>
             <td>{listValue.Status}</td>
-            <td>{listValue.Link}</td>
+            <td><a href={listValue.Link}>Link</a></td>
             </tr>
         );
         })

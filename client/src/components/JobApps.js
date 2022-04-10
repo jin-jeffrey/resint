@@ -37,23 +37,6 @@ export default function JobApps(props) {
         return `${separator}${month<10?`0${month}`:`${month}`}${separator}${date}, ${year}`
     }
 
-    const getApplications = () => {
-        {applications.map(( listValue, index ) => {
-            return (
-                <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{listValue.CompanyName}</td>
-                <td>{listValue.CompanyDescription}</td>
-                <td>{listValue.Notes}</td>
-                <td>{listValue.JobTitle}</td>
-                <td>{listValue.JobLocation}</td>
-                <td>{listValue.Date}</td>
-                <td>{listValue.Status}</td>
-                <td>{listValue.Link}</td>
-                </tr>
-            );
-            })}
-    }
 
     useEffect(() => {
         if(user){
