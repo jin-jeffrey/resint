@@ -43,7 +43,7 @@ export default function JobApps(props) {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             var raw = JSON.stringify({
-                "uid": user?.uid
+                "Uid": user?.uid
             });
 
             var requestOptions = {
