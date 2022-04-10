@@ -9,7 +9,7 @@ const MODAL_STYLES = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   backgroundColor: '#FFF',
-  padding: '50px',
+  padding: '30px',
   zIndex: 1000
 }
 
@@ -85,16 +85,6 @@ export default function Modal({ open, userid, onClose }) {
 
           <label htmlFor="JobLocation"> Job Location </label>
           <input name="JobLocation" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
-          
-          <label htmlFor="Check"> Position Remote/On-Site? </label> <br/>
-          <div className="check" > 
-              <input name="inperson-check" type="checkbox" /> <label htmlFor="inperson">In-Person</label> <br/>
-              <input name="remote-check" type="checkbox" /> <label htmlFor="remote">Remote</label> <br/>
-          </div>
-          <div className="check" > 
-            <input name="optional" type="checkbox" /> <label htmlFor="optional">Optional</label> <br/>
-            <input name="undetermined" type="checkbox" /> <label htmlFor="undetermined">Undetermined</label><br/><br/>
-          </div><br/><br/>
 
           <label htmlFor="Date" >When did you apply?</label>
           <input name="Date" type="date" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
