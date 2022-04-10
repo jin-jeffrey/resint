@@ -43,7 +43,7 @@ export default function JobApps(props) {
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
             var raw = JSON.stringify({
-                "uid": user?.uid
+                "Uid": user?.uid
             });
 
             var requestOptions = {
@@ -77,10 +77,10 @@ export default function JobApps(props) {
                         <tr>
                             <th>#</th>
                             <th>Company Name</th>
-                            <th>Company Description</th>
-                            <th>Additional Notes</th>
                             <th>Job Title</th>
                             <th>Location</th>
+                            <th>Company Description</th>
+                            <th>Additional Notes</th>
                             <th>Date Applied</th>
                             <th>Status</th>
                         </tr>
