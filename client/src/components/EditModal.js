@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
 import ReactDom from 'react-dom'
 import './Modal.css'
 
@@ -24,7 +24,11 @@ const OVERLAY_STYLES = {
 }
 
 export default function EditModal({ open, userid, app, onClose}) {
-  const [data, setData] = useState(app)
+  const [data, setData] = useState(app);
+  useEffect(() => {
+    setData(app);
+  });
+
   if (!open) return null
 
   const handleSubmit = (event) => {
