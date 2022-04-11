@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from "react";
+import React, { useState } from 'react'
 import ReactDom from 'react-dom'
 import './Modal.css'
 
@@ -24,11 +24,7 @@ const OVERLAY_STYLES = {
 }
 
 export default function EditModal({ open, userid, app, onClose}) {
-  const [data, setData] = useState(app);
-  useEffect(() => {
-    setData(app);
-  });
-
+  const [data, setData] = useState(app)
   if (!open) return null
 
   const handleSubmit = (event) => {
@@ -52,7 +48,6 @@ export default function EditModal({ open, userid, app, onClose}) {
     fetch("https://resint.herokuapp.com/updateApp", requestOptions)
         .then(response => response.json())
         .then(result => {
-            console.log("ok")
         })
         .catch(error => console.log('error', error));
     onClose();
@@ -81,13 +76,13 @@ export default function EditModal({ open, userid, app, onClose}) {
         <form>
           <label htmlFor="CompanyName"> Company Name </label>
           <input name="CompanyName" onChange={handleChange} defaultValue={data.CompanyName} style={{width: "100%"}}/><br/><br/>
-          
+
           <label htmlFor="CompanyDescription"> Company Description </label>
           <input name="CompanyDescription" onChange={handleChange} defaultValue={data.CompanyDescription} style={{width: "100%", height: "80px"}} /><br/><br/>
-          
+
           <label htmlFor="Notes"> Notes </label>
           <input name="Notes" onChange={handleChange} defaultValue={data.Notes} style={{width: "100%", height: "50px"}} /><br/><br/>
-          
+
           <label htmlFor="JobTitle"> Job Title </label>
           <input name="JobTitle" onChange={handleChange} defaultValue={data.JobTitle} style={{width: "100%"}}/><br/><br/>
 
@@ -106,7 +101,7 @@ export default function EditModal({ open, userid, app, onClose}) {
                 <option value="Offer">Offer/Accepted Offer</option>
                 <option value="NoOffer">No Offer</option>
             </select> <br/><br/>
-          
+
           <label htmlFor="Link" >Application URL</label>
           <input name="Link" type="url" onChange={handleChange} defaultValue={data.Link} style={{width: "100%"}}/> 
         </form> 

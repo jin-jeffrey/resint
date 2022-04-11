@@ -7,13 +7,12 @@ import EditModal from './EditModal'
 function UserApplications({apps}) {
     const [user, loading, error] = useAuthState(auth);
     const [isOpen, setIsOpen] = useState(false);
-    const [app, setApp] = useState({});
     const navigate = useNavigate();
     useEffect(() => {
         if (loading) return;
         if (!user) return navigate("/"); // "/" is the login page
 
-    }, [user, loading, isOpen, app]);
+    }, [user, loading, isOpen]);
 
     apps.sort((a, b) => (a.CompanyName > b.CompanyName) ? 1 : -1)
 
@@ -42,12 +41,6 @@ function UserApplications({apps}) {
             .catch(error => console.log('error', error));
     }
 
-    function openEdit(e, listValue) {
-        e.preventDefault();
-        setApp(listValue);
-        setIsOpen(true);
-    }
-
     const userApps = apps.map(( listValue, index ) => {
         return (
             <>
@@ -60,10 +53,10 @@ function UserApplications({apps}) {
             <td>{listValue.Notes}</td>
             <td>{listValue.Date}</td>
             <td>{listValue.Status}</td>
-            <td><button onClick={(event) => openEdit(event, listValue)}>Edit</button></td>
+            <td><button onClick={() => setIsOpen(true)}>Edit</button></td>
             <td><button onClick={(event) => deleteApplication(event, listValue.did, index)}>Delete</button></td>
             </tr>
-            <EditModal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} app={app}/>
+            <EditModal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} app={listValue}/>
             </>
         );
         })
