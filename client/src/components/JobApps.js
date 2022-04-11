@@ -55,10 +55,9 @@ export default function JobApps(props) {
 
             fetch("https://resint.herokuapp.com/getApps", requestOptions)
                 .then(response => response.json())
-                .then(result => setApplications(result) )
+                .then(result => setApplications(result))
                 .catch(error => console.log('error', error));
-        }
-        console.log('update')
+            }
     }, [user, isOpen])
 
     return (
@@ -83,6 +82,8 @@ export default function JobApps(props) {
                             <th>Additional Notes</th>
                             <th>Date Applied</th>
                             <th>Status</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
