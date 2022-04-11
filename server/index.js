@@ -54,7 +54,7 @@ app.post('/getApps',
 app.post('/addApp', 
     body('CompanyName').not().isEmpty(),
     body('JobTitle').not().isEmpty(),
-    // body('Uid').not().isEmpty(),
+    body('Uid').not().isEmpty(),
     body('Status').not().isEmpty(),
     async (req, res) => {
     console.log(req.body)
@@ -86,7 +86,7 @@ app.post('/addApp',
 
 // delete app
 app.post('/deleteApp',
-    body('document_id').not().isEmpty(),
+    body('did').not().isEmpty(),
     body('Uid').not().isEmpty(),
     async (req, res) => {
         try {
@@ -98,23 +98,25 @@ app.post('/deleteApp',
                 })
             }
             // check if document id matches user id
-            const docRef = await db.collection('apps').doc(req.body.document_id).get();
+            const docRef = await db.collection('apps').doc(req.body.did).get();
             const docData = docRef.data();
             if (docData.Uid == req.body.Uid) {
                 // delete
-                await db.collection('apps').doc(req.body.document_id).delete();
+                await db.collection('apps').doc(req.body.did).delete();
                 return res.status(200).json({
                     success: true
                 })
             }
-            console.log(docRef.data());
+            res.status(400).send("This document does not belong to you");
         } catch (e) {
             console.log(e);
         }
     }
 )
 
-app.get('/updateApp/:appId',
+app.post('/updateApp',
+    body('did').not().isEmpty(),
+    body('Uid').not().isEmpty(),
     async (req, res) => {
         try {
             const errors = validationResult(req);
@@ -125,24 +127,18 @@ app.get('/updateApp/:appId',
                 })
             }
             // check if document id matches id passed in as param
-            const docRef = await db.collection('apps').get();
-            const appId = req.params.appId;
-
-            for (let doc of docRef.docs) {
-                if (doc.id === appId) {
-                    console.log(doc.id, appId, doc, 'found it')
-                }
+            const docRef = db.collection('apps').doc(req.body.did);
+            const docInfo = await docRef.get();
+            const docData = docInfo.data();
+            if (docData.Uid = req.body.Uid) {
+                // edit
+                const result = await docRef.set(req.body.values)
+                return res.status(200).json({
+                    success: true
+                })
+            } else {
+                return res.status(400).send("This document does not belong to you");
             }
-
-            // if (docData.Uid == req.body.uid) {
-            //     // delete
-            //     await db.collection('apps').doc(req.body.document_id).delete();
-            //     return res.status(200).json({
-            //         success: true
-            //     })
-            // }
-            // console.log(docRef, docData, req.params);
-            // console.log(docRef.data());
         } catch (e) {
             console.log(e);
         }
