@@ -24,7 +24,7 @@ const db = getFirestore();
 // ROUTES
 // get apps by user
 app.post('/getApps', 
-    body('uid').isLength({
+    body('Uid').isLength({
         min: 1
     }),
     async (req, res) => {
@@ -37,10 +37,12 @@ app.post('/getApps',
             })
         }
         const appsRef = db.collection('apps');
-        const queryRef = await appsRef.where('Uid', '==', req.body.uid).get();
+        const queryRef = await appsRef.where('Uid', '==', req.body.Uid).get();
         const appsList = [];
         queryRef.forEach(doc => {
-            appsList.push(doc.data());
+            let temp = doc.data();
+            temp['did'] = doc.id;
+            appsList.push(temp);
         });
         res.status(200).send(appsList);
     } catch (e) {
@@ -52,7 +54,7 @@ app.post('/getApps',
 app.post('/addApp', 
     body('CompanyName').not().isEmpty(),
     body('JobTitle').not().isEmpty(),
-    body('Uid').not().isEmpty(),
+    // body('Uid').not().isEmpty(),
     body('Status').not().isEmpty(),
     async (req, res) => {
     console.log(req.body)
@@ -85,7 +87,7 @@ app.post('/addApp',
 // delete app
 app.post('/deleteApp',
     body('document_id').not().isEmpty(),
-    body('uid').not().isEmpty(),
+    body('Uid').not().isEmpty(),
     async (req, res) => {
         try {
             const errors = validationResult(req);
@@ -98,7 +100,7 @@ app.post('/deleteApp',
             // check if document id matches user id
             const docRef = await db.collection('apps').doc(req.body.document_id).get();
             const docData = docRef.data();
-            if (docData.Uid == req.body.uid) {
+            if (docData.Uid == req.body.Uid) {
                 // delete
                 await db.collection('apps').doc(req.body.document_id).delete();
                 return res.status(200).json({
@@ -132,7 +134,7 @@ app.get('/updateApp/:appId',
                 }
             }
 
-            // if (docData.uid == req.body.uid) {
+            // if (docData.Uid == req.body.uid) {
             //     // delete
             //     await db.collection('apps').doc(req.body.document_id).delete();
             //     return res.status(200).json({
@@ -148,7 +150,7 @@ app.get('/updateApp/:appId',
 )
 
 app.post('/getCode', 
-    body('uid').isLength({
+    body('Uid').isLength({
         min: 1
     }),
     async (req, res) => {
@@ -162,10 +164,10 @@ app.post('/getCode',
         }
         // check if user has a 16 word string, if not then create it
         const usersRef = db.collection('users');
-        const snapshot = await usersRef.where('Uid', '==', req.body.uid).get();
+        const snapshot = await usersRef.where('Uid', '==', req.body.Uid).get();
         const user = snapshot.docs[0];
         if (snapshot.empty) {
-            res.status(400).send("UID does not exist");
+            res.status(400).send("Uid does not exist");
         } else {
             var key = user.data().key;
             if (key == null) {
@@ -194,7 +196,7 @@ app.post('/getCode',
     }
 });
 
-app.post('/getUID', 
+app.post('/getUid', 
     body('key').isLength({
         min: 1
     }),
@@ -215,10 +217,10 @@ app.post('/getUID',
             console.log('did not');
             res.status(400).send("Key does not exist");
         } else {
-            console.log('got uid');
+            console.log('got Uid');
             return res.status(200).json({
                 success: true,
-                uid: user.data().uid
+                Uid: user.data().Uid
             })
         }
     } catch (e) {
@@ -227,6 +229,6 @@ app.post('/getUID',
     }
 });
 
-app.listen(process.env.PORT || 3001, () =>
-    console.log(`Resint backend listening on ${process.env.PORT} or 3001`),
+app.listen(process.env.PORT, () =>
+    console.log(`Resint backend listening on ${process.env.PORT}`),
 );
