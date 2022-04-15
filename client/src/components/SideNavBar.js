@@ -28,7 +28,7 @@ function SideNavBar() {
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            "uid": "MWWc007mSUXoAQGq8zH98CPFeR62"
+            "Uid": user?.uid
         });
 
         var requestOptions = {
@@ -48,7 +48,6 @@ function SideNavBar() {
     }
 
     return (
-
         <>
             <div className="sidenavbar">
                 <div className="wrapper">
@@ -72,14 +71,13 @@ function SideNavBar() {
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a>
                                     <span className="icon"><i className="fas fa-tachometer-alt"></i></span>
                                     <span onClick={getCode} className="item">Get code!</span>
-
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a>
                                     <span className="icon"><i className="fas fa-database"></i></span>
                                     <span onClick={logout} className="item">Log Out</span>
                                 </a>
