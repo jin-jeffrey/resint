@@ -23,8 +23,9 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-export default function EditModal({ open, userid, app, onClose}) {
+export default function EditModal({ open, userid, app, onClose, count}) {
   const [data, setData] = useState(app)
+  console.log(count);
   if (!open) return null
 
   const handleSubmit = (event) => {
