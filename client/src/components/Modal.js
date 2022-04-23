@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDom from 'react-dom'
 import './Modal.css'
 
@@ -25,11 +25,17 @@ const OVERLAY_STYLES = {
 
 export default function Modal({ open, userid, onClose }) {
   const [data, setData] = useState()
+  const [errorMessage, setErrorMessage] = useState();
   if (!open) return null
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(data)
+
+    if (data.Status == null) {
+      data.Status = "Applied";
+    }
+
+    console.log(data);
     
     var config = {
         method: 'post',
@@ -42,12 +48,15 @@ export default function Modal({ open, userid, onClose }) {
 
     axios(config)
     .then(function (response) {
+        console.log("worked");
         console.log(JSON.stringify(response.data));
+        setErrorMessage("")
+        onClose();
     })
     .catch(function (error) {
+        setErrorMessage("Please make sure all fields are selected!")
         console.log(error);
     });
-    onClose();
 }
 
   const handleChange = (event) => {
@@ -71,25 +80,25 @@ export default function Modal({ open, userid, onClose }) {
 
         <h1>New Application Form</h1><br/>
         <form>
-          <label htmlFor="CompanyName"> Company Name </label>
+          <label htmlFor="CompanyName"> Company Name <span className="required">*</span></label>
           <input name="CompanyName" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
           
-          <label htmlFor="CompanyDescription"> Company Description </label>
+          <label htmlFor="CompanyDescription"> Company Description <span className="required">*</span></label>
           <input name="CompanyDescription" onChange={handleChange} style={{width: "100%", height: "80px"}} /><br/><br/>
           
-          <label htmlFor="Notes"> Notes </label>
+          <label htmlFor="Notes"> Notes <span className="required">*</span></label>
           <input name="Notes" onChange={handleChange} style={{width: "100%", height: "50px"}} /><br/><br/>
           
-          <label htmlFor="JobTitle"> Job Title </label>
+          <label htmlFor="JobTitle"> Job Title <span className="required">*</span></label>
           <input name="JobTitle" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
 
-          <label htmlFor="JobLocation"> Job Location </label>
+          <label htmlFor="JobLocation"> Job Location <span className="required">*</span></label>
           <input name="JobLocation" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
 
-          <label htmlFor="Date" >When did you apply?</label>
+          <label htmlFor="Date" >When did you apply? <span className="required">*</span></label>
           <input name="Date" type="date" onChange={handleChange} style={{width: "100%"}}/><br/><br/>
 
-          <label htmlFor="Status">What is your status?</label> < br/>
+          <label htmlFor="Status">What is your status? <span className="required">*</span></label> < br/>
             <select name="Status" className="status" onChange={handleChange} value={data?.Status}>
                 <option value="Applied">Applied</option>
                 <option value="Referral">Applied with Referral</option>
@@ -99,9 +108,10 @@ export default function Modal({ open, userid, onClose }) {
                 <option value="NoOffer">No Offer</option>
             </select> <br/><br/>
           
-          <label htmlFor="Link" >Application URL</label>
-          <input name="Link" type="url" onChange={handleChange} style={{width: "100%"}}/> 
-        </form> 
+          <label htmlFor="Link" >Application URL <span className="required">*</span></label>
+          <input name="Link" type="url" onChange={handleChange} style={{width: "100%"}}/>
+          <h5 className="error-msg">{errorMessage}</h5>
+        </form>
         <br/><br/>
 
         <button className="buttonForm" onClick={onClose} style={{backgroundColor: 'red'}} >Cancel</button>

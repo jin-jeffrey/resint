@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, logout } from "../firebase";
-import EditModal from './EditModal'
+import EditModal from './EditModal';
+import editbutton from './icons/edit.png';
+import deletebutton from './icons/delete.png';
+import './UserApplications.css';
 
 function UserApplications({apps}) {
     const [user, loading, error] = useAuthState(auth);
@@ -55,12 +58,12 @@ function UserApplications({apps}) {
             <td><a href={listValue.Link} target="_blank">{listValue.CompanyName}</a></td>
             <td>{listValue.JobTitle}</td>
             <td>{listValue.JobLocation}</td>
-            <td>{listValue.CompanyDescription}</td>
+            <td className="proj-desc">{listValue.CompanyDescription}</td>
             <td>{listValue.Notes}</td>
-            <td>{listValue.Date}</td>
+            <td>{listValue.Date.substring(0,10)}</td>
             <td>{listValue.Status}</td>
-            <td><button onClick={(event) => opened(event, listValue)}>Edit</button></td>
-            <td><button onClick={(event) => deleteApplication(event, listValue.did, index)}>Delete</button></td>
+            <td><button onClick={(event) => opened(event, listValue)}><img src={editbutton}/></button></td>
+            <td><button onClick={(event) => deleteApplication(event, listValue.did, index)}><img src={deletebutton}/></button></td>
             </tr>
             {isOpen && <EditModal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} app={app}/>}
             </>

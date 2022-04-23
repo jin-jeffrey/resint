@@ -6,6 +6,8 @@ import axios from 'axios';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 import UserApplications from './UserApplications';
+import addbutton from './icons/add.png';
+import './JobApps.css';
 
 const BUTTON_WRAPPER_STYLES = {
     position: 'relative',
@@ -23,20 +25,6 @@ export default function JobApps(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [user, loading, error] = useAuthState(auth);
     const [applications, setApplications] = useState([])
-
-    function getCurrentDate(separator=' '){
-        const months = ["January", "February", "March",
-                        "April", "May", "June", "July",
-                        "August", "September", "October",
-                        "November", "December"]
-
-        let newDate = new Date()
-        let date = newDate.getDate();
-        let month = months[newDate.getMonth()];
-        let year = newDate.getFullYear();
-        return `${separator}${month<10?`0${month}`:`${month}`}${separator}${date}, ${year}`
-    }
-
 
     useEffect(() => {
         if(user){
@@ -60,14 +48,20 @@ export default function JobApps(props) {
             }
     }, [user, isOpen])
 
+    function getQuote() {
+        // temporary list
+        let quotes = ["have a great day!", "keep your head up!", "you're doing fantastic", "never give up!"]
+        return quotes[Math.floor(Math.random() * quotes.length)]
+    }
+
     return (
         <>
         <Card style={{ margin: 24 }}>
             <Card.Header className="d-flex justify-content-between align-items-center">
                 <div className="align-items-center" style={{ marginRight: 8 }}>
-                    <p style={{ marginTop: 8, fontSize: 40, color: '#b2a4d4' }}>Today is {getCurrentDate()}</p>
+                    <p style={{ marginTop: 8, fontSize: 40, color: '#b2a4d4' }}>Hey {user?.displayName}, {getQuote()}</p>
                 </div>
-                <Button onClick={() => setIsOpen(true)} style={{ backgroundColor: '#b2a4d4', borderWidth: 0, }}>Add Job</Button>
+                <button onClick={() => setIsOpen(true)}><img src={addbutton}/></button>
             </Card.Header>
             <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} />
             <Card.Body>
