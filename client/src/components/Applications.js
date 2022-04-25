@@ -18,6 +18,7 @@ const tableHead = {
   // CompanyDescription: "Description",
   JobLocation: "Location",
   Date: "Date",
+  Status: "Status",
   Action: "Actions"
 };
 
