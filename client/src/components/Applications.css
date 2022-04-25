@@ -5,6 +5,7 @@
   margin-bottom: 30px;
   padding-bottom: 10px;
 }
+
 input, select {
   width: 40%;
   min-width: 200px;
@@ -46,13 +47,54 @@ tr:nth-child(even) {
   background-color: #e0e0e0;
 }
 
-.search {
-  margin-top: 20px;
-  width: 70%;
-  margin-left: 70%;
-}
-
 .pagination {
-  margin-right: auto;
+  margin: auto;
 }
 
+.Company {
+  width: 30%;
+}
+
+.Position {
+  width: 15%;
+}
+
+.Description {
+}
+
+.Location {
+  width: 15%;
+}
+
+.Date {
+  width: 15%;
+}
+
+.Actions {
+  justify-content: center;
+  width: 20%;
+}
+
+.application-table {
+  width: 90%;
+  margin-left: 5%;
+  border: 2px black solid;
+}
+
+.box {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: right;
+  padding-right: 10%;
+}
+
+.search-input {
+  display: flex;
+  width: 100%;
+}
+
+.add-button {
+  display: flex;
+  margin-right: 10px;
+}
