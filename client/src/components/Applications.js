@@ -11,6 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, logout } from "../firebase";
 import EditModal from './EditModal.js';
 import Modal from './Modal.js';
+import DeleteModal from './DeleteModal.js';
 
 const tableHead = {
   CompanyName: "Company",
@@ -27,8 +28,8 @@ const Table = () => {
   const [value, setValue] = React.useState("");
   const [currentPage, setCurrentPage] = React.useState(1);
   const [collection, setCollection] = React.useState([]);
-  const [viewOpen, setViewOpen] = React.useState(false);
   const [editOpen, setEditOpen] = React.useState(false);
+  const [deleteOpen, setDeleteOpen] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [user, loading, error] = useAuthState(auth);
   const [loaded, setLoaded] = React.useState(true);
@@ -77,7 +78,6 @@ const Table = () => {
                 );        
                 setCollection(data);
               }, 400);
-              setApp(res);
               setApplications(res);
               setCollection(cloneDeep(res.slice(0, countPerPage)));
               setLoaded(true);
@@ -113,7 +113,7 @@ const Table = () => {
         return (
         <td key={i}>
           <button className="table-button" title="Edit Application" onClick={(event) => editOpened(event, key)}><img src={editbutton}/></button>
-          <button className="table-button" title="Delete Application" onClick={(event) => deleteApplication(event, key.did)}><img src={deletebutton}/></button>
+          <button className="table-button" title="Delete Application" onClick={(event) => deleteOpened(event, key)}><img src={deletebutton}/></button>
         </td>
         )
       } else if (keyD == "CompanyName") {
@@ -148,8 +148,7 @@ const Table = () => {
     }
   }
 
-  function deleteApplication(e, did) {
-    e.preventDefault();
+  function deleteApplication(did) {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -184,6 +183,8 @@ const Table = () => {
           });
         })
         .catch(error => console.log('error', error));
+    
+    setDeleteOpen(false);
   }
 
   function editOpened(e, application) {
@@ -192,6 +193,12 @@ const Table = () => {
     setApp(application);
   }
   
+  function deleteOpened(e, application) {
+    e.preventDefault();
+    setDeleteOpen(true);
+    setApp(application);
+  }
+
   function updateAppList(application) {
     let temp = applications;
     temp.push(application);
@@ -232,6 +239,7 @@ const Table = () => {
       { loaded &&
         <>
         <div className="box header-box">
+          {/* <h1>{user?.displayName}</h1> */}
           <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
           <div className="search">
             <input
@@ -259,6 +267,7 @@ const Table = () => {
           />
         </div>
         {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList}/>} 
+        {deleteOpen && <DeleteModal open={deleteOpen} onClose={() => setDeleteOpen(false)} app={app} deleteApplication={deleteApplication}/>}
         <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} updateAppList={updateAppList}/>
         </>  
       }
