@@ -111,12 +111,12 @@ const Table = () => {
         }
         return (
         <td key={i}>
-          <button onClick={(event) => editOpened(event, key)}><img src={editbutton}/></button>
-          <button onClick={(event) => deleteApplication(event, key.did)}><img src={deletebutton}/></button>
+          <button className="table-button" title="Edit Application" onClick={(event) => editOpened(event, key)}><img src={editbutton}/></button>
+          <button className="table-button" title="Delete Application" onClick={(event) => deleteApplication(event, key.did)}><img src={deletebutton}/></button>
         </td>
         )
       } else if (keyD == "CompanyName") {
-        return (<td className="Company" key={i}><a href={key.Link} target="_blank">{key[keyD]}</a></td>)
+        return (<td className="Company" key={i}><a title={key.Link} href={key.Link} target="_blank">{key[keyD]}</a></td>)
       } else if (keyD == "Date") {
         return (<td className="Date" key={i}>{updateDate(key[keyD])}</td>)
       } else {
@@ -231,7 +231,7 @@ const Table = () => {
       { loaded &&
         <>
         <div className="box header-box">
-          <button onClick={() => setIsOpen(true)}><img className="add-button" src={addbutton}/></button>
+          <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
           <div className="search">
             <input
               className="search-input"

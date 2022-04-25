@@ -71,8 +71,8 @@ tr:nth-child(even) {
 }
 
 .Actions {
-  justify-content: center;
   width: 20%;
+  padding-left: 30px;
 }
 
 .application-table {
@@ -94,10 +94,27 @@ tr:nth-child(even) {
 
 .search-input {
   display: flex;
-  width: 100%;
+  width: 140%;
 }
 
 .add-button {
   display: flex;
   margin-right: 10px;
+}
+
+a {
+  color: black !important;
+}
+
+img {
+  width: 50px;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+.table-button {
+  margin-left: 0px;
 }
