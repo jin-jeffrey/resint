@@ -167,7 +167,20 @@ const Table = () => {
     fetch("https://resint.herokuapp.com/deleteApp", requestOptions)
         .then(response => response.json())
         .then(result => {
-          console.log(result)
+          let temp = applications;
+          const idx = temp.findIndex(i => i.did === did);
+          temp.splice(idx, 1);
+          setApplications(temp);
+          setCollection(cloneDeep(temp.slice(0, countPerPage)));
+          searchData.current = throttle(val => {
+            const query = val.toLowerCase();
+            setCurrentPage(1);
+            const data = cloneDeep(
+              temp
+                .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
+                .slice(0, countPerPage)
+            );
+          });
         })
         .catch(error => console.log('error', error));
   }
