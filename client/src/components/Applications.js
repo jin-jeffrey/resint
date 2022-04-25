@@ -71,6 +71,21 @@ const Table = () => {
                   res.push({});
                 }
               }
+              searchData.current = throttle(val => {
+                const query = val.toLowerCase();
+                setCurrentPage(1);
+                const data = cloneDeep(
+                  result
+                    .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
+                    .slice(0, countPerPage)
+                );
+                if (data.length < 10) {
+                  for (let i = data.length; i < 10; i++) {
+                    data.push({});
+                  }
+                }                
+                setCollection(data);
+              }, 400);
               setApp(res);
               setApplications(res);
               setCollection(cloneDeep(res.slice(0, countPerPage)));
@@ -177,7 +192,7 @@ const Table = () => {
     <>
       { loaded &&
         <>
-        <div className="box">
+        <div className="box header-box">
           <button onClick={() => setIsOpen(true)}><img className="add-button" src={addbutton}/></button>
           <div className="search">
             <input

@@ -85,6 +85,9 @@ tr:nth-child(even) {
   display: flex;
   width: 100%;
   margin-top: 20px;
+}
+
+.header-box {
   justify-content: right;
   padding-right: 10%;
 }
