@@ -17,7 +17,7 @@ function Login() {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/resint");
+    if (user) navigate("/apps");
   }, [user, loading]);
 
   return (
