@@ -1,0 +1,19 @@
+.delete-button {
+    background-color: rgb(255, 97, 97);
+    color: white;
+    margin: auto;
+    width: 30%;
+}
+
+.cancel-button {
+    background-color: rgb(125, 125, 250);
+    color: white;
+    margin: auto;
+    width: 30%;
+}
+
+.button-group {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
