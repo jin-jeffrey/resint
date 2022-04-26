@@ -23,8 +23,8 @@ const db = getFirestore();
 
 // ROUTES
 // get apps by user
-app.get('/getApps', 
-    body('uid').isLength({
+app.post('/getApps', 
+    body('Uid').isLength({
         min: 1
     }),
     async (req, res) => {
@@ -37,10 +37,12 @@ app.get('/getApps',
             })
         }
         const appsRef = db.collection('apps');
-        const queryRef = await appsRef.where('uid', '==', req.body.uid).get();
+        const queryRef = await appsRef.where('Uid', '==', req.body.Uid).get();
         const appsList = [];
         queryRef.forEach(doc => {
-            appsList.push(doc.data());
+            let temp = doc.data();
+            temp['did'] = doc.id;
+            appsList.push(temp);
         });
         res.status(200).send(appsList);
     } catch (e) {
@@ -84,8 +86,8 @@ app.post('/addApp',
 
 // delete app
 app.post('/deleteApp',
-    body('document_id').not().isEmpty(),
-    body('uid').not().isEmpty(),
+    body('did').not().isEmpty(),
+    body('Uid').not().isEmpty(),
     async (req, res) => {
         try {
             const errors = validationResult(req);
@@ -96,23 +98,25 @@ app.post('/deleteApp',
                 })
             }
             // check if document id matches user id
-            const docRef = await db.collection('apps').doc(req.body.document_id).get();
+            const docRef = await db.collection('apps').doc(req.body.did).get();
             const docData = docRef.data();
-            if (docData.uid == req.body.uid) {
+            if (docData.Uid == req.body.Uid) {
                 // delete
-                await db.collection('apps').doc(req.body.document_id).delete();
+                await db.collection('apps').doc(req.body.did).delete();
                 return res.status(200).json({
                     success: true
                 })
             }
-            console.log(docRef.data());
+            res.status(400).send("This document does not belong to you");
         } catch (e) {
             console.log(e);
         }
     }
 )
 
-app.get('/updateApp/:appId',
+app.post('/updateApp',
+    body('did').not().isEmpty(),
+    body('Uid').not().isEmpty(),
     async (req, res) => {
         try {
             const errors = validationResult(req);
@@ -123,24 +127,18 @@ app.get('/updateApp/:appId',
                 })
             }
             // check if document id matches id passed in as param
-            const docRef = await db.collection('apps').get();
-            const appId = req.params.appId;
-
-            for (let doc of docRef.docs) {
-                if (doc.id === appId) {
-                    console.log(doc.id, appId, doc, 'found it')
-                }
+            const docRef = db.collection('apps').doc(req.body.did);
+            const docInfo = await docRef.get();
+            const docData = docInfo.data();
+            if (docData.Uid = req.body.Uid) {
+                // edit
+                const result = await docRef.set(req.body.values)
+                return res.status(200).json({
+                    success: true
+                })
+            } else {
+                return res.status(400).send("This document does not belong to you");
             }
-
-            // if (docData.uid == req.body.uid) {
-            //     // delete
-            //     await db.collection('apps').doc(req.body.document_id).delete();
-            //     return res.status(200).json({
-            //         success: true
-            //     })
-            // }
-            // console.log(docRef, docData, req.params);
-            // console.log(docRef.data());
         } catch (e) {
             console.log(e);
         }
@@ -148,7 +146,7 @@ app.get('/updateApp/:appId',
 )
 
 app.post('/getCode', 
-    body('uid').isLength({
+    body('Uid').isLength({
         min: 1
     }),
     async (req, res) => {
@@ -162,10 +160,10 @@ app.post('/getCode',
         }
         // check if user has a 16 word string, if not then create it
         const usersRef = db.collection('users');
-        const snapshot = await usersRef.where('uid', '==', req.body.uid).get();
+        const snapshot = await usersRef.where('Uid', '==', req.body.Uid).get();
         const user = snapshot.docs[0];
         if (snapshot.empty) {
-            res.status(400).send("UID does not exist");
+            res.status(400).send("Uid does not exist");
         } else {
             var key = user.data().key;
             if (key == null) {
@@ -194,7 +192,7 @@ app.post('/getCode',
     }
 });
 
-app.post('/getUID', 
+app.post('/getUid', 
     body('key').isLength({
         min: 1
     }),
@@ -215,10 +213,10 @@ app.post('/getUID',
             console.log('did not');
             res.status(400).send("Key does not exist");
         } else {
-            console.log('got uid');
+            console.log('got Uid');
             return res.status(200).json({
                 success: true,
-                uid: user.data().uid
+                Uid: user.data().Uid
             })
         }
     } catch (e) {

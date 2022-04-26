@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +28,7 @@ function SideNavBar() {
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            "uid": "MWWc007mSUXoAQGq8zH98CPFeR62"
+            "Uid": user?.uid
         });
 
         var requestOptions = {
@@ -49,8 +48,7 @@ function SideNavBar() {
     }
 
     return (
-
-        <body>
+        <>
             <div className="sidenavbar">
                 <div className="wrapper">
                     <div className="sidebar">
@@ -61,26 +59,25 @@ function SideNavBar() {
                         <br></br>
                         <ul>
                             <li>
-                                <a href="#" className="active">
+                                <a href="/dashboard" className="active">
                                     <span className="icon"><i className="fas fa-desktop"></i></span>
                                     <span onClick={isCurrentPath('/dashboard')} className="item">Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/resint">
                                     <span className="icon"><i className="fas fa-user-friends"></i></span>
                                     <span onClick={() => history.push('/resint')} className="item">Applications</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a>
                                     <span className="icon"><i className="fas fa-tachometer-alt"></i></span>
                                     <span onClick={getCode} className="item">Get code!</span>
-
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a>
                                     <span className="icon"><i className="fas fa-database"></i></span>
                                     <span onClick={logout} className="item">Log Out</span>
                                 </a>
@@ -93,7 +90,7 @@ function SideNavBar() {
 
             </div >
 
-        </body>
+        </>
 
 
     );

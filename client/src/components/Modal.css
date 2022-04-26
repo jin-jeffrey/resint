@@ -55,5 +55,13 @@
   box-sizing:border-box;
   width:600px;
   overflow:auto;
-  max-height:calc(100vh - 125px);
+  max-height:calc(90vh - 25px);
+}
+
+.error-msg {
+  color: red;
+}
+
+.required {
+  color: red;
 }

@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import Applications from "./components/Applications";
 import history from './history';
-import JobApps from './components/JobApps'
+import JobApps from './components/JobApps';
+import Applications from './components/Applications';
+import AboutTeam from "./components/AboutTeam";
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <Router history={history}>
         <Routes>
           <Route exact path="/" element={<Login />} />
-          <Route exact path="/dashboard" element={ <Dashboard />} />
           <Route exact path="/resint" element={<JobApps />} />
-          <Route exact path="/applications" element={<Applications />} />
+          <Route exact path="/apps" element={<Applications />} />
+          <Route exact path="/about" element={<AboutTeam />} />
         </Routes>
       </Router>
     </div>
