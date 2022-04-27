@@ -53,6 +53,8 @@ body {
 
 /* Style the counter cards */
 .card {
+    margin-left:20px;
+    width: 90%;
     background-color: white;
     border: none !important;
     box-shadow: 2px 4px 8px 0 rgba(255, 0, 251, 0.19);
