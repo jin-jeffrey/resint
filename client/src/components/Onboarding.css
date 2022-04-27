@@ -226,7 +226,7 @@ p {
 .carousel__prev,
 .carousel__next {
     position: absolute;
-    top: -330px;
+    top: -200px;
     margin-top: 37.5%;
     width: 4rem;
     height: 4rem;
