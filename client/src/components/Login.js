@@ -25,8 +25,8 @@ function Login() {
       <div className="navbar">
         <p className="logo"></p>
         <ul>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Meet the team</a></li>
+          <li><a href="/how+to+use">How it works?</a></li>
+          <li><a href="/about">Meet the team</a></li>
         </ul>
       </div>
       <div className="content">

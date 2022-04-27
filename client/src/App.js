@@ -5,6 +5,7 @@ import history from './history';
 import JobApps from './components/JobApps';
 import Applications from './components/Applications';
 import AboutTeam from "./components/AboutTeam";
+import OnBoarding from "./components/Onboarding";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/resint" element={<JobApps />} />
           <Route exact path="/apps" element={<Applications />} />
           <Route exact path="/about" element={<AboutTeam />} />
+          <Route exact path="/how+to+use" element={<OnBoarding />} />
         </Routes>
       </Router>
     </div>

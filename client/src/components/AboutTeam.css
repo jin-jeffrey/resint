@@ -6,12 +6,29 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.about-header {
+    font-size: 40px;
+    font-weight: bold;
+    color: #6a0070;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.team-img2 img {
+    margin: auto;
+    margin-top: 2px;
+    height: 130px;
+    background-repeat: no-repeat;
+    width: 150px;
+    cursor: pointer;
+}
+
 /* Float four columns side by side */
 #column {
     float: left;
-    width: 33%;
+    width: 33.3%;
     margin: auto;
-    padding: 0 10px 50px;
+    padding: 0 10px 30px;
 }
 
 #column2 {
@@ -36,12 +53,14 @@ body {
 
 /* Style the counter cards */
 .card {
+    background-color: white;
+    border: none !important;
     box-shadow: 2px 4px 8px 0 rgba(255, 0, 251, 0.19);
-    padding: 26px;
-    height: 290px;
+    padding: 20px;
+    height: 360px;
     text-align: center;
     background-color: #f1f1f1;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .about-header {
