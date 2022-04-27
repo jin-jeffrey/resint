@@ -6,6 +6,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.team-content, h3, h4{
+    color: #6a0070;
+}
 .about-header {
     font-size: 40px;
     font-weight: bold;
@@ -14,7 +17,7 @@ body {
     margin-top: 5%;
 }
 
-.team-img2 img {
+.team-img2{
     margin: auto;
     margin-top: 2px;
     height: 130px;
@@ -25,6 +28,7 @@ body {
 
 /* Float four columns side by side */
 #column {
+   
     float: left;
     width: 33.3%;
     margin: auto;
@@ -52,10 +56,9 @@ body {
 }
 
 /* Style the counter cards */
-.card {
+.card_about {
     margin-left:20px;
     width: 90%;
-    background-color: white;
     border: none !important;
     box-shadow: 2px 4px 8px 0 rgba(255, 0, 251, 0.19);
     padding: 20px;

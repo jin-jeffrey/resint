@@ -1,21 +1,25 @@
 import React from "react";
 import "./AboutTeam.css";
 import NavBar from "./NavBar";
-import jeff from "../images/jeff.png";
-import dana from "../images/dana.png";
-import kolade from "../images/lade.png";
-import fiona from "../images/fiona.png";
-import bernard from "../images/bernard.png";
+import jeff from "../images/.jeff.png.icloud";
+import dana from "../images/.dana.png.icloud";
+import kolade from "../images/.lade.png.icloud";
+import fiona from "../images/.fiona.png.icloud";
+import bernard from "../images/.bernard.png.icloud";
+import Footer from "./Footer";
+
 
 function AboutTeam() {
     return (
-        <div id="row">
+        <>
             <NavBar />
+            <div id="row">
+          
             <h1 className="about-header">
                 Meet the team!
             </h1>
             <div id="column">
-                <div className="card">
+                <div className="card_about">
                     <div className="team-img2">
                         <img src={jeff} alt="Team Image"></img>
                     </div>
@@ -28,7 +32,7 @@ function AboutTeam() {
                 </div>
             </div>
             <div id="column">
-                <div className="card">
+                <div className="card_about">
                     <div className="team-img2">
                         <img src={dana} alt="Team Image"></img>
                     </div>
@@ -41,7 +45,7 @@ function AboutTeam() {
                 </div>
             </div>
             <div id="column">
-                <div className="card">
+                <div className="card_about">
                     <div className="team-img2">
                         <img src={bernard} alt="Team Image"></img>
                     </div>
@@ -54,7 +58,7 @@ function AboutTeam() {
                 </div>
             </div>
             <div id="column2">
-                <div className="card">
+                <div className="card_about">
                     <div className="team-img2">
                         <img src={kolade} alt="Team Image"></img>
                     </div>
@@ -67,7 +71,7 @@ function AboutTeam() {
                 </div>
             </div>
             <div id="column2">
-                <div className="card">
+                <div className="card_about">
                     <div className="team-img2">
                         <img src={fiona} alt="Team Image"></img>
                     </div>
@@ -80,6 +84,9 @@ function AboutTeam() {
                 </div>
             </div>
         </div>
+        <Footer />
+        </>
+        
     );
 }
 

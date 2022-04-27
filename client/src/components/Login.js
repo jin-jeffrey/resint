@@ -4,8 +4,6 @@ import { auth, signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 
-
-
 function Login() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -21,12 +19,14 @@ function Login() {
   }, [user, loading]);
 
   return (
-    <div className="login">
+    <>
+      <div className="login">
       <div className="navbar">
         <p className="logo"></p>
         <ul>
-          <li><a href="/how+to+use">How it works?</a></li>
+          <li><a href="/">What we do</a></li>
           <li><a href="/about">Meet the team</a></li>
+          <li><a href="/onboard">How to use Resint</a></li>
         </ul>
       </div>
       <div className="content">
@@ -36,7 +36,9 @@ function Login() {
           <button className="login__btn" onClick={signInWithGoogle}><span className="login_btn_span"></span> Get Started </button>
         </div>
       </div>
-    </div>
+      </div>
+    </>
+    
   );
 }
 

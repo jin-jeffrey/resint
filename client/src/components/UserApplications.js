@@ -7,6 +7,7 @@ import editbutton from './icons/edit.png';
 import deletebutton from './icons/delete.png';
 import './UserApplications.css';
 
+
 function UserApplications({apps}) {
     const [user, loading, error] = useAuthState(auth);
     const [isOpen, setIsOpen] = useState(false);
@@ -69,8 +70,10 @@ function UserApplications({apps}) {
             </>
         );
         })
-        return (
+    return (
             userApps
+
+            
         )
 }
 export default UserApplications;

@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/resint" element={<JobApps />} />
           <Route exact path="/apps" element={<Applications />} />
           <Route exact path="/about" element={<AboutTeam />} />
-          <Route exact path="/how+to+use" element={<OnBoarding />} />
+          <Route exact path="/onboard" element={<OnBoarding />} />
         </Routes>
       </Router>
     </div>

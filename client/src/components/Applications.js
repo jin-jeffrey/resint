@@ -12,7 +12,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, logout } from "../firebase";
 import EditModal from './EditModal.js';
 import NavBar from "./NavBar";
-
+import Footer from "./Footer";
 const tableHead = {
   CompanyName: "Company",
   JobTitle: "Position",
@@ -198,6 +198,8 @@ const Table = () => {
         total={allData.length}
       />
       {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} />}
+      <Footer />
+   
     </>
   );
 };
