@@ -21,24 +21,30 @@
 }
 
 .logo {
+  background-image: url('../../public/images/icons8-tree-64.png');
+  height: 70px;
+  background-repeat: no-repeat;
   width: 100px;
+  ;
   cursor: pointer;
 }
 
 .navbar {
-  width: 85%;
+  width: 90%;
   height: 15%;
   margin: auto;
+  top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+
 .navbar ul li {
   list-style: none;
   display: inline-block;
   margin: 0 20px;
-  font-size: 20px;
+  font-size: 18px;
   position: relative;
 }
 
@@ -85,8 +91,9 @@
 
 .login__btn {
   padding: 6px 0;
+  margin: 0px 60px ;
   width: 30%;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   border: 2px solid rgb(252, 252, 252);
   border-radius: 25px;
@@ -123,9 +130,9 @@ button:hover {
 
 
 .content h1 {
-  font-size: 60px;
-  margin: 10px 0 30px;
-  line-height: 60px;
+  font-size: 50px;
+  margin: 15px 60px 40px;
+  line-height: 55px;
 }
 
 /* 

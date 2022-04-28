@@ -23,6 +23,26 @@ const tableHead = {
   Action: "Actions"
 };
 
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches('.dropbtn')) {
+    event.stopPropagation();
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0;i < dropdowns.length;i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+        event.stopPropagation();
+
+      }
+    }
+  }
+}
 const Table = () => {
   const countPerPage = 10;
   const [value, setValue] = React.useState("");
@@ -238,6 +258,35 @@ const Table = () => {
     <>
       { loaded &&
         <>
+        <nav className="navbar1">
+        <a href="/" className="logo1"></a>
+        <ul className="main_nav">
+          <li>
+            <a href="/getCode" className="nav_links">Get Code</a>
+          </li>
+          <li>
+            <a>
+              <div className="dropdown">
+                <button onClick={myFunction} className="dropbtn">Search</button>
+                <div id="myDropdown" className="dropdown-content">
+
+                  <div className="search">
+                    <input
+                      placeholder="Search Applications"
+                      value={value}
+                      onChange={e => setValue(e.target.value)}
+                    />
+                  </div>
+
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/#" className="nav_links">Logout</a>
+          </li>
+        </ul>
+      </nav>
         <div className="box header-box">
           {/* <h1>{user?.displayName}</h1> */}
           <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
@@ -271,7 +320,6 @@ const Table = () => {
         <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} updateAppList={updateAppList}/>
         </>  
       }
-    </>
-  );
-};
+    </>)};
+
 export default Table;
