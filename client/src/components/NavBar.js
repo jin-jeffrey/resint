@@ -7,9 +7,6 @@ function NavBar() {
             <p className="logo1"></p>
             <ul className="main_nav">
                 <li>
-                    <a href="/resint" className="nav_links">Home</a>
-                </li>
-                <li>
                     <a href="/apps" className="nav_links">My Applications</a>
                 </li>
                 <li>

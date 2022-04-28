@@ -1,4 +1,124 @@
-/* Dropdown Button */
+.heading {
+  color: #59df00;
+  border-bottom: 1px solid #9aebe3;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
+input, select {
+  width: 40%;
+  min-width: 200px;
+  border-radius: 10px;
+  border: 2px solid #6c3283;
+  padding: 10px;
+  font-size: 14px;
+}
+
+
+table {
+  width: 100%;
+  padding: 1em;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #d491dd;
+  font-size: 16px;
+}
+
+th {
+  text-align: left;
+  padding: 8px;
+  background-color: 1px solid #ffffff;
+  color: #14877c;
+}
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr {
+  height: 50px;
+}
+
+tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.pagination {
+  margin: auto;
+}
+
+.Company {
+  width: 20%;
+}
+
+.Position {
+  width: 15%;
+}
+
+.Location {
+  width: 15%;
+}
+
+.Date {
+  width: 15%;
+}
+
+.Status {
+  width: 10%
+}
+
+.Actions {
+  width: 10%;
+  padding-left: 30px;
+}
+
+.application-table {
+  width: 90%;
+  margin-left: 5%;
+  border: 2px black solid;
+}
+
+.box {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.header-box {
+  justify-content: right;
+  padding-right: 10%;
+}
+
+.search-input {
+  display: flex;
+  width: 140%;
+}
+
+.add-button {
+  display: flex;
+  margin-right: 10px;
+}
+
+a {
+  color: black !important;
+}
+
+img {
+  width: 50px;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+.table-button {
+  margin-left: 0px;
+}
+
 .dropbtn {
   display: inline-block;
   /* margin: 0 20px; */
@@ -40,62 +160,4 @@
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display: block;
-}
-
-.heading {
-  color: #59df00;
-  border-bottom: 1px solid #9aebe3;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-}
-
-input,
-select {
-  width: 40%;
-  min-width: 200px;
-  border-radius: 10px;
-  border: 2px solid #6c3283;
-  padding: 10px;
-  font-size: 14px;
-} 
-
-
-table {
-  width: 100%;
-  padding: 1em;
-  margin: 20px 0;
-  border-collapse: collapse;
-}
-
-thead {
-  background-color: #d491dd;
-  font-size: 16px;
-}
-
-th {
-  text-align: left;
-  padding: 8px;
-  background-color: 1px solid #ffffff;
-  color: #14877c;
-}
-
-td {
-  text-align: left;
-  padding: 8px;
-}
-
-tr {
-  height: 50px;
-}
-
-tr:nth-child(even) {
-  background-color: #e0e0e0;
-}
-
-.search {
-  width: 100%;
-}
-
-.pagination {
-  margin-right: auto;
 }
