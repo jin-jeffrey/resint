@@ -36,6 +36,7 @@ body {
 
 #logout {
     width: 60%;
+    margin-top: 10px;
     margin-left: 20%;
     border: 1px solid rgb(253, 175, 175);
     border-radius: 5px;
