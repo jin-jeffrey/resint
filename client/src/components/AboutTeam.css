@@ -8,6 +8,7 @@ body {
 
 .team-content, h3, h4{
     color: #6a0070;
+    font-size: smaller;
 }
 .about-header {
     font-size: 40px;
@@ -19,11 +20,16 @@ body {
 
 .team-img2{
     margin: auto;
-    margin-top: 2px;
-    height: 130px;
+    margin-top: 1px;
+    height: 150px;
     background-repeat: no-repeat;
     width: 150px;
     cursor: pointer;
+}
+
+.team-img2 img {
+    width: 100%;
+    height: auto;
 }
 
 /* Float four columns side by side */
