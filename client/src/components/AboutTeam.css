@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .team-content, h3, h4{
     color: #6a0070;
     font-size: smaller;
@@ -52,6 +48,8 @@ body {
 /* Remove extra left and right margins, due to padding in columns */
 #row {
     margin: 0 -5px;
+    font-family: "Poppins", sans-serif;
+
 }
 
 /* Clear floats after the columns */
