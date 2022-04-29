@@ -1,0 +1,18 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    min-height: 80px;
+    max-width: 100%;
+}
+
+#key-phrase {
+    width: 150px;
+}
+
+#submit {
+    margin-top: 20px;
+}
