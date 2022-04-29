@@ -30,7 +30,7 @@ function myFunction() {
 function changeBackground(color) {
   document.body.style.background = color;
 }
-window.addEventListener("load",function() { changeBackground('#e4e4e4') });
+window.addEventListener("load",function() { changeBackground('#f2f2f2') });
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {

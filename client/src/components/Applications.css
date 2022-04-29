@@ -82,7 +82,7 @@ tr {
 .application-table {
   width: 90%;
   margin-left: 5%;
-  border: 2px black solid;
+  /* border: 2px black solid; */
   background-color: white;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
@@ -175,6 +175,5 @@ button {
 }
 
 .main_nav {
-  background-color: #e4e4e4;
   font-family: 'Poppins', sans-serif;
 }
