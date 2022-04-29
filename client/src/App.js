@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import history from './history';
@@ -7,6 +8,11 @@ import AboutTeam from "./components/AboutTeam";
 import ControlledCarousel from "./components/Onboarding";
 
 function App() {
+
+  useEffect(() => {
+    document.title = "RESINT"; 
+  }, []);
+
   return (
     <div className="app">
       <Router history={history}>
