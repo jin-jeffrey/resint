@@ -23,10 +23,11 @@ const tableHead = {
   Action: "Actions"
 };
 
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
+// function myFunction() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
 
+// Change background color to light grey
 function changeBackground(color) {
   document.body.style.background = color;
 }
@@ -268,24 +269,6 @@ const Table = () => {
         <ul className="main_nav">
           <li>
             <a href="/getCode" className="nav_links">Get Code</a>
-          </li>
-          <li>
-            <a>
-              {/* <div className="dropdown">
-                <button onClick={myFunction} className="dropbtn">Search</button>
-                <div id="myDropdown" className="dropdown-content">
-
-                  <div className="search">
-                    <input
-                      placeholder="Search Applications"
-                      value={value}
-                      onChange={e => setValue(e.target.value)}
-                    />
-                  </div>
-
-                </div>
-              </div> */}
-            </a>
           </li>
           <li>
             <a href="/#" className="nav_links">Logout</a>
