@@ -12,14 +12,14 @@ select {
   width: 40%;
   min-width: 200px;
   border-radius: 10px;
-  border: 2px solid #6c3283;
+  border: 2px solid #d3d3d3;
   padding: 10px;
   font-size: 14px;
 }
 
 
 table {
-  border: 1px solid #b975d4;
+  border: 1px solid #8a3593;
   border-radius: 10px;
   width: 100%;
   padding: 1em;
@@ -28,7 +28,7 @@ table {
 }
 
 thead {
-  background-color: #d491dd;
+  background-color:  #8a3593;
   font-size: 20px;
   font-weight: 600;
   color: #FFFFFF;
@@ -38,7 +38,7 @@ th {
   text-align: left;
   padding: 8px;
   background-color: 1px solid #ffffff;
-  color: #14877c;
+  color: #d6d6d6;
 }
 
 td {
@@ -58,7 +58,7 @@ tr {
 
 .Company {
   width: 20%;
-  color:#8641B4 !important;
+  color:#eea467 !important;
 }
 
 .company-name {
@@ -115,7 +115,7 @@ tr {
 
 .search-input {
   display: flex;
-  width: 130%;
+  width: 135.5%;
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
   color: black;

@@ -27,20 +27,21 @@ function ControlledCarousel() {
     return (
         <>
             <NavBar />
+            <h4 className="onboarding-header"> OUR SERVICES </h4>
             <h1 className="carousel-header"> How resint works </h1>
             <div className="carousel">
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item>
                         <img
                             className="d-block w-50"
-                            src={img1}
+                            src={img2}
                             alt="First slide"
                         />
                         <Carousel.Caption>
                             <h3>Start adding Applications</h3>
-                            <p>Adding applications is made easier with resint.</p>
+                            <p>Adding applications is made easier with resint!</p>
                             <p>go into your dashboard and click the plus button to start adding applications.</p>
-                            <p>Fill out the application form and check your dashboard</p>
+                            <p>Fill out and submit the application form and check your dashboard</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -55,116 +56,40 @@ function ControlledCarousel() {
                             <p>Use your chrome extension to add applications directly without having to come to the website.</p>
 
                             <h4>How to start using the chrome extension</h4>
-                            <p>Go to the google chrome extensions store and download resint extension .</p>
-                            <p>In Resint.com, Click on get code, a code will be copied to your clipboard.</p>
-                            <p>Paste the code into the key phrase field.</p>
+                            <p>download resint extension from the chrome extension store.</p>
+                            <p>In Resint.com, Click on get code and Paste the code into the key phrase field.</p>
                             <p>Click on the submit button.</p>
-                            <p>You will be able to add applications directly from your chrome extension.</p>
+                            <p>You will now be able to add applications from any site directly from your chrome extension.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="d-block w-50"
-                            src={img6}
+                            src={img3}
                             alt="Third slide"
                         />
 
                         <Carousel.Caption>
-                            <h3>Third slide label</h3>
+                            <h3>Upcoming Features</h3>
                             <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                                Chrome extension will have the ability to add applications from linkedin with one click.
+                            </p>
+                            <p>
+                                Stay tuned for upcoming updates.
+                            </p>
+                            <p>
+                                -Resint team.
                             </p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
             </div>
             <Footer />
-           
+
         </>
 
     );
 }
-
-// render(<ControlledCarousel />);
-
-// function OnBoarding() {
-//     return (
-//         <>
-//             <NavBar />
-//             <CardGroup>
-//                 <Card>
-//                     <Card.Img variant="top" src={img2} />
-//                     <Card.Body>
-//                         <Card.Title>Card title</Card.Title>
-//                         <Card.Text>
-//                             This is a wider card with supporting text below as a natural lead-in to
-//                             additional content. This content is a little bit longer.
-//                         </Card.Text>
-//                     </Card.Body>
-//                     <Card.Footer>
-//                         <small className="text-muted">Last updated 3 mins ago</small>
-//                     </Card.Footer>
-//                 </Card>
-//                 <Card>
-//                     <Card.Img variant="top" src={img3} />
-//                     <Card.Body>
-//                         <Card.Title>Card title</Card.Title>
-//                         <Card.Text>
-//                             This card has supporting text below as a natural lead-in to additional
-//                             content.{' '}
-//                         </Card.Text>
-//                     </Card.Body>
-//                     <Card.Footer>
-//                         <small className="text-muted">Last updated 3 mins ago</small>
-//                     </Card.Footer>
-//                 </Card>
-//                 <Card>
-//                     <Card.Img variant="top" src={img5} />
-//                     <Card.Body>
-//                         <Card.Title>Card title</Card.Title>
-//                         <Card.Text>
-//                             This is a wider card with supporting text below as a natural lead-in to
-//                             additional content. This card has even longer content than the first to
-//                             show that equal height action.
-//                         </Card.Text>
-//                     </Card.Body>
-//                     <Card.Footer>
-//                         <small className="text-muted">Last updated 3 mins ago</small>
-//                     </Card.Footer>
-//                 </Card>
-//             </CardGroup>
-//             {/* <div className="card-deck">
-//                 <div className="card">
-//                     <img className="card-img-top" src={img2} alt="Card image cap"></img>
-//                     <div className="card-body">
-//                         <h5 className="card-title">Card title</h5>
-//                         <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-//                         <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-//                     </div>
-//                 </div>
-//                 <div className="card">
-//                     <img className="card-img-top" src={img3} alt="Card image cap"></img>
-//                     <div className="card-body">
-//                         <h5 className="card-title">Card title</h5>
-//                         <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-//                         <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-//                     </div>
-//                 </div>
-//                 <div className="card">
-//                     <img className="card-img-top" src={img4} alt="Card image cap"></img>
-//                     <div className="card-body">
-//                         <h5 className="card-title">Card title</h5>
-//                         <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-//                         <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-//                     </div>
-//                 </div>
-//             </div> */}
-//             <Footer />
-//         </>
-//     )
-
-// }
-
 
 
 export default ControlledCarousel;

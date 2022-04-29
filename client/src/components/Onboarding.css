@@ -1,38 +1,69 @@
+
 .carousel {
-    background: linear-gradient( to bottom, rgb(255, 255, 255),rgb(199, 131, 208));
+    background: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
     /* border-radius: 25px; */
     margin: auto;
 }
 
-.carousel-header{
-    background: white;
+.carousel-header {
+    /* border-top: 2px solid rgb(247, 215, 174); */
+    background:rgb(255, 255, 255);
     margin: auto;
     padding: auto;
     text-align: center;
-    font-size: 40px;
-    color: #f09956;
+    padding-top: 10px;
+    font-size: 26px;
+    color:#000000;
     padding-bottom: 20px;
+    font-weight: bolder;
 }
 
-.carousel img{
-    height: 100%;
+.carousel-item img {
+    height: 550px !important;
+    width: 550px !important;
 }
 
-.carousel h3{
-    float: right !important;
-    color: #7f0298;
-}
-.carousel p{
-    font-size: 20px;
-    color: white;
+.carousel h3 {
     font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    color: #ec8b4a;
 }
 
-.card{
-    width: 300px;
-    float: right;
-    margin-right: 0%;
+.carousel p {
+    justify-content: center;
+    text-align: left;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: thin;
 }
 
+.carousel h4 {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    color: #732C7B;
+}
+
+.carousel-caption {
+    padding-left: 20px ;
+    margin: auto;
+    height: fit-content;
+    background: white;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 9%;
+    top: -0.02%;
+    left: 53% !important;
+}
+
+.onboarding-header{
+    padding-top: 15px;
+    text-align: center;
+    margin: auto;
+    font-size: 14px;
+    font-weight: bold;
+    color:  #ec8b4a;
+    background: white;
+}
