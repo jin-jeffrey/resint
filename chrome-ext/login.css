@@ -5,14 +5,16 @@ body {
     display: flex;
     flex-direction: column;
     min-width: 200px;
-    min-height: 80px;
+    min-height: 70px;
     max-width: 100%;
 }
 
 #key-phrase {
-    width: 150px;
+    width: 190px;
 }
 
 #submit {
-    margin-top: 20px;
+    margin-top: 10px;
+    width: 80px;
+    margin-left: 60px;
 }

@@ -8,7 +8,7 @@ import addbutton from './icons/add.png';
 import editbutton from './icons/edit.png';
 import deletebutton from './icons/delete.png';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, logout } from "../firebase";
+import { auth } from "../firebase";
 import EditModal from './EditModal.js';
 import Modal from './Modal.js';
 import DeleteModal from './DeleteModal.js';
@@ -132,7 +132,6 @@ const Table = () => {
 
   const tableRows = rowData => {
     const { key, index } = rowData;
-    console.log(key); 
     const tableCell = Object.keys(tableHead);
     const columnData = tableCell.map((keyD, i) => {
       if (keyD == "Action") {
