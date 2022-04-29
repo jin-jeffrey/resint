@@ -70,41 +70,41 @@ const Table = () => {
   );
 
   React.useEffect(() => {
-    if(user){
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-            "Uid": user?.uid
-        });
+    if (user) {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      var raw = JSON.stringify({
+        "Uid": user?.uid
+      });
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
 
-        fetch("https://resint.herokuapp.com/getApps", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              let res = result;
-              searchData.current = throttle(val => {
-                const query = val.toLowerCase();
-                setCurrentPage(1);
-                const data = cloneDeep(
-                  result
-                    .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
-                    .slice(0, countPerPage)
-                );        
-                setCollection(data);
-              }, 400);
-              setApplications(res);
-              setCollection(cloneDeep(res.slice(0, countPerPage)));
-              setLoaded(true);
-            })
-            .catch(error => console.log('error', error));
-        }
-}, [user])
+      fetch("https://resint.herokuapp.com/getApps", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          let res = result;
+          searchData.current = throttle(val => {
+            const query = val.toLowerCase();
+            setCurrentPage(1);
+            const data = cloneDeep(
+              result
+                .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
+                .slice(0, countPerPage)
+            );
+            setCollection(data);
+          }, 400);
+          setApplications(res);
+          setCollection(cloneDeep(res.slice(0, countPerPage)));
+          setLoaded(true);
+        })
+        .catch(error => console.log('error', error));
+    }
+  }, [user])
 
 
   React.useEffect(() => {
@@ -131,10 +131,10 @@ const Table = () => {
           return <td key={i}></td>;
         }
         return (
-        <td key={i}>
-          <button className="table-button" title="Edit Application" onClick={(event) => editOpened(event, key)}><img src={editbutton}/></button>
-          <button className="table-button" title="Delete Application" onClick={(event) => deleteOpened(event, key)}><img src={deletebutton}/></button>
-        </td>
+          <td key={i}>
+            <button className="table-button" title="Edit Application" onClick={(event) => editOpened(event, key)}><img src={editbutton} /></button>
+            <button className="table-button" title="Delete Application" onClick={(event) => deleteOpened(event, key)}><img src={deletebutton} /></button>
+          </td>
         )
       } else if (keyD == "CompanyName") {
         return (<td className="Company" key={i}><a title={key.Link} href={key.Link} target="_blank">{key[keyD]}</a></td>)
@@ -161,9 +161,9 @@ const Table = () => {
     if (date == null) {
       return "";
     } else {
-      let year = date.substring(0,4);
-      let month = date.substring(5,7);
-      let day = date.substring(8,10);
+      let year = date.substring(0, 4);
+      let month = date.substring(5, 7);
+      let day = date.substring(8, 10);
       return month + "/" + day + "/" + year;
     }
   }
@@ -173,37 +173,37 @@ const Table = () => {
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-        "Uid": user?.uid,
-        "did": did
+      "Uid": user?.uid,
+      "did": did
     });
 
     var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
     };
 
     fetch("https://resint.herokuapp.com/deleteApp", requestOptions)
-        .then(response => response.json())
-        .then(result => {
-          let temp = applications;
-          const idx = temp.findIndex(i => i.did === did);
-          temp.splice(idx, 1);
-          setApplications(temp);
-          setCollection(cloneDeep(temp.slice(0, countPerPage)));
-          searchData.current = throttle(val => {
-            const query = val.toLowerCase();
-            setCurrentPage(1);
-            const data = cloneDeep(
-              temp
-                .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
-                .slice(0, countPerPage)
-            );
-          });
-        })
-        .catch(error => console.log('error', error));
-    
+      .then(response => response.json())
+      .then(result => {
+        let temp = applications;
+        const idx = temp.findIndex(i => i.did === did);
+        temp.splice(idx, 1);
+        setApplications(temp);
+        setCollection(cloneDeep(temp.slice(0, countPerPage)));
+        searchData.current = throttle(val => {
+          const query = val.toLowerCase();
+          setCurrentPage(1);
+          const data = cloneDeep(
+            temp
+              .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
+              .slice(0, countPerPage)
+          );
+        });
+      })
+      .catch(error => console.log('error', error));
+
     setDeleteOpen(false);
   }
 
@@ -212,7 +212,7 @@ const Table = () => {
     setEditOpen(true);
     setApp(application);
   }
-  
+
   function deleteOpened(e, application) {
     e.preventDefault();
     setDeleteOpen(true);
@@ -256,70 +256,62 @@ const Table = () => {
 
   return (
     <>
-      { loaded &&
+      {loaded &&
         <>
-        <nav className="navbar1">
-        <a href="/" className="logo1"></a>
-        <ul className="main_nav">
-          <li>
-            <a href="/getCode" className="nav_links">Get Code</a>
-          </li>
-          <li>
-            <a>
-              <div className="dropdown">
-                <button onClick={myFunction} className="dropbtn">Search</button>
-                <div id="myDropdown" className="dropdown-content">
-
-                  <div className="search">
-                    <input
-                      placeholder="Search Applications"
-                      value={value}
-                      onChange={e => setValue(e.target.value)}
-                    />
+          <nav className="navbar1">
+            <a href="/" className="logo1"></a>
+            <ul className="main_nav">
+              <li>
+                <a href="/getCode" className="nav_links">Get Code</a>
+              </li>
+              {/* <li>
+                <a>
+                  <div className="dropdown">
+                    <button onClick={myFunction} className="dropbtn">Search</button>
+                    <div id="myDropdown" className="dropdown-content">
+                    </div>
                   </div>
+                </a>
+              </li> */}
+              <li>
+                <a href="/onboard" className="nav_links">Logout</a>
+              </li>
+            </ul>
+          </nav>
+          <div className="box header-box">
+            {/* <h1>{user?.displayName}</h1> */}
+            <button title="Add Application" onClick={() => setIsOpen(true)}><img className="add-button" src={addbutton} /></button>
+            <div className="search">
+              <input
+                className="search-input"
+                placeholder="Search Applications"
+                value={value}
+                onChange={e => setValue(e.target.value)}
+              />
+            </div>
+          </div>
 
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="/#" className="nav_links">Logout</a>
-          </li>
-        </ul>
-      </nav>
-        <div className="box header-box">
-          {/* <h1>{user?.displayName}</h1> */}
-          <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
-          <div className="search">
-            <input
-              className="search-input"
-              placeholder="Search Applications"
-              value={value}
-              onChange={e => setValue(e.target.value)}
+          <table className="application-table">
+            <thead>
+              <tr>{headRow()}</tr>
+            </thead>
+            <tbody className="trhover">{tableData()}</tbody>
+          </table>
+          <div className="box">
+            <Pagination
+              className="pagination"
+              pageSize={countPerPage}
+              onChange={updatePage}
+              current={currentPage}
+              total={applications.length}
             />
           </div>
-        </div>
-
-        <table className="application-table">
-          <thead>
-            <tr>{headRow()}</tr>
-          </thead>
-          <tbody className="trhover">{tableData()}</tbody>
-        </table>
-        <div className="box">
-          <Pagination
-            className="pagination"
-            pageSize={countPerPage}
-            onChange={updatePage}
-            current={currentPage}
-            total={applications.length}
-          />
-        </div>
-        {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList}/>} 
-        {deleteOpen && <DeleteModal open={deleteOpen} onClose={() => setDeleteOpen(false)} app={app} deleteApplication={deleteApplication}/>}
-        <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} updateAppList={updateAppList}/>
-        </>  
+          {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList} />}
+          {deleteOpen && <DeleteModal open={deleteOpen} onClose={() => setDeleteOpen(false)} app={app} deleteApplication={deleteApplication} />}
+          <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} updateAppList={updateAppList} />
+        </>
       }
-    </>)};
+    </>)
+};
 
 export default Table;

@@ -41,7 +41,7 @@ function AboutTeam() {
                         <h3>Developer</h3>
                         <p>Senior, Computer Science @ Boston University</p>
                         <h4>abc@gmail.com</h4>
-                    </div>
+              </div>
                 </div>
             </div>
             <div id="column">

@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./Onboarding.css";
 import NavBar from "./NavBar";
 import img1 from "../images/graphic1.png";
@@ -8,92 +8,51 @@ import img4 from "../images/graphic4.png";
 import img5 from "../images/graphic5.png";
 import img6 from "../images/graphic6.png";
 import Footer from "./Footer";
+import React from 'react'
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function OnBoarding() {
+    $('.carousel').carousel({
+        interval: 2000
+    });
     return (
         <>
-            < NavBar />
-            <div className="onboard">
-
-                <h1 className="resint">Resint Onboarding</h1>
-                <div className="carousel" aria-label="Gallery">
-                    <ol className="carousel__viewport">
-                        <li id="carousel__slide1"
-                            tabindex="0"
-                            className="carousel__slide">
-                            <br></br>
-                            <h2>How to use Resint</h2>
-                            <p>Create a resint account to get started and begin tracking applications!<br></br></p>
-                            <p>Step 1: Access your dashboard by navigating to the home button on the navbar </p>
-                            <p>Step 2: Add an application by clicking the plus button on the top right of your dashboard </p>
-                            <p>Step 3: Add application details and you are good to go! </p>
-                            <img src={img1} alt="Team Image"></img>
-                            <div className="carousel__snapper">
-                                <a href="#carousel__slide4"
-                                    className="carousel__prev">Go to last slide</a>
-                                <a href="#carousel__slide2"
-                                    className="carousel__next">Go to next slide</a>
-                            </div>
-                        </li>
-                        <li id="carousel__slide2"
-                            tabindex="0"
-                            className="carousel__slide">
-                            <br></br>
-                            <h2>Introducing Resint Chrome Extension</h2>
-                            <p>Create a resint account to get started and begin tracking applications!<br></br></p>
-                            <p>Step 1: Access your dashboard by navigating to the home button on the navbar </p>
-                            <p>Step 2: Add an application by clicking the plus button on the top right of your dashboard </p>
-                            <p>Step 3: Add application details and you are good to go! </p>
-                            <img src={img2} alt="Team Image"></img>
-                            <div className="carousel__snapper">
-                                <a href="#carousel__slide1"
-                                    className="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide3"
-                                    className="carousel__next">Go to next slide</a>
-                            </div>
-                        </li>
-                        <li id="carousel__slide3"
-                            tabindex="0"
-                            className="carousel__slide">
-                            <br></br>
-                            <h2>How to use Resint</h2>
-                            <p>Create a resint account to get started and begin tracking applications!<br></br></p>
-                            <p>Step 1: Access your dashboard by navigating to the home button on the navbar </p>
-                            <p>Step 2: Add an application by clicking the plus button on the top right of your dashboard </p>
-                            <p>Step 3: Add application details and you are good to go! </p>
-                            <img src={img3} alt="Team Image"></img>
-                            <div className="carousel__snapper">
-                                <a href="#carousel__slide2"
-                                    className="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide4"
-                                    className="carousel__next">Go to next slide</a>
-                            </div>
-
-                        </li>
-                        <li id="carousel__slide4"
-                            tabindex="0"
-                            className="carousel__slide">
-                            <br></br>
-                            <h2>How to use Resint</h2>
-                            <p>Create a resint account to get started and begin tracking applications!<br></br></p>
-                            <p>Step 1: Access your dashboard by navigating to the home button on the navbar </p>
-                            <p>Step 2: Add an application by clicking the plus button on the top right of your dashboard </p>
-                            <p>Step 3: Add application details and you are good to go! </p>
-                            <div className="carousel__snapper"><a href="#carousel__slide3"
-                                className="carousel__prev">Go to previous slide</a>
-                                <a href="#carousel__slide1"
-                                    className="carousel__next">Go to first slide</a></div>
-
-                        </li>
-                    </ol>
+            <NavBar />
+            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+                <ol className="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <img className="d-block w-100" src={img2} alt="First slide"></img>
+                    </div>
+                    <div className="carousel-item">
+                        <img className="d-block w-100" src={img3} alt="Second slide"></img>
+                    </div>
+                    <div className="carousel-item">
+                        <img className="d-block w-100" src={img4} alt="Third slide"></img>
+                    </div>
                 </div>
-
+                <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Previous</span>
+                </a>
+                <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="sr-only">Next</span>
+                </a>
             </div>
             <Footer />
         </>
-
-    );
-
+    )
+   
 }
+
+
 
 export default OnBoarding;
