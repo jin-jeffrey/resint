@@ -27,6 +27,11 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function changeBackground(color) {
+  document.body.style.background = color;
+}
+window.addEventListener("load",function() { changeBackground('#e4e4e4') });
+
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
@@ -137,7 +142,7 @@ const Table = () => {
         </td>
         )
       } else if (keyD == "CompanyName") {
-        return (<td className="Company" key={i}><a title={key.Link} href={key.Link} target="_blank">{key[keyD]}</a></td>)
+        return (<td className="Company" key={i}><a title={key.Link} target="_blank">{key[keyD]}</a></td>)
       } else if (keyD == "Date") {
         return (<td className="Date" key={i}>{updateDate(key[keyD])}</td>)
       } else {
@@ -266,7 +271,7 @@ const Table = () => {
           </li>
           <li>
             <a>
-              <div className="dropdown">
+              {/* <div className="dropdown">
                 <button onClick={myFunction} className="dropbtn">Search</button>
                 <div id="myDropdown" className="dropdown-content">
 
@@ -279,7 +284,7 @@ const Table = () => {
                   </div>
 
                 </div>
-              </div>
+              </div> */}
             </a>
           </li>
           <li>
