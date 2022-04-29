@@ -58,14 +58,13 @@ tr {
 
 .Company {
   width: 20%;
-  color:#eea467 !important;
 }
 
 .company-name {
   text-decoration: none;
-  color:#eea467 !important;
 }
 
+/* only companies with urls */
 .company-name:hover {
   text-decoration: underline;
   color:#eea467 !important;
