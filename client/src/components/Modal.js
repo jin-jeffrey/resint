@@ -34,8 +34,6 @@ export default function Modal({ open, userid, onClose }) {
     if (data.Status == null) {
       data.Status = "Applied";
     }
-
-    console.log(data);
     
     var config = {
         method: 'post',
