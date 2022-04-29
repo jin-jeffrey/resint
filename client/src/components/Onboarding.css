@@ -1,0 +1,38 @@
+.carousel {
+    background: linear-gradient( to bottom, rgb(255, 255, 255),rgb(199, 131, 208));
+    width: 100%;
+    height: 100%;
+    /* border-radius: 25px; */
+    margin: auto;
+}
+
+.carousel-header{
+    background: white;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    font-size: 40px;
+    color: #f09956;
+    padding-bottom: 20px;
+}
+
+.carousel img{
+    height: 100%;
+}
+
+.carousel h3{
+    float: right !important;
+    color: #7f0298;
+}
+.carousel p{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.card{
+    width: 300px;
+    float: right;
+    margin-right: 0%;
+}
+

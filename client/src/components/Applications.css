@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
+
 .heading {
   color: #59df00;
   border-bottom: 1px solid #9aebe3;
@@ -26,9 +28,10 @@ table {
 }
 
 thead {
-
-  background-color: #d68ee0;
-  font-size: 16px;
+  background-color: #d491dd;
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
 }
 
 th {
@@ -43,12 +46,10 @@ td {
   padding: 8px;
 }
 
+
 tr {
   height: 50px;
-}
-
-tr:nth-child(even) {
-  background-color: #e0e0e0;
+  
 }
 
 .pagination {
@@ -57,6 +58,17 @@ tr:nth-child(even) {
 
 .Company {
   width: 20%;
+  color:#8641B4 !important;
+}
+
+.company-name {
+  text-decoration: none;
+  color:#8641B4 !important;
+}
+
+.company-name:hover {
+  text-decoration: underline;
+  color:#8641B4 !important;
 }
 
 .Position {
@@ -77,14 +89,17 @@ tr:nth-child(even) {
 
 .Actions {
   width: 10%;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 .application-table {
-  width: 95%;
-  margin-left: 2.5%;
-  border: 1px rgb(223, 223, 223) solid;
-  border-radius: 15px;
+  width: 90%;
+  margin-left: 5%;
+  /* border: 2px black solid; */
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #131414;
 }
 
 .box {
@@ -100,7 +115,10 @@ tr:nth-child(even) {
 
 .search-input {
   display: flex;
-  width: 140%;
+  width: 130%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  color: black;
 }
 
 .add-button {
@@ -125,45 +143,78 @@ button {
   margin-left: 0px;
 }
 
-.dropbtn {
-  display: inline-block;
+/* .dropbtn {
+  display: inline-block; */
   /* margin: 0 20px; */
-  font-size: 18px;
+  /* font-size: 18px;
   position: relative;
   border-radius: 3px;
   background-color: #ffffffa5;
-  color: rgb(69, 8, 81);
+  color: rgb(69, 8, 81); */
   /* padding: 16px; */
-  font-size: 18px;
+  /* font-size: 18px;
   border: none;
   cursor: pointer;
-}
+} */
 
-/* The container <div> - needed to position the dropdown content */
+/* The container <div> - needed to position the dropdown content
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+/* .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-}
+} */
 
 /* Links inside the dropdown */
-.dropdown-content a {
+/* .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-}
+} */
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
+/* .show {
   display: block;
+} */ */
+
+/* .main_nav {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  color: #E18133;
+} */
+
+/* .navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+
+nav{
+    flex: 1;
+    text-align: right;
+} */
+
+
+/* .navbar is only on Get Code and LogOut */
+
+nav ul li{
+  margin-left: 60px;
+  color: #e18133 !important;
+  width: 100%;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: #e18133 !important;
+  font-size: 20px;
+  width: 100%;
 }

@@ -8,10 +8,12 @@ import addbutton from './icons/add.png';
 import editbutton from './icons/edit.png';
 import deletebutton from './icons/delete.png';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, logout } from "../firebase";
+import { auth } from "../firebase";
 import EditModal from './EditModal.js';
 import Modal from './Modal.js';
 import DeleteModal from './DeleteModal.js';
+import Footer from './Footer.js';
+import NavBar from './NavBar.js';
 
 const tableHead = {
   CompanyName: "Company",
@@ -23,9 +25,15 @@ const tableHead = {
   Action: "Actions"
 };
 
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+// function myFunction() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
+
+// Change background color to light grey
+function changeBackground(color) {
+  document.body.style.background = color;
 }
+window.addEventListener("load",function() { changeBackground('#f2f2f2') });
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
@@ -137,7 +145,11 @@ const Table = () => {
           </td>
         )
       } else if (keyD == "CompanyName") {
-        return (<td className="Company" key={i}><a title={key.Link} href={key.Link} target="_blank">{key[keyD]}</a></td>)
+        if (key["Link"] != "") {
+          return (<td className="Company" key={i}><a className="company-name" title={key["Link"]} href={key.Link} target="_blank">{key[keyD]}</a></td>)
+        } else {
+          return (<td className="Company" key={i}>{key[keyD]}</td>)
+        }
       } else if (keyD == "Date") {
         return (<td className="Date" key={i}>{updateDate(key[keyD])}</td>)
       } else {
@@ -258,58 +270,40 @@ const Table = () => {
     <>
       {loaded &&
         <>
-          <nav className="navbar1">
-            <a href="/" className="logo1"></a>
-            <ul className="main_nav">
-              <li>
-                <a href="/getCode" className="nav_links">Get Code</a>
-              </li>
-              {/* <li>
-                <a>
-                  <div className="dropdown">
-                    <button onClick={myFunction} className="dropbtn">Search</button>
-                    <div id="myDropdown" className="dropdown-content">
-                    </div>
-                  </div>
-                </a>
-              </li> */}
-              <li>
-                <a href="/onboard" className="nav_links">Logout</a>
-              </li>
-            </ul>
-          </nav>
-          <div className="box header-box">
-            {/* <h1>{user?.displayName}</h1> */}
-            <button title="Add Application" onClick={() => setIsOpen(true)}><img className="add-button" src={addbutton} /></button>
-            <div className="search">
-              <input
-                className="search-input"
-                placeholder="Search Applications"
-                value={value}
-                onChange={e => setValue(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <table className="application-table">
-            <thead>
-              <tr>{headRow()}</tr>
-            </thead>
-            <tbody className="trhover">{tableData()}</tbody>
-          </table>
-          <div className="box">
-            <Pagination
-              className="pagination"
-              pageSize={countPerPage}
-              onChange={updatePage}
-              current={currentPage}
-              total={applications.length}
+        <NavBar />
+        <div className="box header-box">
+          {/* <h1>{user?.displayName}</h1> */}
+          <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
+          <div className="search">
+            <input
+              className="search-input"
+              placeholder="Search Applications"
+              value={value}
+              onChange={e => setValue(e.target.value)}
             />
           </div>
-          {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList} />}
-          {deleteOpen && <DeleteModal open={deleteOpen} onClose={() => setDeleteOpen(false)} app={app} deleteApplication={deleteApplication} />}
-          <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} updateAppList={updateAppList} />
-        </>
+        </div>
+
+        <table className="application-table">
+          <thead>
+            <tr>{headRow()}</tr>
+          </thead>
+          <tbody className="trhover">{tableData()}</tbody>
+        </table>
+        <div className="box">
+          <Pagination
+            className="pagination"
+            pageSize={countPerPage}
+            onChange={updatePage}
+            current={currentPage}
+            total={applications.length}
+          />
+        </div>
+        {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList}/>} 
+        {deleteOpen && <DeleteModal open={deleteOpen} onClose={() => setDeleteOpen(false)} app={app} deleteApplication={deleteApplication}/>}
+        <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} updateAppList={updateAppList}/>
+        <Footer />
+        </>  
       }
     </>)
 };
