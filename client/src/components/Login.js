@@ -23,7 +23,6 @@ function Login() {
       <div className="navbar">
         <p className="logo"></p>
         <ul>
-          <li><a href="/">What we do</a></li>
           <li><a href="/about">Meet the team</a></li>
           <li><a href="/onboard">How to use Resint</a></li>
         </ul>
@@ -45,7 +44,7 @@ function Login() {
       </div>
       </div>
     </>
-    
+
   );
 }
 

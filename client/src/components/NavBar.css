@@ -10,13 +10,14 @@ a {
 }
 
 .nav-logout {
-    color: #e18133 !important;
+    color: #ffffff !important;
 }
 
 .navbar1 {
+    border-bottom: 1px solid #fdecff;
     margin: 0;
     padding: 0;
-    background-color: rgb(255, 255, 255);
+    background-color: #421C52 !important;
     width: 100%;
     padding: 10px;
     height: auto;
@@ -33,13 +34,13 @@ a {
     list-style: none;
     display: inline-block;
     margin: 0 20px;
-    font-size: 18px;
     position: relative;
 }
 /* style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;" */
 .navbar1 ul li a {
+     font-size: 18px !important;
     text-decoration: none;
-    color: rgb(69, 8, 81);
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -57,7 +58,7 @@ a {
     content: "";
     height: 3px;
     width: 0;
-    background: rgb(181, 2, 178);
+    background: #732C7B;
     position: absolute;
     left: 0;
     bottom: -10px;
@@ -65,7 +66,7 @@ a {
 }
 
 .navbar1 ul li:hover::after {
-    color: rgb(72, 83, 87);
+    color: #732C7B;
     width: 100%;
 }
 
@@ -126,7 +127,7 @@ a {
         width: 100vw;
         padding-top: 2%;
         padding-bottom: 2%;
-        background-color: #000000;
+        background-color: #ffffff;
         font-size: 20px;
     }
 

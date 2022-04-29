@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import history from './history';
 import Applications from './components/Applications';
 import AboutTeam from "./components/AboutTeam";
-import OnBoarding from "./components/Onboarding";
+import ControlledCarousel from "./components/Onboarding";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/" element={<Login />} />
           <Route exact path="/apps" element={<Applications />} />
           <Route exact path="/about" element={<AboutTeam />} />
-          <Route exact path="/onboard" element={<OnBoarding />} />
+          <Route exact path="/onboard" element={<ControlledCarousel />} />
         </Routes>
       </Router>
     </div>

@@ -78,41 +78,41 @@ const Table = () => {
   );
 
   React.useEffect(() => {
-    if(user){
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({
-            "Uid": user?.uid
-        });
+    if (user) {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      var raw = JSON.stringify({
+        "Uid": user?.uid
+      });
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
 
-        fetch("https://resint.herokuapp.com/getApps", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              let res = result;
-              searchData.current = throttle(val => {
-                const query = val.toLowerCase();
-                setCurrentPage(1);
-                const data = cloneDeep(
-                  result
-                    .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
-                    .slice(0, countPerPage)
-                );        
-                setCollection(data);
-              }, 400);
-              setApplications(res);
-              setCollection(cloneDeep(res.slice(0, countPerPage)));
-              setLoaded(true);
-            })
-            .catch(error => console.log('error', error));
-        }
-}, [user])
+      fetch("https://resint.herokuapp.com/getApps", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          let res = result;
+          searchData.current = throttle(val => {
+            const query = val.toLowerCase();
+            setCurrentPage(1);
+            const data = cloneDeep(
+              result
+                .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
+                .slice(0, countPerPage)
+            );
+            setCollection(data);
+          }, 400);
+          setApplications(res);
+          setCollection(cloneDeep(res.slice(0, countPerPage)));
+          setLoaded(true);
+        })
+        .catch(error => console.log('error', error));
+    }
+  }, [user])
 
 
   React.useEffect(() => {
@@ -139,10 +139,10 @@ const Table = () => {
           return <td key={i}></td>;
         }
         return (
-        <td key={i}>
-          <button className="table-button" title="Edit Application" onClick={(event) => editOpened(event, key)}><img src={editbutton}/></button>
-          <button className="table-button" title="Delete Application" onClick={(event) => deleteOpened(event, key)}><img src={deletebutton}/></button>
-        </td>
+          <td key={i}>
+            <button className="table-button" title="Edit Application" onClick={(event) => editOpened(event, key)}><img src={editbutton} /></button>
+            <button className="table-button" title="Delete Application" onClick={(event) => deleteOpened(event, key)}><img src={deletebutton} /></button>
+          </td>
         )
       } else if (keyD == "CompanyName") {
         if (key["Link"] != "") {
@@ -173,9 +173,9 @@ const Table = () => {
     if (date == null) {
       return "";
     } else {
-      let year = date.substring(0,4);
-      let month = date.substring(5,7);
-      let day = date.substring(8,10);
+      let year = date.substring(0, 4);
+      let month = date.substring(5, 7);
+      let day = date.substring(8, 10);
       return month + "/" + day + "/" + year;
     }
   }
@@ -185,37 +185,37 @@ const Table = () => {
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-        "Uid": user?.uid,
-        "did": did
+      "Uid": user?.uid,
+      "did": did
     });
 
     var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
     };
 
     fetch("https://resint.herokuapp.com/deleteApp", requestOptions)
-        .then(response => response.json())
-        .then(result => {
-          let temp = applications;
-          const idx = temp.findIndex(i => i.did === did);
-          temp.splice(idx, 1);
-          setApplications(temp);
-          setCollection(cloneDeep(temp.slice(0, countPerPage)));
-          searchData.current = throttle(val => {
-            const query = val.toLowerCase();
-            setCurrentPage(1);
-            const data = cloneDeep(
-              temp
-                .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
-                .slice(0, countPerPage)
-            );
-          });
-        })
-        .catch(error => console.log('error', error));
-    
+      .then(response => response.json())
+      .then(result => {
+        let temp = applications;
+        const idx = temp.findIndex(i => i.did === did);
+        temp.splice(idx, 1);
+        setApplications(temp);
+        setCollection(cloneDeep(temp.slice(0, countPerPage)));
+        searchData.current = throttle(val => {
+          const query = val.toLowerCase();
+          setCurrentPage(1);
+          const data = cloneDeep(
+            temp
+              .filter(application => application.CompanyName?.toLowerCase().indexOf(query) > -1)
+              .slice(0, countPerPage)
+          );
+        });
+      })
+      .catch(error => console.log('error', error));
+
     setDeleteOpen(false);
   }
 
@@ -224,7 +224,7 @@ const Table = () => {
     setEditOpen(true);
     setApp(application);
   }
-  
+
   function deleteOpened(e, application) {
     e.preventDefault();
     setDeleteOpen(true);
@@ -268,7 +268,7 @@ const Table = () => {
 
   return (
     <>
-      { loaded &&
+      {loaded &&
         <>
         <NavBar />
         <div className="box header-box">
@@ -305,6 +305,7 @@ const Table = () => {
         <Footer />
         </>  
       }
-    </>)};
+    </>)
+};
 
 export default Table;
