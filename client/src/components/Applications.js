@@ -12,6 +12,8 @@ import { auth, logout } from "../firebase";
 import EditModal from './EditModal.js';
 import Modal from './Modal.js';
 import DeleteModal from './DeleteModal.js';
+import Footer from './Footer.js';
+import NavBar from './NavBar.js';
 
 const tableHead = {
   CompanyName: "Company",
@@ -264,17 +266,7 @@ const Table = () => {
     <>
       { loaded &&
         <>
-        <nav className="navbar1">
-        <a href="/" className="logo1"></a>
-        <ul className="main_nav">
-          <li>
-            <a href="/getCode" className="nav_links">Get Code</a>
-          </li>
-          <li>
-            <a href="/#" className="nav_links">Logout</a>
-          </li>
-        </ul>
-      </nav>
+        <NavBar />
         <div className="box header-box">
           {/* <h1>{user?.displayName}</h1> */}
           <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
@@ -306,6 +298,7 @@ const Table = () => {
         {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList}/>} 
         {deleteOpen && <DeleteModal open={deleteOpen} onClose={() => setDeleteOpen(false)} app={app} deleteApplication={deleteApplication}/>}
         <Modal open={isOpen} onClose={() => setIsOpen(false)} userid={user?.uid} updateAppList={updateAppList}/>
+        <Footer />
         </>  
       }
     </>)};

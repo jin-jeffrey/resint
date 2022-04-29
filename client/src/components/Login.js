@@ -15,7 +15,6 @@ function Login() {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/apps");
   }, [user, loading]);
 
   return (
@@ -32,9 +31,17 @@ function Login() {
       <div className="content">
         <h1>RESINT! <br></br>Your guide to <span className="text">landing</span> your <span className="text">dream career.</span></h1>
         <br></br>
+        { !user && 
         <div>
           <button className="login__btn" onClick={signInWithGoogle}><span className="login_btn_span"></span> Get Started </button>
         </div>
+        }
+        {
+          user &&
+          <div>
+            <button className="login__btn" onClick={() => navigate("/apps")}><span className="login_btn_span"></span>View Applications</button>
+          </div>
+        }
       </div>
       </div>
     </>

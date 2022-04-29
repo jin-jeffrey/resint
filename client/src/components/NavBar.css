@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +9,16 @@ a {
     text-decoration: none;
 }
 
+.nav-logout {
+    color: #e18133 !important;
+}
+
 .navbar1 {
     margin: 0;
     padding: 0;
     background-color: rgb(255, 255, 255);
-    width: 90%;
+    width: 100%;
+    padding: 10px;
     height: auto;
     margin: auto;
     top: 15px;
@@ -33,6 +40,7 @@ a {
 .navbar1 ul li a {
     text-decoration: none;
     color: rgb(69, 8, 81);
+    font-family: 'Poppins', sans-serif;
 }
 
 .logo1 {
@@ -42,6 +50,7 @@ a {
     background-repeat: no-repeat;
     width: 70px;
     cursor: pointer;
+    margin-left: 6%;    
 }
 
 .navbar1 ul li::after {
@@ -60,7 +69,9 @@ a {
     width: 100%;
 }
 
-
+.main_nav {
+    margin-right: 6%;
+}
 /*   
 .navbar1 {
     display: flex;
