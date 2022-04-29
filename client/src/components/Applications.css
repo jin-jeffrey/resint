@@ -55,7 +55,17 @@ tr {
 
 .Company {
   width: 20%;
-  color:#8641B4;
+  color:#8641B4 !important;
+}
+
+.company-name {
+  text-decoration: none;
+  color:#8641B4 !important;
+}
+
+.company-name:hover {
+  text-decoration: underline;
+  color:#8641B4 !important;
 }
 
 .Position {

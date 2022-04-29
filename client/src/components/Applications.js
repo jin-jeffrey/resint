@@ -132,6 +132,7 @@ const Table = () => {
 
   const tableRows = rowData => {
     const { key, index } = rowData;
+    console.log(key); 
     const tableCell = Object.keys(tableHead);
     const columnData = tableCell.map((keyD, i) => {
       if (keyD == "Action") {
@@ -145,7 +146,11 @@ const Table = () => {
         </td>
         )
       } else if (keyD == "CompanyName") {
-        return (<td className="Company" key={i}><a title={key.Link} target="_blank">{key[keyD]}</a></td>)
+        if (key["Link"] != "") {
+          return (<td className="Company" key={i}><a className="company-name" title={key["Link"]} href={key.Link} target="_blank">{key[keyD]}</a></td>)
+        } else {
+          return (<td className="Company" key={i}>{key[keyD]}</td>)
+        }
       } else if (keyD == "Date") {
         return (<td className="Date" key={i}>{updateDate(key[keyD])}</td>)
       } else {
