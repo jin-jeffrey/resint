@@ -25,9 +25,6 @@ const tableHead = {
   Action: "Actions"
 };
 
-// function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
 
 // Change background color to light grey
 function changeBackground(color) {
@@ -272,16 +269,15 @@ const Table = () => {
         <>
         <NavBar />
         <div className="box header-box">
-          {/* <h1>{user?.displayName}</h1> */}
-          <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
           <div className="search">
             <input
               className="search-input"
-              placeholder="Search Applications"
+              placeholder="Search Company"
               value={value}
               onChange={e => setValue(e.target.value)}
             />
           </div>
+          <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
         </div>
 
         <table className="application-table">

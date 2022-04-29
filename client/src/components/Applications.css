@@ -103,7 +103,7 @@ tr {
 
 .box {
   display: flex;
-  width: 100%;
+  width: 105%;
   margin-top: 20px;
 }
 
@@ -114,7 +114,8 @@ tr {
 
 .search-input {
   display: flex;
-  width: 135.5%;
+  width: 120%;
+  margin-left: 1px;
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
   color: black;
@@ -122,7 +123,7 @@ tr {
 
 .add-button {
   display: flex;
-  margin-right: 10px;
+  margin-left: 50px;
 }
 
 a {
