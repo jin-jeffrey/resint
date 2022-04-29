@@ -10,7 +10,6 @@ import img6 from "../images/graphic6.png";
 import Footer from "./Footer";
 import React, { useState } from 'react'
 import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
@@ -28,7 +27,7 @@ function ControlledCarousel() {
         <>
             <NavBar />
             <h4 className="onboarding-header"> OUR SERVICES </h4>
-            <h1 className="carousel-header"> How resint works </h1>
+            <h1 className="carousel-header"> How Resint Works</h1>
             <div className="carousel">
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item>

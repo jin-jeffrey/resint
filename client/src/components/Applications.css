@@ -63,12 +63,12 @@ tr {
 
 .company-name {
   text-decoration: none;
-  color:#8641B4 !important;
+  color:#eea467 !important;
 }
 
 .company-name:hover {
   text-decoration: underline;
-  color:#8641B4 !important;
+  color:#eea467 !important;
 }
 
 .Position {

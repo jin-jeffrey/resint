@@ -24,10 +24,10 @@ function AboutTeam() {
                             <img src="" alt="Team Image"></img>
                         </div>
                         <div className="team-content">
-                            <h2>Jeffery Jin</h2>
+                            <h2>Jeffrey Jin</h2>
                             <h3>Developer</h3>
                             <p>Senior, Computer Science @ Boston University</p>
-                            <h4>@gmail.com</h4>
+                            <h4>jinjeff2@gmail.com</h4>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ function AboutTeam() {
                         </div>
                         <div className="team-content">
                             <h2>Kolade Adegbaye</h2>
-                            <h3>Team Lead/ Developer</h3>
+                            <h3>Team Lead/Developer</h3>
                             <p>Junior, Computer Science @ Boston University</p>
                             <h4>koladea@bu.edu</h4>
                         </div>
