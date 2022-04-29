@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { update } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import ReactDom from 'react-dom'
 import './Modal.css'
@@ -23,7 +24,7 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-export default function Modal({ open, userid, onClose }) {
+export default function Modal({ open, userid, onClose, updateAppList }) {
   const [data, setData] = useState()
   const [errorMessage, setErrorMessage] = useState();
   if (!open) return null
@@ -44,6 +45,8 @@ export default function Modal({ open, userid, onClose }) {
         data : JSON.stringify(data)
     };
 
+    updateAppList(data);
+    
     axios(config)
     .then(function (response) {
         console.log("worked");

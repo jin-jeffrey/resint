@@ -23,7 +23,7 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-export default function EditModal({ open, userid, app, onClose, count}) {
+export default function EditModal({ open, userid, app, onClose, count, editAppFromAppList}) {
   const [data, setData] = useState(app)
   console.log(count);
   if (!open) return null
@@ -49,6 +49,7 @@ export default function EditModal({ open, userid, app, onClose, count}) {
     fetch("https://resint.herokuapp.com/updateApp", requestOptions)
         .then(response => response.json())
         .then(result => {
+          editAppFromAppList(data.did, data);
         })
         .catch(error => console.log('error', error));
     onClose();

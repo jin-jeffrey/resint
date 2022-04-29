@@ -30,7 +30,7 @@ function Login() {
         </ul>
       </div>
       <div className="content">
-        <h1>RESINT! <br></br>Your guide to <span className="text">landing</span> your <span className="text">dream internship.</span></h1>
+        <h1>RESINT! <br></br>Your guide to <span className="text">landing</span> your <span className="text">dream career.</span></h1>
         <br></br>
         <div>
           <button className="login__btn" onClick={signInWithGoogle}><span className="login_btn_span"></span> Get Started </button>

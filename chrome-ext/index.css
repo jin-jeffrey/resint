@@ -10,4 +10,52 @@ body {
     background-color: lavender;
     display: flex;
     flex-direction: column;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 100%;
+}
+
+.button {
+    transition-duration: 0.9s;
+}
+
+#scrape {
+    display:block;
+    height: 180px;
+    width: 180px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid rgb(142, 142, 226);
+}
+
+#scrape:hover {
+    background-color: rgb(142, 142, 226);
+    color: white;
+}
+
+#logout {
+    width: 60%;
+    margin-top: 10px;
+    margin-left: 20%;
+    border: 1px solid rgb(253, 175, 175);
+    border-radius: 5px;
+}
+
+#logout:hover {
+    background-color: rgb(253, 175, 175);
+    color: white;
+}
+
+#text {
+    margin: auto;
+    font-size: 0.75rem;
+}
+
+.success {
+    color: rgb(0, 0, 0);
+}
+
+.fail {
+    color: rgb(255, 0, 0);
 }
