@@ -38,9 +38,9 @@ function ControlledCarousel() {
                         />
                         <Carousel.Caption>
                             <h3>Start adding Applications</h3>
-                            <p>Adding applications is made easier with resint!</p>
-                            <p>go into your dashboard and click the plus button to start adding applications.</p>
-                            <p>Fill out and submit the application form and check your dashboard</p>
+                            <p>Adding applications is made easier with Resint!</p>
+                            <p>Go into your dashboard and click the plus button to start adding applications.</p>
+                            <p>Fill out and submit the application form and check your dashboard.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -52,13 +52,12 @@ function ControlledCarousel() {
 
                         <Carousel.Caption>
                             <h3>Chrome Extension</h3>
-                            <p>Use your chrome extension to add applications directly without having to come to the website.</p>
-
-                            <h4>How to start using the chrome extension</h4>
-                            <p>download resint extension from the chrome extension store.</p>
-                            <p>In Resint.com, Click on get code and Paste the code into the key phrase field.</p>
+                            <p>Use your Chrome extension to record applications with one click.</p>
+                            <h4>How to start using the Chrome extension</h4>
+                            <p>Download Resint extension from the Chrome extension store.</p>
+                            <p>In resint.com, select "Get Code" and paste the code into the key phrase field.</p>
                             <p>Click on the submit button.</p>
-                            <p>You will now be able to add applications from any site directly from your chrome extension.</p>
+                            <p>You will now be able to add applications from any site directly from your Chrome extension!</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -71,10 +70,10 @@ function ControlledCarousel() {
                         <Carousel.Caption>
                             <h3>Upcoming Features</h3>
                             <p>
-                                Chrome extension will have the ability to add applications from linkedin with one click.
+                                Chrome extension will have the ability to add applications from LinkedIn with one click.
                             </p>
                             <p>
-                                Stay tuned for upcoming updates.
+                                Stay tuned for upcoming updates!
                             </p>
                             <p>
                                 -Resint team.

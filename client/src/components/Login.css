@@ -1,5 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Lato:wght@100&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Open+Sans:wght@300&family=Poppins:wght@300&display=swap');
 
 * {
   box-sizing: border-box;
@@ -17,7 +16,7 @@
   overflow: hidden;
   padding-left: 2cm;
   padding-right: 1cm;
-  font-family: 'Changa One';
+  font-family: 'Poppins', sans-serif;
 }
 
 .logo {

@@ -28,7 +28,7 @@ function Login() {
         </ul>
       </div>
       <div className="content">
-        <h1>RESINT! <br></br>Your guide to <span className="text">landing</span> your <span className="text">dream career.</span></h1>
+        <h1>RESINT! <br></br>The guide to <span className="text">landing</span> your <span className="text">dream career.</span></h1>
         <br></br>
         { !user && 
         <div>
