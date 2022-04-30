@@ -35,6 +35,7 @@ a {
     display: inline-block;
     margin: 0 20px;
     position: relative;
+    width: fit-content;
 }
 /* style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;" */
 .navbar1 ul li a {
@@ -72,51 +73,13 @@ a {
 
 .main_nav {
     margin-right: 6%;
+    display: flex;
+    flex-direction: row;
 }
-/*   
+
 .navbar1 {
-    display: flex;
-    justify-content: space-between;
-    width: 100vw;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    background-color: #000000;
-    font-size: 20px;
+    flex-direction: row;
 }
-
-.logo {
-    margin-left: 5%;
-    color: #ffffff;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.logo_header {
-    display: flex;
-    margin-left: 2%;
-}
-
-.main_nav {
-    display: flex;
-    width: 50%;
-    float: right;
-    margin-right: 2%;
-    justify-content: space-between;
-    list-style: none;
-}
-
-.main_nav li:hover {
-    background-color: gray
-}
-
-.main_nav li {
-    display: inline;
-    color: #ffffff;
-}
-
-.main_nav li a {
-    color: #ffffff;
-} */
 
 @media only screen and (max-width : 992px) {
 
