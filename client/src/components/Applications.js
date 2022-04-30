@@ -14,6 +14,7 @@ import Modal from './Modal.js';
 import DeleteModal from './DeleteModal.js';
 import Footer from './Footer.js';
 import NavBar from './NavBar.js';
+import { useNavigate } from "react-router-dom";
 
 const tableHead = {
   CompanyName: "Company",
@@ -60,6 +61,9 @@ const Table = () => {
   const [loaded, setLoaded] = React.useState(true);
   const [app, setApp] = React.useState({});
   const [applications, setApplications] = React.useState([]);
+  const navigate = useNavigate();
+
+  if (!user) navigate ("/");
 
   const searchData = React.useRef(
     throttle(val => {
@@ -293,6 +297,7 @@ const Table = () => {
             onChange={updatePage}
             current={currentPage}
             total={applications.length}
+            locale="en_US"
           />
         </div>
         {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList}/>} 

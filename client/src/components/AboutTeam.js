@@ -27,7 +27,7 @@ function AboutTeam() {
                             <h2>Jeffrey Jin</h2>
                             <h3>Developer</h3>
                             <p>Senior, Computer Science @ Boston University</p>
-                            <h4>jinjeff2@gmail.com</h4>
+                            <h4>jejin@bu.edu</h4>
                         </div>
                     </div>
                 </div>
