@@ -28,7 +28,6 @@
     height: auto;
 }
 
-/* Float four columns side by side */
 #column {
     float: left;
     width: 33.3%;
@@ -43,21 +42,19 @@
     padding: auto;
     margin: auto;
 }
-/* Remove extra left and right margins, due to padding in columns */
+
 #row {
     margin: 0 -5px;
     font-family: "Poppins", sans-serif;
 
 }
 
-/* Clear floats after the columns */
 #row:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Style the counter cards */
 .card_about {
     margin-left:20px;
     width: 90%;
@@ -77,7 +74,6 @@
     text-align: center;
 }
 
-/* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 33%) {
     .column {
         width: 100%;

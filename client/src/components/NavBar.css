@@ -37,7 +37,6 @@ a {
     position: relative;
     width: fit-content;
 }
-/* style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;" */
 .navbar1 ul li a {
      font-size: 18px !important;
     text-decoration: none;
