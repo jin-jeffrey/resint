@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, signInWithGoogle } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import logo from "../images/resint-logo.png";
 import "./Login.css";
 
 function Login() {
@@ -21,7 +22,7 @@ function Login() {
     <>
       <div className="login">
       <div className="navbar">
-        <p className="logo"></p>
+        <div className="logo"><img src={logo}/></div>
         <ul>
           <li><a href="/about">Meet the team</a></li>
           <li><a href="/onboard">How to use Resint</a></li>

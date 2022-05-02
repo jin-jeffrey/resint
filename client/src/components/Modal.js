@@ -11,7 +11,7 @@ const MODAL_STYLES = {
   transform: 'translate(-50%, -50%)',
   backgroundColor: '#FFF',
   padding: '30px',
-  zIndex: 1000
+  zIndex: 1000,
 }
 
 const OVERLAY_STYLES = {
