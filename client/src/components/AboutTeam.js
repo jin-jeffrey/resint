@@ -1,11 +1,11 @@
 import React from "react";
 import "./AboutTeam.css";
 import NavBar from "./NavBar";
-// import jeff from "../../public/images/jeff.png";
-// import dana from "../../public/images/dana.png";
-// import kolade from "../../public/images/lade.png";
-// import fiona from "../../public/images/fiona.png";
-// import bernard from "../../public/images/bernard.png";
+import jeffimg from "../images/jeff.png";
+import danaimg from "../images/dana.png";
+import bernardimg from "../images/bernard.png";
+import ladeimg from "../images/lade.png";
+import fionaimg from "../images/fiona.png";
 import Footer from "./Footer";
 
 
@@ -21,50 +21,50 @@ function AboutTeam() {
                 <div id="column">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src="" alt="Team Image"></img>
+                            <img src={jeffimg} alt="jeff-image"/>
                         </div>
                         <div className="team-content">
-                            <h2>Jeffery Jin</h2>
+                            <h2>Jeffrey Jin</h2>
                             <h3>Developer</h3>
                             <p>Senior, Computer Science @ Boston University</p>
-                            <h4>@gmail.com</h4>
+                            <h4>jejin@bu.edu</h4>
                         </div>
                     </div>
                 </div>
                 <div id="column">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src=""  alt="Team Image"></img>
+                            <img src={danaimg} alt="dana-image"/>
                         </div>
                         <div className="team-content">
                             <h2>Dana Zheng</h2>
                             <h3>Developer</h3>
                             <p>Senior, Computer Science @ Boston University</p>
-                            <h4>abc@gmail.com</h4>
+                            <h4>daynah@bu.edu</h4>
                         </div>
                     </div>
                 </div>
                 <div id="column">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src=""  alt="Team Image"></img>
+                            <img src={bernardimg} alt="bernard-image"/>
                         </div>
                         <div className="team-content">
                             <h2>Bernard Mulaw</h2>
                             <h3>Developer</h3>
                             <p>Senior, Computer Science @ Boston University</p>
-                            <h4>abc@gmail.com</h4>
+                            <h4>bmulaw@bu.edu</h4>
                         </div>
                     </div>
                 </div>
                 <div id="column2">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src=""  alt="Team Image"></img>
+                            <img src={ladeimg} alt="lade-image"/>
                         </div>
                         <div className="team-content">
                             <h2>Kolade Adegbaye</h2>
-                            <h3>Team Lead/ Developer</h3>
+                            <h3>Team Lead/Developer</h3>
                             <p>Junior, Computer Science @ Boston University</p>
                             <h4>koladea@bu.edu</h4>
                         </div>
@@ -73,13 +73,13 @@ function AboutTeam() {
                 <div id="column2">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src=""  alt="Team Image"></img>
+                            <img src={fionaimg} alt="fiona-image"/>
                         </div>
                         <div className="team-content">
                             <h2>Fiona Wada-gil</h2>
                             <h3>Designer</h3>
-                            <p>Senior, Computer Science @ Boston University</p>
-                            <h4>abc@gmail.com</h4>
+                            <p>Senior, Graphic Design @ Boston University</p>
+                            <h4>fawadag@bu.edu</h4>
                         </div>
                     </div>
                 </div>

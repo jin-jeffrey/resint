@@ -23,13 +23,12 @@ function Login() {
       <div className="navbar">
         <p className="logo"></p>
         <ul>
-          <li><a href="/">What we do</a></li>
           <li><a href="/about">Meet the team</a></li>
           <li><a href="/onboard">How to use Resint</a></li>
         </ul>
       </div>
       <div className="content">
-        <h1>RESINT! <br></br>Your guide to <span className="text">landing</span> your <span className="text">dream career.</span></h1>
+        <h1>RESINT! <br></br>The guide to <span className="text">landing</span> your <span className="text">dream career.</span></h1>
         <br></br>
         { !user && 
         <div>

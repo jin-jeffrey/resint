@@ -1,6 +1,4 @@
-import axios from 'axios'
-import { sortedLastIndex, update } from 'lodash';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";

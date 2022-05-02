@@ -5,6 +5,7 @@
     height: 100%;
     /* border-radius: 25px; */
     margin: auto;
+    font-family: "Poppins", sans-serif;
 }
 
 .carousel-header {
@@ -18,6 +19,7 @@
     color:#000000;
     padding-bottom: 20px;
     font-weight: bolder;
+    font-family: "Poppins", sans-serif;
 }
 
 .carousel-item img {
@@ -66,4 +68,5 @@
     font-weight: bold;
     color:  #ec8b4a;
     background: white;
+    font-family: "Poppins", sans-serif;
 }

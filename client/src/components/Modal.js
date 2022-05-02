@@ -44,14 +44,11 @@ export default function Modal({ open, userid, onClose, updateAppList }) {
         },
         data : JSON.stringify(data)
     };
-
-    updateAppList(data);
     
     axios(config)
     .then(function (response) {
-        console.log("worked");
-        console.log(JSON.stringify(response.data));
-        setErrorMessage("")
+        updateAppList(data);
+        setErrorMessage("");
         onClose();
     })
     .catch(function (error) {

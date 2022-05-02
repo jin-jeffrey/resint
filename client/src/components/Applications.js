@@ -14,6 +14,7 @@ import Modal from './Modal.js';
 import DeleteModal from './DeleteModal.js';
 import Footer from './Footer.js';
 import NavBar from './NavBar.js';
+import { useNavigate } from "react-router-dom";
 
 const tableHead = {
   CompanyName: "Company",
@@ -25,9 +26,6 @@ const tableHead = {
   Action: "Actions"
 };
 
-// function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
 
 // Change background color to light grey
 function changeBackground(color) {
@@ -63,6 +61,9 @@ const Table = () => {
   const [loaded, setLoaded] = React.useState(true);
   const [app, setApp] = React.useState({});
   const [applications, setApplications] = React.useState([]);
+  const navigate = useNavigate();
+
+  if (!user) navigate ("/");
 
   const searchData = React.useRef(
     throttle(val => {
@@ -272,16 +273,15 @@ const Table = () => {
         <>
         <NavBar />
         <div className="box header-box">
-          {/* <h1>{user?.displayName}</h1> */}
-          <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
           <div className="search">
             <input
               className="search-input"
-              placeholder="Search Applications"
+              placeholder="Search Company"
               value={value}
               onChange={e => setValue(e.target.value)}
             />
           </div>
+          <button title="Add Application" onClick={() => setIsOpen(true) }><img className="add-button" src={addbutton}/></button>
         </div>
 
         <table className="application-table">
@@ -297,6 +297,7 @@ const Table = () => {
             onChange={updatePage}
             current={currentPage}
             total={applications.length}
+            locale="en_US"
           />
         </div>
         {editOpen && <EditModal open={editOpen} onClose={() => setEditOpen(false)} userid={user?.uid} app={app} editAppFromAppList={editAppFromAppList}/>} 
