@@ -33,6 +33,14 @@
     color: #ec8b4a;
 }
 
+.carousel-control-prev-icon {
+    background-color: #732C7B !important;
+}
+
+.carousel-control-next-icon {
+    background-color: #732C7B !important;
+}
+
 .carousel p {
     justify-content: center;
     text-align: left;
