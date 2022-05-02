@@ -106,7 +106,7 @@
 }
 
 .text {
-  color:  #732C7B;
+  color:  #e293e8;
 }
 
 button:hover span {
@@ -115,6 +115,13 @@ button:hover span {
 
 .content h1 {
   font-size: 50px;
-  margin: 15px 60px 40px;
+  margin: 15px 60px 10px;
   line-height: 55px;
+}
+
+.content h3 {
+  font-size: 20px;
+  margin: 5px 60px 5px;
+  line-height: 55px;
+  color: white;
 }
