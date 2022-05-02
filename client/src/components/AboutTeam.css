@@ -30,7 +30,6 @@
 
 /* Float four columns side by side */
 #column {
-   
     float: left;
     width: 33.3%;
     margin: auto;
@@ -40,11 +39,10 @@
 #column2 {
     float: left;
     padding-left: 160px;
-    width: 45%;
+    width: 43.5%;
     padding: auto;
     margin: auto;
 }
-
 /* Remove extra left and right margins, due to padding in columns */
 #row {
     margin: 0 -5px;
@@ -64,7 +62,6 @@
     margin-left:20px;
     width: 90%;
     border: none !important;
-    box-shadow: 2px 4px 8px 0 rgba(255, 0, 251, 0.19);
     padding: 20px;
     height: 360px;
     text-align: center;

@@ -1,4 +1,3 @@
-
 .carousel {
     background: rgb(255, 255, 255);
     width: 100%;
@@ -10,13 +9,13 @@
 
 .carousel-header {
     /* border-top: 2px solid rgb(247, 215, 174); */
-    background:rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
     margin: auto;
     padding: auto;
     text-align: center;
     padding-top: 10px;
     font-size: 26px;
-    color:#000000;
+    color: #000000;
     padding-bottom: 20px;
     font-weight: bolder;
     font-family: "Poppins", sans-serif;
@@ -24,7 +23,7 @@
 
 .carousel-item img {
     height: 550px !important;
-    width: 550px !important;
+    width: 630px !important;
 }
 
 .carousel h3 {
@@ -50,7 +49,7 @@
 }
 
 .carousel-caption {
-    padding-left: 20px ;
+    padding-left: 20px;
     margin: auto;
     height: fit-content;
     background: white;
@@ -60,13 +59,13 @@
     left: 53% !important;
 }
 
-.onboarding-header{
+.onboarding-header {
     padding-top: 15px;
     text-align: center;
     margin: auto;
     font-size: 14px;
     font-weight: bold;
-    color:  #ec8b4a;
+    color: #ec8b4a;
     background: white;
     font-family: "Poppins", sans-serif;
 }
