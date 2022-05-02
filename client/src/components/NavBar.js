@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CodeModal from './CodeModal';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import logo from "../images/resint-logo.png";
 
 function NavBar() {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ function NavBar() {
     return (
         <>
         <nav className="navbar1">
-        <a href="/" className="logo1"></a>
+        <a href="/" className="logo1"><img src={logo}/></a>
         {
           user &&
           <ul className="main_nav">
