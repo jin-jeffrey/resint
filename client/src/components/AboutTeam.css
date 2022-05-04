@@ -28,9 +28,7 @@
     height: auto;
 }
 
-/* Float four columns side by side */
 #column {
-   
     float: left;
     width: 33.3%;
     margin: auto;
@@ -45,27 +43,27 @@
     margin: auto;
 }
 
-/* Remove extra left and right margins, due to padding in columns */
 #row {
     margin: 0 -5px;
     font-family: "Poppins", sans-serif;
 
 }
 
-/* Clear floats after the columns */
 #row:after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Style the counter cards */
 .card_about {
     margin-left:20px;
     width: 90%;
     border: none !important;
+<<<<<<< HEAD
     /* box-shadow: 2px 4px 8px 0 rgba(255, 0, 251, 0.19); */
     border-radius: 35px;
+=======
+>>>>>>> 044f151dd7216fa8541059034bcf5d4ed15a4fb5
     padding: 20px;
     height: 360px;
     text-align: center;
@@ -81,7 +79,6 @@
     text-align: center;
 }
 
-/* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 33%) {
     .column {
         width: 100%;

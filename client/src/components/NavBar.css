@@ -37,7 +37,6 @@ a {
     position: relative;
     width: fit-content;
 }
-/* style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;" */
 .navbar1 ul li a {
      font-size: 18px !important;
     text-decoration: none;
@@ -47,12 +46,12 @@ a {
 
 .logo1 {
     margin-top: 7px;
-    background-image: url('../../public/images/icons8-tree-64.png');
     height: 70px;
     background-repeat: no-repeat;
     width: 70px;
     cursor: pointer;
-    margin-left: 6%;    
+    margin-left: 6%;
+    padding-top: 10px;
 }
 
 .navbar1 ul li::after {

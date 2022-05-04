@@ -20,7 +20,6 @@
 }
 
 .logo {
-  background-image: url('../../public/images/icons8-tree-64.png');
   height: 70px;
   background-repeat: no-repeat;
   width: 100px;
@@ -68,16 +67,6 @@
   width: 100%;
 }
 
-/* 
-.login__google {
-  background-color: #4285f4;
-} */
-
-/* 
-.login div {
-  margin-top: 7px;
-} */
-
 .content {
   color: rgb(255, 255, 255);
   position: absolute;
@@ -116,27 +105,24 @@
 }
 
 .text {
-  color:  #7b2a92;
+  color:  #e293e8;
 }
 
 button:hover span {
   width: 100%;
 }
 
-/* button:hover {
-  border: none;
-} */
-
 
 .content h1 {
   font-size: 50px;
-  margin: 15px 60px 40px;
+  margin: 15px 60px 10px;
   line-height: 55px;
 }
 
-/* 
-.content small {
-  font-size: 30px;
-  margin: 20px auto;
-  line-height: 25px;
-} */
+
+.content h3 {
+  font-size: 20px;
+  margin: 5px 60px 5px;
+  line-height: 55px;
+  color: white;
+}
