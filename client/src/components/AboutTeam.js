@@ -21,7 +21,7 @@ function AboutTeam() {
                 <div id="column">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src={jeffimg} alt="jeff-image"/>
+                            <img src={jeffimg} alt="jeff-image" />
                         </div>
                         <div className="team-content">
                             <h2>Jeffrey Jin</h2>
@@ -34,7 +34,7 @@ function AboutTeam() {
                 <div id="column">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src={danaimg} alt="dana-image"/>
+                            <img src={danaimg} alt="dana-image" />
                         </div>
                         <div className="team-content">
                             <h2>Dana Zheng</h2>
@@ -47,7 +47,7 @@ function AboutTeam() {
                 <div id="column">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src={bernardimg} alt="bernard-image"/>
+                            <img src={bernardimg} alt="bernard-image" />
                         </div>
                         <div className="team-content">
                             <h2>Bernard Mulaw</h2>
@@ -60,7 +60,7 @@ function AboutTeam() {
                 <div id="column2">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src={ladeimg} alt="lade-image"/>
+                            <img src={ladeimg} alt="lade-image" />
                         </div>
                         <div className="team-content">
                             <h2>Kolade Adegbaye</h2>
@@ -73,10 +73,10 @@ function AboutTeam() {
                 <div id="column2">
                     <div className="card_about">
                         <div className="team-img2">
-                            <img src={fionaimg} alt="fiona-image"/>
+                            <img src={fionaimg} alt="fiona-image" />
                         </div>
                         <div className="team-content">
-                            <h2>Fiona Wada-gil</h2>
+                            <h2>Fiona Wada-Gill</h2>
                             <h3>Designer</h3>
                             <p>Senior, Graphic Design @ Boston University</p>
                             <h4>fawadag@bu.edu</h4>

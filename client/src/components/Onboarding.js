@@ -1,4 +1,3 @@
-
 import "./Onboarding.css";
 import NavBar from "./NavBar";
 import img1 from "../images/graphic1.png";

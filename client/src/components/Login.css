@@ -9,7 +9,7 @@
 .login {
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(to top, rgba(27, 9, 33, 0.928), rgb(7, 0, 9)), url('../../public/images/guy_coding.jpeg');
+  background-image: linear-gradient(to top, rgba(81, 0, 156, 0.122), rgb(14, 0, 22)), url('../../public/images/background-img.png');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -112,11 +112,13 @@ button:hover span {
   width: 100%;
 }
 
+
 .content h1 {
   font-size: 50px;
   margin: 15px 60px 10px;
   line-height: 55px;
 }
+
 
 .content h3 {
   font-size: 20px;
